@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="YANC — Yet Another Networking Club. Exclusive experiential networking club for young minds aged 15–28. Empowering young minds through life skills.">
+  <title>YANC — Yet Another Networking Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F8F5F0;
+      --bg2: #FFFFFF;
+      --ink: #111110;
+      --ink2: #5C5B58;
+      --ink3: #A09E9A;
+      --accent: #7C3AED;
+      --accent-light: #F0EBFF;
+      --border: #E8E4DD;
+      --sand: #E8E0D0;
+      --warm: #C9A96E;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Hide standard cursor for all interactive elements to make custom cursor feel seamless */
+    a, button, input, select, textarea, .what-card, .who-card {
+      cursor: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 16px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links-left {
+      display: flex;
+      justify-content: flex-end;
+      gap: 28px;
+      list-style: none;
+      margin-right: 36px;
+    }
+
+    .nav-right-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 36px;
+    }
+
+    .nav-links-right {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    /* Caret indicator for YC style dropdown links */
+    .nav-links a.has-dropdown::after {
+      content: '';
+      display: inline-block;
+      margin-left: 5px;
+      border-top: 3.5px solid var(--ink2);
+      border-right: 3.5px solid transparent;
+      border-left: 3.5px solid transparent;
+      border-bottom: 0;
+      transition: border-top-color 0.2s;
+    }
+
+    .nav-links a.has-dropdown:hover::after {
+      border-top-color: var(--ink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-login {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-login:hover {
+      color: var(--ink);
+    }
+
+    .nav-apply-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 1200px) {
+      .nav-links-left, .nav-links-right {
+        gap: 16px;
+      }
+      .nav-right-container {
+        margin-left: 20px;
+      }
+      .nav-links-left {
+        margin-right: 20px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links-left, .nav-links-right {
+        gap: 10px;
+      }
+      .nav-links a {
+        font-size: 11px;
+      }
+      .nav-login {
+        font-size: 11px;
+      }
+      .nav-apply-btn {
+        font-size: 14px;
+        padding: 5px 16px;
+      }
+      nav {
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-right-container {
+        margin-left: 0;
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 60px 40px 0;
+      min-height: 88vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: stretch;
+      gap: 40px;
+      flex: 1;
+    }
+
+    .hero-left {
+      flex: 1.15;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      padding-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(56px, 9vw, 96px);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -3px;
+      color: var(--ink);
+      max-width: 560px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-board {
+      flex: 1.2;
+      position: relative;
+      height: 580px;
+      background-color: #F4F0E8;
+      background-image: radial-gradient(rgba(17, 17, 16, 0.08) 1.5px, transparent 0);
+      background-size: 24px 24px;
+      border-radius: 20px;
+      border: 12px solid #C8BFAF;
+      box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.12), 0 12px 36px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Photo board objects */
+    .board-photo {
+      position: absolute;
+      background: var(--bg2);
+      padding: 8px;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      will-change: transform, box-shadow;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    .board-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--border);
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    .board-photo img.loaded {
+      opacity: 1;
+    }
+
+    .board-photo:hover {
+      transform: scale(1.06) rotate(0deg) !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+      z-index: 20;
+    }
+
+    /* Absolute positions and rotations to scatter them */
+    .bp1 {
+      top: 4%;
+      left: 4%;
+      width: 28%;
+      height: 170px;
+      transform: rotate(-5deg);
+      z-index: 1;
+    }
+
+    .bp2 {
+      top: 6%;
+      left: 36%;
+      width: 30%;
+      height: 130px;
+      transform: rotate(4deg);
+      z-index: 2;
+    }
+
+    .bp3 {
+      top: 3%;
+      right: 4%;
+      width: 28%;
+      height: 140px;
+      transform: rotate(-4deg);
+      z-index: 3;
+    }
+
+    .bp4 {
+      top: 38%;
+      left: 5%;
+      width: 26%;
+      height: 180px;
+      transform: rotate(6deg);
+      z-index: 4;
+    }
+
+    .bp5 {
+      top: 34%;
+      left: 35%;
+      width: 32%;
+      height: 160px;
+      transform: rotate(-3deg);
+      z-index: 5;
+    }
+
+    .bp6 {
+      top: 32%;
+      right: 5%;
+      width: 26%;
+      height: 190px;
+      transform: rotate(5deg);
+      z-index: 6;
+    }
+
+    .bp7 {
+      bottom: 4%;
+      left: 18%;
+      width: 30%;
+      height: 140px;
+      transform: rotate(-3deg);
+      z-index: 7;
+    }
+
+    .bp8 {
+      bottom: 5%;
+      right: 18%;
+      width: 32%;
+      height: 150px;
+      transform: rotate(4deg);
+      z-index: 8;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-board {
+        height: 480px;
+        border: 8px solid #C8BFAF;
+      }
+
+      .board-photo {
+        padding: 5px;
+      }
+
+      .bp1 {
+        height: 130px;
+      }
+
+      .bp2 {
+        height: 100px;
+      }
+
+      .bp3 {
+        height: 110px;
+      }
+
+      .bp4 {
+        height: 140px;
+      }
+
+      .bp5 {
+        height: 120px;
+      }
+
+      .bp6 {
+        height: 145px;
+      }
+
+      .bp7 {
+        height: 110px;
+      }
+
+      .bp8 {
+        height: 115px;
+      }
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+
+    .hero-sub strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-width: 460px;
+    }
+
+    .pill {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 13px;
+      font-size: 11px;
+      color: var(--ink2);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .pill:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 28px 40px 32px;
+      font-size: 11px;
+      color: var(--ink3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .m-item {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      padding: 0 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .m-item.accent {
+      color: var(--accent);
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 72px 40px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-big {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--ink);
+    }
+
+    .about-big em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-body {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.85;
+    }
+
+    .about-body p+p {
+      margin-top: 16px;
+    }
+
+    .about-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 48px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .astat {
+      background: var(--bg);
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .astat-n {
+      font-family: 'Instrument Serif', serif;
+      font-size: 34px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .astat-n span {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .astat-l {
+      font-size: 11px;
+      color: var(--ink3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── WHAT WE DO ── */
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .what-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .what-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card-art {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 28px;
+      letter-spacing: -1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-art span {
+      position: relative;
+      z-index: 1;
+      color: white;
+      mix-blend-mode: overlay;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .ca1 {
+      background: #B5A4E0;
+    }
+
+    .ca2 {
+      background: #A4C5B5;
+    }
+
+    .ca3 {
+      background: #C5B5A4;
+    }
+
+    .ca4 {
+      background: #A4B5C5;
+    }
+
+    .ca5 {
+      background: #C5A4B5;
+    }
+
+    .ca6 {
+      background: #B5C5A4;
+    }
+
+    .card-body {
+      padding: 16px 18px 20px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: var(--ink3);
+      line-height: 1.5;
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 9px;
+      border-radius: 100px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .how-step {
+      padding: 32px 28px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .how-step:last-child {
+      border-right: none;
+    }
+
+    .step-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 64px;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: -3px;
+      user-select: none;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.7;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: var(--ink);
+      color: white;
+    }
+
+    .testimonial .eyebrow::after {
+      background: #333;
+    }
+
+    .testimonial .eyebrow {
+      color: #555;
+    }
+
+    .testi-quote {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.25;
+      letter-spacing: -1px;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .testi-quote em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .testi-av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #2a2a2a;
+      border: 2px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: #888;
+    }
+
+    .testi-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+    }
+
+    .testi-role {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .testi-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 36px;
+      border-top: 1px solid #222;
+    }
+
+    .testi-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border: 1px solid #2a2a2a;
+      border-radius: 100px;
+      color: #555;
+      transition: border-color 0.2s, color 0.2s;
+      cursor: default;
+    }
+
+    .testi-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── WHO CAN JOIN ── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .who-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .who-card:hover {
+      border-color: var(--accent);
+    }
+
+    .who-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .wi1 {
+      background: var(--accent-light);
+    }
+
+    .wi2 {
+      background: #FFF3CD;
+    }
+
+    .wi3 {
+      background: #D1FAE5;
+    }
+
+    .wi4 {
+      background: #FCE7F3;
+    }
+
+    .who-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .who-desc {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    .who-age {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── TERMS SNAPSHOT ── */
+    .terms-snap {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .term-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .term-num {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--accent);
+      min-width: 28px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .term-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .term-desc {
+      font-size: 12px;
+      color: var(--ink2);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--accent);
+      padding: 72px 40px;
+      text-align: center;
+    }
+
+    .cta-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .cta-headline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(36px, 6vw, 64px);
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 36px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .cta-input {
+      flex: 1;
+      padding: 13px 18px;
+      border-radius: 100px;
+      border: none;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .cta-input::placeholder {
+      color: #bbb;
+    }
+
+    .cta-submit {
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      padding: 13px 24px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .cta-submit:hover {
+      background: #333;
+    }
+
+    .cta-note {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 40px 40px 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #222;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+      max-width: 240px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #444;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-size: 12px;
+      color: #444;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: var(--accent);
+    }
+
+    /* ── MISC ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 48px 20px;
+      }
+
+      .hero {
+        padding: 40px 20px 0;
+      }
+
+      .hero-top {
+        flex-direction: column;
+      }
+
+      .hero-headline {
+        font-size: 52px;
+        letter-spacing: -2px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .what-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .how-step:last-child {
+        border-bottom: none;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terms-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .cta-form {
+        flex-direction: column;
+      }
+
+      .scroll-hint {
+        padding: 24px 20px;
+      }
+
+      .hero-board {
+        display: none;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    #cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--ink);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.25s, height 0.25s, background 0.25s;
+      mix-blend-mode: multiply;
+    }
+
+    #cursor.hover {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      mix-blend-mode: normal;
+      opacity: 0.6;
+    }
+
+    #cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
+      opacity: 0.3;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <!-- Left column: Navigation Links -->
+    <ul class="nav-links nav-links-left">
+      <li><a href="#about" class="has-dropdown">About</a></li>
+      <li><a href="#programs" class="has-dropdown">Programs</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
+
+    <!-- Center column: Logo -->
+    <a href="#" class="nav-logo">
+      <img src="YANC Logo.png" alt="YANC Logo">
+    </a>
+
+    <!-- Right column: Navigation Links & Actions -->
+    <div class="nav-right-container">
+      <ul class="nav-links nav-links-right">
+        <li><a href="#join">Join</a></li>
+        <li><a href="#careers" class="has-dropdown">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://web.yanc.in" class="nav-login">Log in</a>
+        <a href="#apply" class="nav-apply-btn">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+      <div class="hero-left">
+        <h1 class="hero-headline">
+          Empowering <em>young minds.</em>
+        </h1>
+        <p class="hero-sub">
+          Yet Another Networking Club — an <strong>exclusive experiential community</strong> for young minds. We get you
+          ready for life through mentoring, coaching, and peer-to-peer connections.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">Life skills</span>
+          <span class="pill">Networking</span>
+          <span class="pill">Mentoring</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Peer learning</span>
+          <span class="pill">Career readiness</span>
+          <span class="pill">Public speaking</span>
+          <span class="pill">Confidence</span>
+        </div>
+      </div>
+
+      <!-- Pinboard collage -->
+      <div class="hero-board">
+        <div class="board-photo bp1">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Real Connections">
+        </div>
+        <div class="board-photo bp2">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Life Skills">
+        </div>
+        <div class="board-photo bp3">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Mentorship">
+        </div>
+        <div class="board-photo bp4">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Peer Learning">
+        </div>
+        <div class="board-photo bp5">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Community Events">
+        </div>
+        <div class="board-photo bp6">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Workshops">
+        </div>
+        <div class="board-photo bp7">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Confidence Building">
+        </div>
+        <div class="board-photo bp8">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Leadership">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="scroll-hint">
+    <span class="scroll-line"></span>
+    Yet Another Networking Club · Hyderabad
+    <span class="scroll-line"></span>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="m-item">Young Minds</span>
+      <span class="m-item accent">Networking</span>
+      <span class="m-item">Life Skills</span>
+      <span class="m-item">Mentoring</span>
+      <span class="m-item accent">Hyderabad</span>
+      <span class="m-item">15–28 Years</span>
+      <span class="m-item">Peer Learning</span>
+      <span class="m-item accent">Exclusive Club</span>
+      <span class="m-item">Coaching</span>
+      <span class="m-item">Real Skills</span>
+      <span class="m-item accent">Real People</span>
+      <span class="m-item">YANC.IN</span>
+      <!-- repeat for seamless loop -->
+      <span class="m-item">Young Minds</span>
+      <span class="m-item accent">Networking</span>
+      <span class="m-item">Life Skills</span>
+      <span class="m-item">Mentoring</span>
+      <span class="m-item accent">Hyderabad</span>
+      <span class="m-item">15–28 Years</span>
+      <span class="m-item">Peer Learning</span>
+      <span class="m-item accent">Exclusive Club</span>
+      <span class="m-item">Coaching</span>
+      <span class="m-item">Real Skills</span>
+      <span class="m-item accent">Real People</span>
+      <span class="m-item">YANC.IN</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="eyebrow">About YANC</div>
+    <div class="about-grid">
+      <div>
+        <div class="about-big">
+          We get you<br>ready for <em>real<br>life.</em>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>
+          YANC — <strong>Yet Another Networking Club</strong> — is an exclusive, experiential networking community for
+          young adults aged 15 to 28. We believe the most important skills aren't taught in classrooms.
+        </p>
+        <p>
+          Through <strong>in-person mentoring, peer-to-peer coaching, and hands-on events</strong>, we help young minds
+          build confidence, communicate better, and create connections that actually last.
+        </p>
+        <p>
+          Based in Hyderabad and built by a team that believes in <strong>real-world skills over certificates</strong>,
+          YANC empowers young people to walk into any room and own it.
+        </p>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="astat">
+        <div class="astat-n">15<span>–28</span></div>
+        <div class="astat-l">Age range</div>
+      </div>
+      <div class="astat">
+        <div class="astat-n"><span>Free</span></div>
+        <div class="astat-l">To join</div>
+      </div>
+      <div class="astat">
+        <div class="astat-n"><span>In-person</span></div>
+        <div class="astat-l">Format</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section id="programs">
+    <div class="eyebrow">What we do</div>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="card-art ca1"><span>Network</span></div>
+        <div class="card-body">
+          <div class="card-title">In-person networking</div>
+          <div class="card-sub">Curated meetups connecting young adults with peers, mentors, and professionals who show
+            up.</div>
+          <span class="card-tag">Monthly events</span>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="card-art ca2"><span>Mentor</span></div>
+        <div class="card-body">
+          <div class="card-title">Mentoring & coaching</div>
+          <div class="card-sub">Guided by experienced professionals invested in your personal and professional growth.
+          </div>
+          <span class="card-tag">1-on-1 sessions</span>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="card-art ca3"><span>Skills</span></div>
+        <div class="card-body">
+          <div class="card-title">Life skills workshops</div>
+          <div class="card-sub">Communication, leadership, and confidence — built through doing, not just watching.
+          </div>
+          <span class="card-tag">Hands-on</span>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="card-art ca4"><span>Speak</span></div>
+        <div class="card-body">
+          <div class="card-title">Public speaking</div>
+          <div class="card-sub">Real stages, real practice. Learn to own a room before you need to.</div>
+          <span class="card-tag">Real practice</span>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="card-art ca5"><span>Peers</span></div>
+        <div class="card-body">
+          <div class="card-title">Peer-to-peer learning</div>
+          <div class="card-sub">A curated community of young adults who push each other forward — not just contacts to
+            collect.</div>
+          <span class="card-tag">Community</span>
+        </div>
+      </div>
+      <div class="what-card">
+        <div class="card-art ca6"><span>Grow</span></div>
+        <div class="card-body">
+          <div class="card-title">Career readiness</div>
+          <div class="card-sub">Get ahead before your peers even know where to start. Real skills for the real world.
+          </div>
+          <span class="card-tag">Future-ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="eyebrow">How it works</div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Apply online</div>
+        <div class="step-desc">Fill out a short application at yanc.in. We review every application personally — no
+          bots, no auto-rejects. Parental consent required for under-18s.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Get accepted</div>
+        <div class="step-desc">YANC approves memberships at its discretion to keep the community intentional and
+          high-quality. You'll hear back with your next steps.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Show up & grow</div>
+        <div class="step-desc">Attend in-person events, workshops, and mentoring sessions every month in Hyderabad. The
+          network you build here lasts years.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="eyebrow">What members say</div>
+    <div class="testi-quote">
+      "YANC didn't just give me a network — it gave me the <em>confidence</em> to use it."
+    </div>
+    <div class="testi-author">
+      <div class="testi-av">AK</div>
+      <div>
+        <div class="testi-name">Arjun K.</div>
+        <div class="testi-role">YANC Member · Age 22 · Hyderabad</div>
+      </div>
+    </div>
+    <div class="testi-tags">
+      <span class="testi-tag">Public speaking</span>
+      <span class="testi-tag">Networking</span>
+      <span class="testi-tag">Mentoring</span>
+      <span class="testi-tag">Leadership</span>
+      <span class="testi-tag">Life skills</span>
+      <span class="testi-tag">Peer coaching</span>
+      <span class="testi-tag">Career prep</span>
+      <span class="testi-tag">Confidence</span>
+    </div>
+  </section>
+
+  <!-- WHO CAN JOIN -->
+  <section id="join">
+    <div class="eyebrow">Who can join</div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon wi1">🎓</div>
+        <div class="who-title">Students (18+)</div>
+        <div class="who-desc">College students and graduates looking to build professional skills, expand their network,
+          and prepare for the real world before it arrives.</div>
+        <span class="who-age">Ages 18–28</span>
+      </div>
+      <div class="who-card">
+        <div class="who-icon wi2">🌱</div>
+        <div class="who-title">Teens (with consent)</div>
+        <div class="who-desc">Young adults aged 15–17 are welcome with parental or guardian consent. A safe, curated
+          environment for early starters who want a head start.</div>
+        <span class="who-age">Ages 15–17 · Consent required</span>
+      </div>
+      <div class="who-card">
+        <div class="who-icon wi3">💼</div>
+        <div class="who-title">Early career professionals</div>
+        <div class="who-desc">Young professionals in their first few years of work, looking to build confidence,
+          communication skills, and a meaningful peer network.</div>
+        <span class="who-age">Ages 22–28</span>
+      </div>
+      <div class="who-card">
+        <div class="who-icon wi4">🤝</div>
+        <div class="who-title">Aspiring leaders</div>
+        <div class="who-desc">Anyone between 15 and 28 who is serious about personal growth, leadership, and building
+          the kind of network that opens real doors.</div>
+        <span class="who-age">All members · 15–28</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM INFO -->
+  <section class="terms-snap">
+    <div class="eyebrow">Platform & community rules</div>
+    <div class="terms-grid">
+      <div class="term-item">
+        <div class="term-num">i</div>
+        <div>
+          <div class="term-title">Membership is curated</div>
+          <div class="term-desc">YANC reserves the right to approve, suspend, or terminate memberships to maintain the
+            quality and safety of our community.</div>
+        </div>
+      </div>
+      <div class="term-item">
+        <div class="term-num">ii</div>
+        <div>
+          <div class="term-title">Respectful engagement</div>
+          <div class="term-desc">Members are expected to maintain professionalism. Harassment, discrimination, and
+            misconduct result in immediate removal.</div>
+        </div>
+      </div>
+      <div class="term-item">
+        <div class="term-num">iii</div>
+        <div>
+          <div class="term-title">Your data is protected</div>
+          <div class="term-desc">Your personal data is collected and processed as per our Privacy Policy and applicable
+            laws. We don't sell your information.</div>
+        </div>
+      </div>
+      <div class="term-item">
+        <div class="term-num">iv</div>
+        <div>
+          <div class="term-title">Original content</div>
+          <div class="term-desc">All content on yanc.in — logos, text, videos, graphics — is owned by or licensed to
+            YANC. Please don't reproduce without permission.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="apply">
+    <div class="cta-eyebrow">Limited spots · Applications open</div>
+    <div class="cta-headline">Ready to join YANC?</div>
+    <div class="cta-sub">Ages 15–28. Hyderabad. Free to join. Every application reviewed personally.</div>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="your@email.com" />
+      <button class="cta-submit">Apply now →</button>
+    </div>
+    <div class="cta-note">No spam. Just YANC. Parental consent required for under 18.</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">YAN<span>C</span></div>
+        <div class="footer-tagline">Yet Another Networking Club — empowering young minds through life skills. Exclusive.
+          Experiential. In-person.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#about">About YANC</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#join">Who can join</a></li>
+          <li><a href="#apply">Apply now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/yancclub" target="_blank">Instagram @yancclub</a></li>
+          <li><a href="https://instagram.com/oneyanc" target="_blank">Instagram @oneyanc</a></li>
+          <li><a href="https://twitter.com/YANCOfficial" target="_blank">Twitter @YANCOfficial</a></li>
+          <li><a href="https://yanc.in/tc.html" target="_blank">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 YANC · Yet Another Networking Club · Hyderabad, India</div>
+      <div class="footer-social">
+        <a href="https://instagram.com/yancclub" target="_blank">Instagram</a>
+        <a href="https://twitter.com/YANCOfficial" target="_blank">Twitter</a>
+        <a href="https://web.yanc.in" target="_blank">Web App</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Randomize collage images on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = [
+        'workshop.JPG',
+        'workshop2.jpg',
+        'y2.jpg',
+        'y3.jpg',
+        'y4.jpg',
+        'y5.JPG',
+        'y6.JPG',
+        'y7.JPG',
+        'y12.jpg',
+        'y22.jpg',
+        'y23.jpg',
+        'y24(1).JPG',
+        'y24.jpg',
+        'y26.jpg',
+        'y27 (1).jpg',
+        'y27.jpg',
+        'y30.jpg',
+        'y31.jpg',
+        'y33.jpg',
+        'y34.jpg',
+        'WhatsApp Image 2026-06-13 at 6.58.16 PM.jpeg'
+      ];
+
+      // Shuffle images array using Durstenfeld algorithm
+      for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
+      }
+
+      // Assign the first 8 unique shuffled images to the collage frames with preloading
+      const imgElements = document.querySelectorAll('.hero-board .board-photo img');
+      imgElements.forEach((img, index) => {
+        if (images[index]) {
+          const imgUrl = `YANC - photos/${images[index]}`;
+          const tempImg = new Image();
+          tempImg.onload = () => {
+            img.src = imgUrl;
+            img.classList.add('loaded');
+          };
+          tempImg.src = imgUrl;
+        }
+      });
+    });
+
+
+    // ── CURSOR ──
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cur.style.left = mx + 'px';
+      cur.style.top  = my + 'px';
+    });
+
+    function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
+
+    document.querySelectorAll('a, button, .what-card, .who-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+    });
+  </script>
+</body>
+
+</html>
