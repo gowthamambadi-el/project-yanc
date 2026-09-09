@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently Asked Questions about YANC — Discover Meet, Membership Application, Payment Terms, and Mind Mashup.">
+  <title>Frequently Asked Questions | YANC — Yet Another Networking Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F8F5F0;
+      --bg2: #FFFFFF;
+      --ink: #111110;
+      --ink2: #5C5B58;
+      --ink3: #A09E9A;
+      --accent: #7C3AED;
+      --accent-light: #F0EBFF;
+      --accent-hover: #6D28D9;
+      --border: #E8E4DD;
+      --sand: #E8E0D0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    a, button, input, select, textarea, .cat-accordion-btn, .category-pill, .btn-action {
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR (HARDWARE ACCELERATED) ── */
+    #cursor {
+      width: 8px;
+      height: 8px;
+      background: var(--ink);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate3d(-100px, -100px, 0);
+      transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border 0.2s ease;
+      will-change: transform;
+    }
+
+    #cursor.hover {
+      width: 42px;
+      height: 42px;
+      background: rgba(124, 58, 237, 0.16);
+      border: 1.5px solid var(--accent);
+    }
+
+    #cursor-ring {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid rgba(17, 17, 16, 0.25);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate3d(-100px, -100px, 0);
+      transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+      will-change: transform;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(248, 245, 240, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links-left {
+      display: flex;
+      justify-content: flex-end;
+      gap: 22px;
+      list-style: none;
+      margin-right: 28px;
+    }
+
+    .nav-right-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 28px;
+    }
+
+    .nav-links-right {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-links a.has-dropdown::after {
+      content: '';
+      display: inline-block;
+      margin-left: 5px;
+      border-top: 3.5px solid var(--ink2);
+      border-right: 3.5px solid transparent;
+      border-left: 3.5px solid transparent;
+      border-bottom: 0;
+      transition: border-top-color 0.2s;
+    }
+
+    .nav-links a.has-dropdown:hover::after {
+      border-top-color: var(--ink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-login {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-login:hover {
+      color: var(--ink);
+    }
+
+    .nav-apply-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ── PAGE HERO ── */
+    .faq-hero {
+      padding: 70px 40px 36px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: inline-block;
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .faq-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .faq-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .faq-sub {
+      font-size: 16px;
+      color: var(--ink2);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      max-width: 620px;
+      margin: 0 auto 36px;
+      position: relative;
+    }
+
+    .search-input-box {
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      width: 18px;
+      height: 18px;
+      color: var(--ink3);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 48px 16px 52px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--bg2);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 6px 24px rgba(124, 58, 237, 0.12);
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 18px;
+      background: #ECE9E2;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--ink2);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .search-clear-btn:hover {
+      background: var(--ink);
+      color: #FFF;
+    }
+
+    /* ── FAQ SECTION CONTAINER ── */
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    /* ── CATEGORY ACCORDION CARDS (PAGE THEME OPTIMIZED) ── */
+    .cat-accordion-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .cat-accordion-card:hover {
+      border-color: #D4CDC2;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .cat-accordion-btn {
+      width: 100%;
+      padding: 22px 28px;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      outline: none;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .cat-accordion-btn:hover {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    .cat-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cat-chevron {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-light);
+    }
+
+    .cat-accordion-card.open .cat-chevron {
+      transform: rotate(0deg);
+    }
+
+    .cat-accordion-card:not(.open) .cat-chevron {
+      transform: rotate(180deg);
+    }
+
+    .cat-content-pane {
+      max-height: 2500px;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    .cat-accordion-card:not(.open) .cat-content-pane {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .cat-items-list {
+      padding: 0 28px 20px;
+    }
+
+    /* ── SINGLE FAQ ENTRY (INSIDE CARD) ── */
+    .faq-entry {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 10px;
+    }
+
+    .faq-entry:first-child {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .faq-q {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.45;
+      letter-spacing: -0.1px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    /* ── EMPTY SEARCH STATE ── */
+    .faq-empty-state {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg2);
+      border-radius: 16px;
+      border: 1px dashed var(--border);
+    }
+
+    .empty-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .empty-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .empty-desc {
+      font-size: 14px;
+      color: var(--ink2);
+      max-width: 380px;
+      margin: 0 auto 20px;
+    }
+
+    .empty-reset-btn {
+      background: var(--ink);
+      color: #FFF;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 100px;
+      transition: background 0.2s;
+    }
+
+    .empty-reset-btn:hover {
+      background: var(--accent);
+    }
+
+    /* ── CTA / BANNER BOX ── */
+    .faq-cta-banner {
+      background: linear-gradient(135deg, #FAF7F2 0%, #F1EBE1 100%);
+      border: 1px solid #DFD9CE;
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-cta-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .faq-cta-sub {
+      font-size: 14.5px;
+      color: var(--ink2);
+      max-width: 480px;
+      margin: 0 auto 26px;
+    }
+
+    .faq-cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .faq-primary-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      border: 1px solid var(--ink);
+    }
+
+    .faq-primary-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .faq-secondary-btn {
+      background: var(--bg2);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+
+    .faq-secondary-btn:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 40px 40px 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #222;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #777;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #444;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: white;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links-left, .nav-links-right {
+        gap: 14px;
+      }
+
+      .faq-hero {
+        padding: 50px 24px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-right-container {
+        margin-left: 0;
+      }
+
+      .cat-accordion-btn {
+        padding: 18px 20px;
+        font-size: 16px;
+      }
+
+      .cat-items-list {
+        padding: 0 20px 16px;
+      }
+
+      .faq-q {
+        font-size: 14.5px;
+      }
+
+      .faq-a {
+        font-size: 13.5px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="main-nav">
+    <ul class="nav-links nav-links-left">
+      <li><a href="../index.html#about" class="has-dropdown">About</a></li>
+      <li><a href="Programs/value-proposition.html" class="has-dropdown">Programs</a></li>
+      <li><a href="Team/cohort-founders.html">Team</a></li>
+      <li><a href="../index.html#apply">Application</a></li>
+    </ul>
+
+    <a href="../index.html" class="nav-logo">
+      <img src="../YANC Logo.png" alt="YANC Logo">
+    </a>
+
+    <div class="nav-right-container">
+      <ul class="nav-links nav-links-right">
+        <li><a href="../index.html#events">Events</a></li>
+        <li><a href="../index.html#careers" class="has-dropdown">Careers</a></li>
+        <li><a href="faq.html" class="active">FAQs</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://web.yanc.in" class="nav-login">Log in</a>
+        <a href="../index.html#apply" class="nav-apply-btn">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="faq-hero">
+    <span class="eyebrow">Got Questions?</span>
+    <h1 class="faq-headline">
+      Frequently Asked <em>Questions</em>
+    </h1>
+    <p class="faq-sub">
+      Everything you need to know about YANC, membership, and programs.
+    </p>
+
+    <!-- SEARCH BAR -->
+    <div class="search-wrap">
+      <div class="search-input-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="faq-search" class="search-input" placeholder="Search questions, keywords, or topics..." autocomplete="off">
+        <button id="search-clear" class="search-clear-btn" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- FAQ MAIN CONTAINER -->
+  <main class="faq-container">
+
+    <!-- ── CATEGORY 1: DISCOVER MEET ── -->
+    <div class="cat-accordion-card" data-category="discover-meet">
+      <button class="cat-accordion-btn" aria-expanded="false">
+        <div class="cat-title-group">
+          <span>Discover Meet</span>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </span>
+      </button>
+      <div class="cat-content-pane">
+        <div class="cat-items-list">
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What is a Discover Meet?</h3>
+            <p class="faq-a">Discover Meet is a formal meet-and-greet session where prospective members receive an overview of YANC.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What exactly is YANC, and how is it different from other networking or youth clubs?</h3>
+            <p class="faq-a">YANC is a unique networking platform designed to empower young minds by building meaningful connections and learning life skills from a young age. Unlike traditional groups, YANC focuses on experiential learning, mentorship, and personal growth.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">How does YANC help young people beyond traditional education?</h3>
+            <p class="faq-a">YANC bridges the gap between traditional education systems and real-world skills by focusing on life skills, networking, and mentorship opportunities that schools and colleges typically do not offer at scale.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Is YANC only for students, or can working professionals also join?</h3>
+            <p class="faq-a">YANC is open to students, young professionals, and entrepreneurs aged 18–28 who are keen on learning, growing, and contributing to a supportive network.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">How often do YANC members meet, and what happens in these meetings?</h3>
+            <p class="faq-a">YANC members typically meet bi-weekly for structured discussions, mentorship sessions, networking, and interactive learning experiences.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Is YANC open to members from all backgrounds and fields?</h3>
+            <p class="faq-a">Yes, YANC encourages a diverse community where members from various backgrounds and fields can connect and learn from one another.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CATEGORY 2: MEMBERSHIP APPLICATION ── -->
+    <div class="cat-accordion-card" data-category="membership-application">
+      <button class="cat-accordion-btn" aria-expanded="false">
+        <div class="cat-title-group">
+          <span>Membership Application</span>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </span>
+      </button>
+      <div class="cat-content-pane">
+        <div class="cat-items-list">
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What is the purpose of the membership application process?</h3>
+            <p class="faq-a">The process is designed to evaluate, identify, and onboard driven young individuals whose values align with YANC's mission of purposeful learning, genuine connection, and real-world impact.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">How can someone apply to join YANC?</h3>
+            <p class="faq-a">Interested individuals can apply via the official website (www.yanc.in) by filling out the "Contact Us" or membership inquiry form. Our admissions team will reach out with the next steps.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Is there a selection process? If yes, what does it involve?</h3>
+            <p class="faq-a">Yes. The process involves an application review, a personal interview, and a brief presentation on a designated topic to assess alignment and commitment.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What happens after someone gets selected as a YANC member?</h3>
+            <p class="faq-a">Selected members receive an official welcome kit, complete onboarding orientation, are paired with a peer buddy, and join an active cohort for networking and development.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Is there a fee to join YANC? What does it cover?</h3>
+            <p class="faq-a">Yes, a membership fee covers bi-weekly structured meetups, food & beverages, curated learning resources, mentor access, and community initiatives. Full financial details are walk-through during the Discover Meet.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Can parents enroll their children directly?</h3>
+            <p class="faq-a">No. Youth members must apply and go through the selection process themselves to ensure personal motivation and commitment.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Can members join from any city?</h3>
+            <p class="faq-a">Currently, YANC is based and operates in Hyderabad. Expansion into other major cities is underway.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">If someone is not selected, can they reapply later?</h3>
+            <p class="faq-a">Yes, candidates are encouraged to reapply in subsequent cohort cycles after a designated period.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CATEGORY 3: PAYMENT TERMS ── -->
+    <div class="cat-accordion-card" data-category="payment-terms">
+      <button class="cat-accordion-btn" aria-expanded="false">
+        <div class="cat-title-group">
+          <span>Payment Terms</span>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </span>
+      </button>
+      <div class="cat-content-pane">
+        <div class="cat-items-list">
+
+          <div class="faq-entry">
+            <h3 class="faq-q">When is the payment due after selection?</h3>
+            <p class="faq-a">Once selected, you will receive an official payment link. The fee must be completed within one week to reserve and confirm your cohort seat.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What is the cost of YANC membership?</h3>
+            <p class="faq-a">The membership fee is ₹4,500 per month, billed annually.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What payment methods are accepted?</h3>
+            <p class="faq-a">We accept all major payment methods including UPI, credit/debit cards, net banking, and verified digital wallets.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Are there any refunds if someone decides to discontinue?</h3>
+            <p class="faq-a">Membership fees are non-refundable. In rare, exceptional circumstances, deferral to the subsequent cohort may be considered.</p>
+          </div>
+
+          <div class="faq-entry">
+            <h3 class="faq-q">Does the membership fee cover all YANC events and programs?</h3>
+            <p class="faq-a">The core fee covers all scheduled bi-weekly meetups, mentor sessions, resources, and regular networking events. Special external socials, retreats, or optional off-sites may involve separate registration fees.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CATEGORY 4: MIND MASHUP ── -->
+    <div class="cat-accordion-card" data-category="mind-mashup">
+      <button class="cat-accordion-btn" aria-expanded="false">
+        <div class="cat-title-group">
+          <span>Mind Mashup</span>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </span>
+      </button>
+      <div class="cat-content-pane">
+        <div class="cat-items-list">
+
+          <div class="faq-entry">
+            <h3 class="faq-q">What is the objective of the Young Minds Mashup funding process?</h3>
+            <p class="faq-a">To establish a transparent, structured pathway for evaluating, funding, and incubating early prototype projects through the YANC Prototype Fund in partnership with Sri Venture Partners (SVP). The program provides funding and hands-on guidance for innovators aged 15–28 transitioning from ideation to prototype.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPTY SEARCH STATE -->
+    <div class="faq-empty-state" id="faq-empty-state">
+      <div class="empty-icon">🔍</div>
+      <h3 class="empty-title">No matching questions found</h3>
+      <p class="empty-desc">We couldn't find anything matching your search term. Try checking for spelling errors or different keywords.</p>
+      <button class="empty-reset-btn" id="empty-reset-btn">Clear search</button>
+    </div>
+  </main>
+
+  <!-- CTA / STILL HAVE QUESTIONS BANNER -->
+  <aside class="faq-cta-banner">
+    <h2 class="faq-cta-title">Still have questions? We're here to help.</h2>
+    <p class="faq-cta-sub">
+      Join an upcoming Discover Meet or connect directly with our admissions team for any queries regarding membership, cohorts, or tracks.
+    </p>
+    <div class="faq-cta-actions">
+      <a href="../index.html#apply" class="faq-primary-btn">Apply for Membership</a>
+    </div>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">YAN<span>C</span></div>
+        <div class="footer-tagline">
+          Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="../index.html#about">About YANC</a></li>
+          <li><a href="Programs/value-proposition.html">Programs & Tracks</a></li>
+          <li><a href="Team/cohort-founders.html">Team & Leadership</a></li>
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <li><a href="../index.html#apply">Apply now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/yancclub" target="_blank">Instagram @yancclub</a></li>
+          <li><a href="https://instagram.com/oneyanc" target="_blank">Instagram @oneyanc</a></li>
+          <li><a href="https://twitter.com/YANCOfficial" target="_blank">Twitter @YANCOfficial</a></li>
+          <li><a href="https://yanc.in/tc.html" target="_blank">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 YANC · Yet Another Networking Club · Hyderabad, India</div>
+      <div class="footer-social">
+        <a href="https://instagram.com/yancclub" target="_blank">Instagram</a>
+        <a href="https://twitter.com/YANCOfficial" target="_blank">Twitter</a>
+        <a href="https://web.yanc.in" target="_blank">Web App</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: INTERACTION & LOGIC -->
+  <script>
+    // ── NAVBAR SCROLL SHADOW ──
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ── HIGH-PERFORMANCE CURSOR ──
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }, { passive: true });
+
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cur.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest('a, button, input, select, textarea, .cat-accordion-btn')) {
+        cur.classList.add('hover');
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest('a, button, input, select, textarea, .cat-accordion-btn')) {
+        cur.classList.remove('hover');
+      }
+    }, { passive: true });
+
+    // ── CATEGORY ACCORDIONS TOGGLING ──
+    const categoryCards = document.querySelectorAll('.cat-accordion-card');
+
+    categoryCards.forEach(card => {
+      const btn = card.querySelector('.cat-accordion-btn');
+      btn.addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
+        card.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+    });
+
+    // ── LIVE SEARCH ──
+    const searchInput = document.getElementById('faq-search');
+    const searchClear = document.getElementById('search-clear');
+    const emptyState = document.getElementById('faq-empty-state');
+    const emptyResetBtn = document.getElementById('empty-reset-btn');
+
+    let currentSearchTerm = '';
+
+    function filterFAQs() {
+      let totalVisibleQuestions = 0;
+      const term = currentSearchTerm.trim().toLowerCase();
+
+      categoryCards.forEach(card => {
+        const entries = card.querySelectorAll('.faq-entry');
+        let visibleInCard = 0;
+
+        entries.forEach(entry => {
+          const qText = entry.querySelector('.faq-q').textContent.toLowerCase();
+          const aText = entry.querySelector('.faq-a').textContent.toLowerCase();
+
+          const matchesSearch = term === '' || qText.includes(term) || aText.includes(term);
+
+          if (matchesSearch) {
+            entry.style.display = 'block';
+            visibleInCard++;
+            totalVisibleQuestions++;
+          } else {
+            entry.style.display = 'none';
+          }
+        });
+
+        if (visibleInCard > 0) {
+          card.style.display = 'block';
+          if (term.length > 0) {
+            card.classList.add('open');
+            card.querySelector('.cat-accordion-btn').setAttribute('aria-expanded', 'true');
+          }
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      emptyState.style.display = totalVisibleQuestions === 0 ? 'block' : 'none';
+      searchClear.style.display = term.length > 0 ? 'flex' : 'none';
+    }
+
+    searchInput.addEventListener('input', e => {
+      currentSearchTerm = e.target.value;
+      filterFAQs();
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearchTerm = '';
+      searchInput.focus();
+      filterFAQs();
+    });
+
+    emptyResetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearchTerm = '';
+      filterFAQs();
+    });
+  </script>
+</body>
+
+</html>
