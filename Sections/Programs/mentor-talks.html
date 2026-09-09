@@ -46,59 +46,9 @@
       font-size: 14px;
       line-height: 1.6;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    a,
-    button,
-    input,
-    select,
-    textarea,
-    .talk-card,
-    .subnav-pill,
-    .social-btn,
-    .talk-btn,
-    .feature-banner {
-      cursor: none;
-    }
 
-    /* ── CUSTOM CURSOR ── */
-    #cursor {
-      width: 8px;
-      height: 8px;
-      background: var(--ink);
-      border-radius: 50%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate3d(-100px, -100px, 0);
-      transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border 0.2s ease;
-      will-change: transform;
-    }
-
-    #cursor.hover {
-      width: 42px;
-      height: 42px;
-      background: rgba(124, 58, 237, 0.16);
-      border: 1.5px solid var(--accent);
-    }
-
-    #cursor-ring {
-      width: 34px;
-      height: 34px;
-      border: 1.5px solid rgba(17, 17, 16, 0.25);
-      border-radius: 50%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate3d(-100px, -100px, 0);
-      transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
-      will-change: transform;
-    }
 
     /* ── NAVIGATION ── */
     nav {
@@ -775,9 +725,6 @@
 </head>
 
 <body>
-  <!-- CURSOR -->
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
 
   <!-- NAVIGATION -->
   <site-header root="../../" active="programs"></site-header>
@@ -988,25 +935,6 @@
       nav.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    const cur = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mouseX = -100, mouseY = -100;
-    let ringX = -100, ringY = -100;
-
-    window.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    }, { passive: true });
-
-    function renderCursor() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cur.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(renderCursor);
-    }
-    requestAnimationFrame(renderCursor);
-
     // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
     document.addEventListener('click', e => {
       const link = e.target.closest('a');
@@ -1018,18 +946,6 @@
         link.setAttribute('rel', 'noopener noreferrer');
       }
     });
-
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest('a, button, input, select, textarea, .talk-card, .subnav-pill, .talk-btn, .speaker-item')) {
-        cur.classList.add('hover');
-      }
-    }, { passive: true });
-
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest('a, button, input, select, textarea, .talk-card, .subnav-pill, .talk-btn, .speaker-item')) {
-        cur.classList.remove('hover');
-      }
-    }, { passive: true });
   </script>
 </body>
 
