@@ -117,12 +117,17 @@
       display: block;
     }
 
+    .nav-left-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 28px;
+    }
+
     .nav-links-left {
       display: flex;
-      justify-content: flex-end;
       gap: 22px;
       list-style: none;
-      margin-right: 28px;
     }
 
     .nav-right-container {
@@ -629,12 +634,17 @@
 
   <!-- NAVIGATION -->
   <nav id="main-nav">
-    <ul class="nav-links nav-links-left">
-      <li><a href="../index.html#about" class="has-dropdown">About</a></li>
-      <li><a href="Programs/value-proposition.html" class="has-dropdown">Programs</a></li>
-      <li><a href="Team/cohort-founders.html">Team</a></li>
-      <li><a href="application.html" class="active">Application</a></li>
-    </ul>
+    <div class="nav-left-container">
+      <div class="nav-actions">
+        <a href="https://web.yanc.in" class="nav-login">Member Login</a>
+      </div>
+      <ul class="nav-links nav-links-left">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="Programs/value-proposition.html">Programs</a></li>
+        <li><a href="Team/cohort-founders.html">Team</a></li>
+        <li><a href="application.html" class="active">Application</a></li>
+      </ul>
+    </div>
 
     <a href="../index.html" class="nav-logo">
       <img src="../YANC Logo.png" alt="YANC Logo">
@@ -643,13 +653,12 @@
     <div class="nav-right-container">
       <ul class="nav-links nav-links-right">
         <li><a href="../index.html#events">Events</a></li>
-        <li><a href="../index.html#careers" class="has-dropdown">Careers</a></li>
+        <li><a href="https://web.yanc.in/careers">Careers</a></li>
         <li><a href="faq.html">FAQs</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://web.yanc.in" class="nav-login">Log in</a>
-        <a href="application.html" class="nav-apply-btn">Apply</a>
+        <a href="https://web.yanc.in/membership-application" class="nav-apply-btn">Apply</a>
       </div>
     </div>
   </nav>

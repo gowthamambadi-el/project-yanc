@@ -85,12 +85,17 @@
       display: block;
     }
 
+    .nav-left-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 28px;
+    }
+
     .nav-links-left {
       display: flex;
-      justify-content: flex-end;
       gap: 22px;
       list-style: none;
-      margin-right: 28px;
     }
 
     .nav-right-container {
@@ -1607,7 +1612,7 @@
         padding: 16px 20px;
       }
 
-      .nav-links {
+      .nav-links-left, .nav-links-right {
         display: none;
       }
 
@@ -1759,30 +1764,34 @@
 
   <!-- NAV -->
   <nav id="main-nav">
-    <!-- Left column: Navigation Links -->
-    <ul class="nav-links nav-links-left">
-      <li><a href="#about" class="has-dropdown">About</a></li>
-      <li><a href="Sections/Programs/value-proposition.html" class="has-dropdown">Programs</a></li>
-      <li><a href="Sections/Team/cohort-founders.html">Team</a></li>
-      <li><a href="Sections/application.html">Application</a></li>
-    </ul>
+    <!-- Left column: Member Login & Navigation Links -->
+    <div class="nav-left-container">
+      <div class="nav-actions">
+        <a href="https://web.yanc.in" class="nav-login">Member Login</a>
+      </div>
+      <ul class="nav-links nav-links-left">
+        <li><a href="#about">About</a></li>
+        <li><a href="Sections/Programs/value-proposition.html">Programs</a></li>
+        <li><a href="Sections/Team/cohort-founders.html">Team</a></li>
+        <li><a href="Sections/application.html">Application</a></li>
+      </ul>
+    </div>
 
     <!-- Center column: Logo -->
     <a href="#" class="nav-logo">
-      <img src="YANC Logo.png" alt="YANC Logo">
+      <img src="YANC Logo 2.png" alt="YANC Logo">
     </a>
 
     <!-- Right column: Navigation Links & Actions -->
     <div class="nav-right-container">
       <ul class="nav-links nav-links-right">
         <li><a href="#events">Events</a></li>
-        <li><a href="#careers" class="has-dropdown">Careers</a></li>
+        <li><a href="https://web.yanc.in/careers">Careers</a></li>
         <li><a href="Sections/faq.html">FAQs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://web.yanc.in" class="nav-login">Log in</a>
-        <a href="Sections/application.html" class="nav-apply-btn">Apply</a>
+        <a href="https://web.yanc.in/membership-application" class="nav-apply-btn">Apply</a>
       </div>
     </div>
   </nav>
