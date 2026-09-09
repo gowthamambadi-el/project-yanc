@@ -80,7 +80,7 @@
     }
 
     .nav-logo img {
-      height: 28px;
+      height: 36px;
       width: auto;
       display: block;
     }
@@ -1767,31 +1767,31 @@
     <!-- Left column: Member Login & Navigation Links -->
     <div class="nav-left-container">
       <div class="nav-actions">
-        <a href="https://web.yanc.in" class="nav-login">Member Login</a>
+        <a href="https://web.yanc.in" class="nav-login" target="_blank" rel="noopener noreferrer">Member Login</a>
       </div>
       <ul class="nav-links nav-links-left">
         <li><a href="#about">About</a></li>
-        <li><a href="Sections/Programs/value-proposition.html">Programs</a></li>
-        <li><a href="Sections/Team/cohort-founders.html">Team</a></li>
-        <li><a href="Sections/application.html">Application</a></li>
+        <li><a href="Sections/Programs/value-proposition.html" target="_blank" rel="noopener noreferrer">Programs</a></li>
+        <li><a href="Sections/Team/cohort-founders.html" target="_blank" rel="noopener noreferrer">Team</a></li>
+        <li><a href="Sections/application.html" target="_blank" rel="noopener noreferrer">Application</a></li>
       </ul>
     </div>
 
     <!-- Center column: Logo -->
     <a href="#" class="nav-logo">
-      <img src="YANC Logo 2.png" alt="YANC Logo">
+      <img src="YANC Logo.png" alt="YANC Logo">
     </a>
 
     <!-- Right column: Navigation Links & Actions -->
     <div class="nav-right-container">
       <ul class="nav-links nav-links-right">
         <li><a href="#events">Events</a></li>
-        <li><a href="https://web.yanc.in/careers">Careers</a></li>
-        <li><a href="Sections/faq.html">FAQs</a></li>
+        <li><a href="https://web.yanc.in/careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
+        <li><a href="Sections/faq.html" target="_blank" rel="noopener noreferrer">FAQs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://web.yanc.in/membership-application" class="nav-apply-btn">Apply</a>
+        <a href="https://web.yanc.in/membership-application" class="nav-apply-btn" target="_blank" rel="noopener noreferrer">Apply</a>
       </div>
     </div>
   </nav>
@@ -2358,10 +2358,10 @@
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="#about">About YANC</a></li>
-          <li><a href="Sections/Programs/value-proposition.html">Programs & Tracks</a></li>
-          <li><a href="Sections/Team/cohort-founders.html">Team & Leadership</a></li>
-          <li><a href="Sections/Programs/who-can-join.html">Who can join</a></li>
-          <li><a href="Sections/Programs/who-can-join.html#apply">Apply now</a></li>
+          <li><a href="Sections/Programs/value-proposition.html" target="_blank" rel="noopener noreferrer">Programs & Tracks</a></li>
+          <li><a href="Sections/Team/cohort-founders.html" target="_blank" rel="noopener noreferrer">Team & Leadership</a></li>
+          <li><a href="Sections/Programs/who-can-join.html" target="_blank" rel="noopener noreferrer">Who can join</a></li>
+          <li><a href="https://web.yanc.in/membership-application" target="_blank" rel="noopener noreferrer">Apply now</a></li>
         </ul>
       </div>
       <div>
@@ -2528,6 +2528,19 @@
       requestAnimationFrame(renderCursor);
     }
     requestAnimationFrame(renderCursor);
+
+    // ── AUTOMATICALLY OPEN DIFFERENT PAGE LINKS IN NEW TAB ──
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:')) return;
+      // If it is an on-page jump on the current page, let it scroll normally
+      if (href.startsWith('#')) return;
+      // All different page URLs and external destinations open in a new page
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
 
     // Optimized event delegation for hover states
     document.addEventListener('mouseover', e => {

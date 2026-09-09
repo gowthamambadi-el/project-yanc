@@ -873,6 +873,17 @@
     }
     requestAnimationFrame(renderCursor);
 
+    // ── AUTOMATICALLY OPEN DIFFERENT PAGE LINKS IN NEW TAB ──
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:')) return;
+      if (href.startsWith('#')) return;
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+
     document.addEventListener('mouseover', e => {
       if (e.target.closest('a, button, input, select, textarea, .portal-card, .btn-portal, .help-btn')) {
         cur.classList.add('hover');
