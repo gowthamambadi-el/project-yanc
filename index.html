@@ -783,142 +783,171 @@
     }
 
     .mentor-card {
-      width: 300px;
+      width: 240px;
       flex-shrink: 0;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 22px;
+      border-radius: 18px;
+      padding: 12px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
       transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
       display: flex;
       flex-direction: column;
+      gap: 12px;
       position: relative;
+      cursor: pointer;
       user-select: none;
     }
 
     .mentor-card:hover {
       transform: translateY(-6px);
       border-color: var(--accent);
-      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.1);
+      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.12);
     }
 
-    .mentor-card-top {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .mentor-avatar-box {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      border: 2px solid var(--border);
-      position: relative;
+    .mentor-photo-wrap {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
       overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--accent-light);
+      position: relative;
     }
 
-    .mentor-avatar-img {
+    .mentor-card-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       display: block;
+      transition: transform 0.35s ease;
     }
 
-    .mentor-avatar-fallback {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-size: 20px;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
+    .mentor-card:hover .mentor-card-img {
+      transform: scale(1.05);
     }
 
-    .mentor-card-badge {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 10px;
-      border-radius: 100px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .mentor-card-badge::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
+    .mentor-info {
+      padding: 2px 6px 6px;
+      text-align: center;
     }
 
     .mentor-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--ink);
-      line-height: 1.35;
+      line-height: 1.3;
       margin-bottom: 4px;
     }
 
     .mentor-role {
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--ink2);
-      line-height: 1.5;
-      margin-bottom: 18px;
-      flex-grow: 1;
+      line-height: 1.45;
     }
 
-    .mentor-card-footer {
+    /* ── MENTOR MODAL LIGHTBOX ── */
+    #mentor-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      margin-top: auto;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .mentor-session-tag {
-      font-size: 11px;
-      color: var(--ink3);
-      font-weight: 500;
+    #mentor-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mentor-modal-card {
+      position: relative;
+      max-width: 440px;
+      width: 100%;
+      aspect-ratio: 1 / 1.05;
+      max-height: 85vh;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111110;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #mentor-modal.active .mentor-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .mentor-modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .mentor-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(20, 20, 20, 0.75);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 3;
     }
 
-    .mentor-session-tag svg {
-      width: 12px;
-      height: 12px;
+    .mentor-modal-close:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.08);
     }
 
-    .mentor-explore-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      transition: gap 0.2s ease;
+    .mentor-modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
     }
 
-    .mentor-explore-link:hover {
-      gap: 8px;
+    .mentor-modal-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 60px 24px 28px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .mentor-modal-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .mentor-modal-role {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+      letter-spacing: 0.01em;
     }
 
     /* ── CORE VALUES SECTION ── */
@@ -1926,203 +1955,255 @@
       <div class="mentor-marquee-track">
         
         <!-- Mentor 1: Daisuke Tanji -->
-        <div class="mentor-card">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y1.jpg" alt="Daisuke Tanji" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">DT</div>
-            </div>
-            <span class="mentor-card-badge">Global Leader</span>
+        <div class="mentor-card" data-mentor-name="Daisuke Tanji" data-mentor-role="CEO - Indobox Inc, Japan" data-mentor-img="Mentors/Daisuke Tanji.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Daisuke Tanji.jpg" alt="Daisuke Tanji" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Daisuke Tanji</h3>
-          <p class="mentor-role">CEO, Indobox Inc, Japan</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Keynote Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Daisuke Tanji</h3>
+            <p class="mentor-role">CEO - Indobox Inc, Japan</p>
           </div>
         </div>
 
         <!-- Mentor 2: Dr. Lavanya NJP -->
-        <div class="mentor-card">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y10.jpg" alt="Dr. Lavanya NJP" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">LN</div>
-            </div>
-            <span class="mentor-card-badge">Public Leadership</span>
+        <div class="mentor-card" data-mentor-name="Dr. Lavanya NJP" data-mentor-role="Deputy Commissioner of Police" data-mentor-img="Mentors/Dr. Lavanya NJP.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Dr. Lavanya NJP.jpg" alt="Dr. Lavanya NJP" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Dr. Lavanya NJP</h3>
-          <p class="mentor-role">Deputy Commissioner of Police</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Guest Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Dr. Lavanya NJP</h3>
+            <p class="mentor-role">Deputy Commissioner of Police</p>
           </div>
         </div>
 
         <!-- Mentor 3: Srinivas Rao Mahankali (MSR) -->
-        <div class="mentor-card">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y14.jpg" alt="Srinivas Rao Mahankali (MSR)" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">SR</div>
-            </div>
-            <span class="mentor-card-badge">Ecosystem Builder</span>
+        <div class="mentor-card" data-mentor-name="Srinivas Rao Mahankali" data-mentor-role="Ex CEO, T-Hub" data-mentor-img="Mentors/Srnivas Rao Mahankali.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Srnivas Rao Mahankali.jpg" alt="Srinivas Rao Mahankali" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Srinivas Rao Mahankali (MSR)</h3>
-          <p class="mentor-role">Ex CEO, T-Hub</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Keynote Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Srinivas Rao Mahankali</h3>
+            <p class="mentor-role">Ex CEO, T-Hub</p>
           </div>
         </div>
 
         <!-- Mentor 4: Uma Sudhir -->
-        <div class="mentor-card">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y16.jpg" alt="Uma Sudhir" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">US</div>
-            </div>
-            <span class="mentor-card-badge">Media & Journalism</span>
+        <div class="mentor-card" data-mentor-name="Uma Sudhir" data-mentor-role="NDTV Award-Winning Journalist" data-mentor-img="Mentors/Uma Sudhir .jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Uma Sudhir .jpg" alt="Uma Sudhir" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Uma Sudhir</h3>
-          <p class="mentor-role">NDTV Award-Winning Journalist</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Masterclass Mentor
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Uma Sudhir</h3>
+            <p class="mentor-role">NDTV Award-Winning Journalist</p>
           </div>
         </div>
 
         <!-- Mentor 5: Jayesh Ranjan, IAS -->
-        <div class="mentor-card">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y18.jpg" alt="Jayesh Ranjan, IAS" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">JR</div>
-            </div>
-            <span class="mentor-card-badge">Policy & Tech</span>
+        <div class="mentor-card" data-mentor-name="Jayesh Ranjan, IAS" data-mentor-role="Principal Secretary, I&C, IT" data-mentor-img="Mentors/Jayesh Ranjan.JPG">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Jayesh Ranjan.JPG" alt="Jayesh Ranjan, IAS" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
-          <p class="mentor-role">Principal Secretary, I&C, IT</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Distinguished Guest
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
+            <p class="mentor-role">Principal Secretary, I&C, IT</p>
           </div>
         </div>
 
-        <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE SCROLL LOOP -->
-        <!-- Mentor 1 Duplicate -->
-        <div class="mentor-card" aria-hidden="true">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y1.jpg" alt="Daisuke Tanji" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">DT</div>
-            </div>
-            <span class="mentor-card-badge">Global Leader</span>
+        <!-- Mentor 6: Praveen Dorna -->
+        <div class="mentor-card" data-mentor-name="Praveen Dorna" data-mentor-role="Founder, Startup Byte &amp; Ecosystem Builder" data-mentor-img="Mentors/Praveen Dorna.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Praveen Dorna.jpg" alt="Praveen Dorna" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Daisuke Tanji</h3>
-          <p class="mentor-role">CEO, Indobox Inc, Japan</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Keynote Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Praveen Dorna</h3>
+            <p class="mentor-role">Founder, Startup Byte &amp; Ecosystem Builder</p>
           </div>
         </div>
 
-        <!-- Mentor 2 Duplicate -->
-        <div class="mentor-card" aria-hidden="true">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y10.jpg" alt="Dr. Lavanya NJP" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">LN</div>
-            </div>
-            <span class="mentor-card-badge">Public Leadership</span>
+        <!-- Mentor 7: Chaitanya Priyanka -->
+        <div class="mentor-card" data-mentor-name="Chaitanya Priyanka" data-mentor-role="Creative Director &amp; Entrepreneur" data-mentor-img="Mentors/Chaitanya Priyanka.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Chaitanya Priyanka.jpg" alt="Chaitanya Priyanka" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Dr. Lavanya NJP</h3>
-          <p class="mentor-role">Deputy Commissioner of Police</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Guest Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Chaitanya Priyanka</h3>
+            <p class="mentor-role">Creative Director &amp; Entrepreneur</p>
           </div>
         </div>
 
-        <!-- Mentor 3 Duplicate -->
-        <div class="mentor-card" aria-hidden="true">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y14.jpg" alt="Srinivas Rao Mahankali (MSR)" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">SR</div>
-            </div>
-            <span class="mentor-card-badge">Ecosystem Builder</span>
+        <!-- Mentor 8: Hari -->
+        <div class="mentor-card" data-mentor-name="Hari" data-mentor-role="Leadership &amp; Strategy Mentor" data-mentor-img="Mentors/Hari.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Hari.jpg" alt="Hari" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Srinivas Rao Mahankali (MSR)</h3>
-          <p class="mentor-role">Ex CEO, T-Hub</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Keynote Speaker
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Hari</h3>
+            <p class="mentor-role">Leadership &amp; Strategy Mentor</p>
           </div>
         </div>
 
-        <!-- Mentor 4 Duplicate -->
-        <div class="mentor-card" aria-hidden="true">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y16.jpg" alt="Uma Sudhir" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">US</div>
-            </div>
-            <span class="mentor-card-badge">Media & Journalism</span>
+        <!-- Mentor 9: Manoj -->
+        <div class="mentor-card" data-mentor-name="Manoj" data-mentor-role="Technology Entrepreneur &amp; Advisor" data-mentor-img="Mentors/Manoj.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Manoj.jpg" alt="Manoj" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Uma Sudhir</h3>
-          <p class="mentor-role">NDTV Award-Winning Journalist</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Masterclass Mentor
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Manoj</h3>
+            <p class="mentor-role">Technology Entrepreneur &amp; Advisor</p>
           </div>
         </div>
 
-        <!-- Mentor 5 Duplicate -->
-        <div class="mentor-card" aria-hidden="true">
-          <div class="mentor-card-top">
-            <div class="mentor-avatar-box">
-              <img src="Mentors/y18.jpg" alt="Jayesh Ranjan, IAS" class="mentor-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="mentor-avatar-fallback">JR</div>
-            </div>
-            <span class="mentor-card-badge">Policy & Tech</span>
+        <!-- Mentor 10: Shoban Babu -->
+        <div class="mentor-card" data-mentor-name="Shoban Babu" data-mentor-role="Industry Mentor &amp; Growth Advisor" data-mentor-img="Mentors/Shoban Babu.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Shoban Babu.jpg" alt="Shoban Babu" class="mentor-card-img" loading="lazy">
           </div>
-          <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
-          <p class="mentor-role">Principal Secretary, I&C, IT</p>
-          <div class="mentor-card-footer">
-            <span class="mentor-session-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Distinguished Guest
-            </span>
-            <a href="Sections/Programs/mentor-talks.html" class="mentor-explore-link">View Talks &rarr;</a>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Shoban Babu</h3>
+            <p class="mentor-role">Industry Mentor &amp; Growth Advisor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 11: Sravanth -->
+        <div class="mentor-card" data-mentor-name="Sravanth" data-mentor-role="Startup Mentor &amp; Investor" data-mentor-img="Mentors/Sravanth.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Sravanth.jpg" alt="Sravanth" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Sravanth</h3>
+            <p class="mentor-role">Startup Mentor &amp; Investor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 12: Vijaya Lakshmi -->
+        <div class="mentor-card" data-mentor-name="Vijaya Lakshmi" data-mentor-role="Senior Mentor &amp; Advisor" data-mentor-img="Mentors/Vijaya Lakshmi.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Vijaya Lakshmi.jpg" alt="Vijaya Lakshmi" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Vijaya Lakshmi</h3>
+            <p class="mentor-role">Senior Mentor &amp; Advisor</p>
+          </div>
+        </div>
+
+        <!-- ── DUPLICATE SET FOR SEAMLESS INFINITE MARQUEE LOOP ── -->
+        <div class="mentor-card" data-mentor-name="Daisuke Tanji" data-mentor-role="CEO - Indobox Inc, Japan" data-mentor-img="Mentors/Daisuke Tanji.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Daisuke Tanji.jpg" alt="Daisuke Tanji" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Daisuke Tanji</h3>
+            <p class="mentor-role">CEO - Indobox Inc, Japan</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Dr. Lavanya NJP" data-mentor-role="Deputy Commissioner of Police" data-mentor-img="Mentors/Dr. Lavanya NJP.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Dr. Lavanya NJP.jpg" alt="Dr. Lavanya NJP" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Dr. Lavanya NJP</h3>
+            <p class="mentor-role">Deputy Commissioner of Police</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Srinivas Rao Mahankali" data-mentor-role="Ex CEO, T-Hub" data-mentor-img="Mentors/Srnivas Rao Mahankali.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Srnivas Rao Mahankali.jpg" alt="Srinivas Rao Mahankali" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Srinivas Rao Mahankali</h3>
+            <p class="mentor-role">Ex CEO, T-Hub</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Uma Sudhir" data-mentor-role="NDTV Award-Winning Journalist" data-mentor-img="Mentors/Uma Sudhir .jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Uma Sudhir .jpg" alt="Uma Sudhir" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Uma Sudhir</h3>
+            <p class="mentor-role">NDTV Award-Winning Journalist</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Jayesh Ranjan, IAS" data-mentor-role="Principal Secretary, I&C, IT" data-mentor-img="Mentors/Jayesh Ranjan.JPG" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Jayesh Ranjan.JPG" alt="Jayesh Ranjan, IAS" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
+            <p class="mentor-role">Principal Secretary, I&C, IT</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Praveen Dorna" data-mentor-role="Founder, Startup Byte &amp; Ecosystem Builder" data-mentor-img="Mentors/Praveen Dorna.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Praveen Dorna.jpg" alt="Praveen Dorna" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Praveen Dorna</h3>
+            <p class="mentor-role">Founder, Startup Byte &amp; Ecosystem Builder</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Chaitanya Priyanka" data-mentor-role="Creative Director &amp; Entrepreneur" data-mentor-img="Mentors/Chaitanya Priyanka.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Chaitanya Priyanka.jpg" alt="Chaitanya Priyanka" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Chaitanya Priyanka</h3>
+            <p class="mentor-role">Creative Director &amp; Entrepreneur</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Hari" data-mentor-role="Leadership &amp; Strategy Mentor" data-mentor-img="Mentors/Hari.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Hari.jpg" alt="Hari" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Hari</h3>
+            <p class="mentor-role">Leadership &amp; Strategy Mentor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Manoj" data-mentor-role="Technology Entrepreneur &amp; Advisor" data-mentor-img="Mentors/Manoj.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Manoj.jpg" alt="Manoj" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Manoj</h3>
+            <p class="mentor-role">Technology Entrepreneur &amp; Advisor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Shoban Babu" data-mentor-role="Industry Mentor &amp; Growth Advisor" data-mentor-img="Mentors/Shoban Babu.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Shoban Babu.jpg" alt="Shoban Babu" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Shoban Babu</h3>
+            <p class="mentor-role">Industry Mentor &amp; Growth Advisor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Sravanth" data-mentor-role="Startup Mentor &amp; Investor" data-mentor-img="Mentors/Sravanth.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Sravanth.jpg" alt="Sravanth" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Sravanth</h3>
+            <p class="mentor-role">Startup Mentor &amp; Investor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Vijaya Lakshmi" data-mentor-role="Senior Mentor &amp; Advisor" data-mentor-img="Mentors/Vijaya Lakshmi.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Vijaya Lakshmi.jpg" alt="Vijaya Lakshmi" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Vijaya Lakshmi</h3>
+            <p class="mentor-role">Senior Mentor &amp; Advisor</p>
           </div>
         </div>
 
@@ -2294,6 +2375,23 @@
     </div>
   </footer>
 
+  <!-- MENTOR MODAL LIGHTBOX -->
+  <div id="mentor-modal" aria-hidden="true" role="dialog" aria-label="Mentor Photo Preview">
+    <div class="mentor-modal-card">
+      <button class="mentor-modal-close" id="mentor-modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <img src="" alt="" class="mentor-modal-img" id="mentor-modal-img">
+      <div class="mentor-modal-overlay">
+        <h3 class="mentor-modal-name" id="mentor-modal-name"></h3>
+        <p class="mentor-modal-role" id="mentor-modal-role"></p>
+      </div>
+    </div>
+  </div>
+
   <script>
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
@@ -2347,6 +2445,60 @@
       });
     });
 
+    // ── MENTOR MODAL LIGHTBOX ──
+    const mentorModal = document.getElementById('mentor-modal');
+    const mentorModalImg = document.getElementById('mentor-modal-img');
+    const mentorModalName = document.getElementById('mentor-modal-name');
+    const mentorModalRole = document.getElementById('mentor-modal-role');
+    const mentorModalClose = document.getElementById('mentor-modal-close');
+
+    function openMentorModal(card) {
+      const name = card.getAttribute('data-mentor-name') || '';
+      const role = card.getAttribute('data-mentor-role') || '';
+      const img = card.getAttribute('data-mentor-img') || '';
+
+      mentorModalImg.src = img;
+      mentorModalImg.alt = name;
+      mentorModalName.textContent = name;
+      mentorModalRole.textContent = role;
+
+      mentorModal.classList.add('active');
+      mentorModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMentorModal() {
+      mentorModal.classList.remove('active');
+      mentorModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!mentorModal.classList.contains('active')) {
+          mentorModalImg.src = '';
+        }
+      }, 300);
+    }
+
+    document.querySelectorAll('.mentor-card').forEach(card => {
+      card.addEventListener('click', () => openMentorModal(card));
+    });
+
+    if (mentorModalClose) {
+      mentorModalClose.addEventListener('click', closeMentorModal);
+    }
+
+    if (mentorModal) {
+      mentorModal.addEventListener('click', (e) => {
+        if (e.target === mentorModal) {
+          closeMentorModal();
+        }
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mentorModal && mentorModal.classList.contains('active')) {
+        closeMentorModal();
+      }
+    });
 
     // ── HIGH-PERFORMANCE CURSOR ──
     const cur = document.getElementById('cursor');
@@ -2370,13 +2522,13 @@
 
     // Optimized event delegation for hover states
     document.addEventListener('mouseover', e => {
-      if (e.target.closest('a, button, input, select, textarea, .what-card, .who-card, .team-card, .event-card, .btn-action, .social-btn')) {
+      if (e.target.closest('a, button, input, select, textarea, .what-card, .who-card, .team-card, .event-card, .btn-action, .social-btn, .mentor-card, .mentor-modal-close')) {
         cur.classList.add('hover');
       }
     }, { passive: true });
 
     document.addEventListener('mouseout', e => {
-      if (e.target.closest('a, button, input, select, textarea, .what-card, .who-card, .team-card, .event-card, .btn-action, .social-btn')) {
+      if (e.target.closest('a, button, input, select, textarea, .what-card, .who-card, .team-card, .event-card, .btn-action, .social-btn, .mentor-card, .mentor-modal-close')) {
         cur.classList.remove('hover');
       }
     }, { passive: true });
