@@ -714,15 +714,16 @@
     }
     requestAnimationFrame(renderCursor);
 
-    // ── AUTOMATICALLY OPEN DIFFERENT PAGE LINKS IN NEW TAB ──
+    // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
     document.addEventListener('click', e => {
       const link = e.target.closest('a');
       if (!link) return;
       const href = link.getAttribute('href');
-      if (!href || href === '#' || href.startsWith('javascript:')) return;
-      if (href.startsWith('#')) return;
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+      if (!href) return;
+      if (href.includes('web.yanc.in')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
     });
 
     document.addEventListener('mouseover', e => {

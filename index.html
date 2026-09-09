@@ -1771,9 +1771,9 @@
       </div>
       <ul class="nav-links nav-links-left">
         <li><a href="#about">About</a></li>
-        <li><a href="Sections/Programs/value-proposition.html" target="_blank" rel="noopener noreferrer">Programs</a></li>
-        <li><a href="Sections/Team/cohort-founders.html" target="_blank" rel="noopener noreferrer">Team</a></li>
-        <li><a href="Sections/application.html" target="_blank" rel="noopener noreferrer">Application</a></li>
+        <li><a href="Sections/Programs/value-proposition.html">Programs</a></li>
+        <li><a href="Sections/Team/cohort-founders.html">Team</a></li>
+        <li><a href="Sections/application.html">Application</a></li>
       </ul>
     </div>
 
@@ -1787,7 +1787,7 @@
       <ul class="nav-links nav-links-right">
         <li><a href="#events">Events</a></li>
         <li><a href="https://web.yanc.in/careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
-        <li><a href="Sections/faq.html" target="_blank" rel="noopener noreferrer">FAQs</a></li>
+        <li><a href="Sections/faq.html">FAQs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
@@ -2358,9 +2358,9 @@
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="#about">About YANC</a></li>
-          <li><a href="Sections/Programs/value-proposition.html" target="_blank" rel="noopener noreferrer">Programs & Tracks</a></li>
-          <li><a href="Sections/Team/cohort-founders.html" target="_blank" rel="noopener noreferrer">Team & Leadership</a></li>
-          <li><a href="Sections/Programs/who-can-join.html" target="_blank" rel="noopener noreferrer">Who can join</a></li>
+          <li><a href="Sections/Programs/value-proposition.html">Programs & Tracks</a></li>
+          <li><a href="Sections/Team/cohort-founders.html">Team & Leadership</a></li>
+          <li><a href="Sections/Programs/who-can-join.html">Who can join</a></li>
           <li><a href="https://web.yanc.in/membership-application" target="_blank" rel="noopener noreferrer">Apply now</a></li>
         </ul>
       </div>
@@ -2529,17 +2529,16 @@
     }
     requestAnimationFrame(renderCursor);
 
-    // ── AUTOMATICALLY OPEN DIFFERENT PAGE LINKS IN NEW TAB ──
+    // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
     document.addEventListener('click', e => {
       const link = e.target.closest('a');
       if (!link) return;
       const href = link.getAttribute('href');
-      if (!href || href === '#' || href.startsWith('javascript:')) return;
-      // If it is an on-page jump on the current page, let it scroll normally
-      if (href.startsWith('#')) return;
-      // All different page URLs and external destinations open in a new page
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+      if (!href) return;
+      if (href.includes('web.yanc.in')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
     });
 
     // Optimized event delegation for hover states
