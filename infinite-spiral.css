@@ -1,0 +1,101 @@
+/* ── INFINITE SPIRAL 3D COMPONENT CSS ── */
+.infinite-spiral {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  min-height: 520px;
+  overflow: visible;
+  isolation: isolate;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.infinite-spiral:active {
+  cursor: grabbing;
+}
+
+.infinite-spiral__stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.infinite-spiral__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--infinite-spiral-card-width, 260px);
+  height: var(--infinite-spiral-card-height, 108px);
+  padding: 14px 20px;
+  box-sizing: border-box;
+  border-radius: var(--infinite-spiral-card-radius, 16px);
+  background: #FFFFFF;
+  border: 1px solid rgba(17, 17, 16, 0.08);
+  box-shadow: 0 10px 26px rgba(17, 17, 16, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity, box-shadow, border-color;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infinite-spiral__item.is-focused,
+.infinite-spiral__item:hover {
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.14), 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.spiral-card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink, #111110);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+.spiral-card-title em {
+  font-style: italic;
+  color: var(--accent, #7C3AED);
+}
+
+.spiral-card-desc {
+  font-size: 12px;
+  color: var(--ink2, #5C5B58);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .infinite-spiral {
+    height: 500px;
+  }
+  .infinite-spiral__item {
+    width: 230px;
+    height: 102px;
+    padding: 12px 16px;
+  }
+  .spiral-card-title {
+    font-size: 18px;
+  }
+  .spiral-card-desc {
+    font-size: 11px;
+  }
+}

@@ -15,6 +15,8 @@
   <script src="header.js"></script>
   <link rel="stylesheet" href="drift-wall.css">
   <script src="drift-wall.js" defer></script>
+  <link rel="stylesheet" href="infinite-spiral.css">
+  <script src="infinite-spiral.js" defer></script>
   <style>
     *,
     *::before,
@@ -953,34 +955,40 @@
       font-weight: 400;
     }
 
-    /* ── CORE VALUES SECTION ── */
+    /* ── CORE VALUES SECTION (WITH 3D INFINITE SPIRAL) ── */
+    /* ── CORE VALUES SECTION (WITH 3D INFINITE SPIRAL) ── */
     .core-values-section {
       background: var(--bg2);
-      padding: 84px 0 76px;
+      padding: 96px 0 96px;
       border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
     }
 
-    .values-header-container {
+    .values-container {
       padding: 0 40px;
-      max-width: 1280px;
-      margin: 0 auto 40px;
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 60px;
+      align-items: center;
     }
 
-    .values-title-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1.35fr;
-      gap: 48px;
-      align-items: start;
+    .values-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 520px;
     }
 
     .values-header-title {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(34px, 4.5vw, 48px);
-      line-height: 1.15;
+      font-size: clamp(36px, 4.5vw, 52px);
+      line-height: 1.12;
       letter-spacing: -1.2px;
       color: var(--ink);
+      margin-top: 4px;
     }
 
     .values-header-title em {
@@ -989,7 +997,7 @@
     }
 
     .values-narrative-text {
-      font-size: 14.5px;
+      font-size: 15px;
       color: var(--ink2);
       line-height: 1.85;
       display: flex;
@@ -1002,81 +1010,24 @@
       font-weight: 600;
     }
 
-    .values-marquee-container {
+    .values-right-col {
       position: relative;
       width: 100%;
-      overflow: hidden;
-      padding: 12px 0 20px;
-      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    }
-
-    .values-marquee-track {
+      height: 600px;
       display: flex;
-      gap: 22px;
-      width: max-content;
-      animation: valuesMarqueeScroll 38s linear infinite;
-      will-change: transform;
-    }
-
-    .values-marquee-container:hover .values-marquee-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes valuesMarqueeScroll {
-      0% {
-        transform: translate3d(0, 0, 0);
-      }
-      100% {
-        transform: translate3d(-50%, 0, 0);
-      }
-    }
-
-    .value-card {
-      width: 320px;
-      min-height: 180px;
-      flex-shrink: 0;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 34px 28px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      position: relative;
-      user-select: none;
+      overflow: visible;
     }
 
-    .value-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--ink);
-      box-shadow: 0 14px 32px rgba(17, 17, 16, 0.08);
-    }
-
-    .value-card-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .value-card-title em {
-      font-style: italic;
-      color: var(--ink);
-    }
-
-    .value-card-desc {
-      font-size: 14px;
-      color: var(--ink2);
-      line-height: 1.65;
-      max-width: 260px;
+    @media (max-width: 992px) {
+      .values-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .values-right-col {
+        height: 520px;
+      }
     }
 
     /* ── WHAT WE DO ── */
@@ -1811,69 +1762,6 @@
     </div>
   </div>
 
-  <!-- ABOUT US SECTION -->
-  <section class="about" id="about">
-    <div class="about-container">
-      <div class="eyebrow">About Us</div>
-      
-      <div class="about-main-grid">
-        <!-- Left Column: Narrative & Headline -->
-        <div class="about-narrative-col">
-          <h2 class="about-headline">
-            Empowering <em>Young Minds</em> through Life Skills
-          </h2>
-          
-          <div class="about-paragraphs">
-            <p>
-              <strong>Networking and life skills</strong> are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to <em>job opportunities, partnerships, and mentorships</em> while fostering knowledge sharing and professional growth.
-            </p>
-            <p>
-              <strong>Life skills</strong>—such as <em>communication, problem-solving, and emotional intelligence</em>—are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
-            </p>
-          </div>
-        </div>
-
-        <!-- Right Column: Stacked Vision & Mission Cards -->
-        <div class="about-vm-col">
-          <!-- Vision Card -->
-          <div class="vm-card vm-vision">
-            <div class="vm-card-header">
-              <div class="vm-icon-box vision-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"></path>
-                </svg>
-              </div>
-              <span class="vm-label">Our Vision</span>
-            </div>
-            <h3 class="vm-text">“Empowering young minds together.”</h3>
-            <div class="vm-pill">
-              <span class="vm-dot"></span> Collective Growth
-            </div>
-          </div>
-
-          <!-- Mission Card -->
-          <div class="vm-card vm-mission">
-            <div class="vm-card-header">
-              <div class="vm-icon-box mission-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polygon points="12 6 15 11 20 12 16 16 17 21 12 18 7 21 8 16 4 12 9 11 12 6"></polygon>
-                </svg>
-              </div>
-              <span class="vm-label">Our Mission</span>
-            </div>
-            <h3 class="vm-text">“Building better people for better tomorrow.”</h3>
-            <div class="vm-pill">
-              <span class="vm-dot"></span> Purpose & Impact
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- DRIFT WALL SECTION -->
   <section class="drift-wall-section" id="community-moments">
     <div class="drift-wall-header">
@@ -2161,14 +2049,13 @@
 
   <!-- CORE VALUES SECTION -->
   <section class="core-values-section" id="core-values">
-    <div class="values-header-container">
-      <div class="eyebrow">Our Principles</div>
-      <div class="values-title-grid">
-        <div>
-          <h2 class="values-header-title">
-            Core <em>Values</em>
-          </h2>
-        </div>
+    <div class="values-container">
+      <!-- Left Column: Content & Narrative -->
+      <div class="values-left-col">
+        <div class="eyebrow">Our Principles</div>
+        <h2 class="values-header-title">
+          Core <em>Values</em>
+        </h2>
         <div class="values-narrative-text">
           <p>
             Our foundational principles guide everything we do and serve as the backbone of our mission and vision. These seven core values are more than just words—they represent the ideals that shape our community, influence our decisions, and inspire how we interact with one another and the world around us.
@@ -2178,95 +2065,71 @@
           </p>
         </div>
       </div>
+
+      <!-- Right Column: 3D Infinite Spiral Component -->
+      <div class="values-right-col">
+        <div id="core-values-spiral"></div>
+      </div>
     </div>
+  </section>
 
-    <!-- INFINITE HORIZONTAL MARQUEE -->
-    <div class="values-marquee-container" aria-label="Core Values Carousel">
-      <div class="values-marquee-track">
-
-        <!-- Value 1: Respect -->
-        <div class="value-card">
-          <h3 class="value-card-title"><em>Respect</em></h3>
-          <p class="value-card-desc">Treat everyone with dignity and value diverse perspectives.</p>
+  <!-- ABOUT US SECTION -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="eyebrow">About Us</div>
+      
+      <div class="about-main-grid">
+        <!-- Left Column: Narrative & Headline -->
+        <div class="about-narrative-col">
+          <h2 class="about-headline">
+            Empowering <em>Young Minds</em> through Life Skills
+          </h2>
+          
+          <div class="about-paragraphs">
+            <p>
+              <strong>Networking and life skills</strong> are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to <em>job opportunities, partnerships, and mentorships</em> while fostering knowledge sharing and professional growth.
+            </p>
+            <p>
+              <strong>Life skills</strong>—such as <em>communication, problem-solving, and emotional intelligence</em>—are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
+            </p>
+          </div>
         </div>
 
-        <!-- Value 2: Gratitude -->
-        <div class="value-card">
-          <h3 class="value-card-title"><em>Gratitude</em></h3>
-          <p class="value-card-desc">Fostering a culture of appreciation and support.</p>
-        </div>
+        <!-- Right Column: Stacked Vision & Mission Cards -->
+        <div class="about-vm-col">
+          <!-- Vision Card -->
+          <div class="vm-card vm-vision">
+            <div class="vm-card-header">
+              <div class="vm-icon-box vision-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"></path>
+                </svg>
+              </div>
+              <span class="vm-label">Our Vision</span>
+            </div>
+            <h3 class="vm-text">“Empowering young minds together.”</h3>
+            <div class="vm-pill">
+              <span class="vm-dot"></span> Collective Growth
+            </div>
+          </div>
 
-        <!-- Value 3: Resilience -->
-        <div class="value-card">
-          <h3 class="value-card-title"><em>Resilience</em></h3>
-          <p class="value-card-desc">Resilience is bouncing back stronger every time.</p>
-        </div>
-
-        <!-- Value 4: Doing the Right Thing -->
-        <div class="value-card">
-          <h3 class="value-card-title">Doing the <em>Right Thing</em></h3>
-          <p class="value-card-desc">Act with integrity and make ethical decisions.</p>
-        </div>
-
-        <!-- Value 5: Think Big, Start Small -->
-        <div class="value-card">
-          <h3 class="value-card-title">Think Big, <em>Start Small</em></h3>
-          <p class="value-card-desc">Dream ambitiously while taking actionable steps.</p>
-        </div>
-
-        <!-- Value 6: Purposeful Learning -->
-        <div class="value-card">
-          <h3 class="value-card-title">Purposeful <em>Learning</em></h3>
-          <p class="value-card-desc">Every lesson learned with purpose leads to meaningful change.</p>
-        </div>
-
-        <!-- Value 7: Fostering Connections -->
-        <div class="value-card">
-          <h3 class="value-card-title">Fostering <em>Connections</em></h3>
-          <p class="value-card-desc">Connections spark growth and fuel possibilities.</p>
-        </div>
-
-        <!-- DUPLICATE SET 1-7 FOR SEAMLESS 100% INFINITE LOOP -->
-        <!-- Value 1 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title"><em>Respect</em></h3>
-          <p class="value-card-desc">Treat everyone with dignity and value diverse perspectives.</p>
-        </div>
-
-        <!-- Value 2 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title"><em>Gratitude</em></h3>
-          <p class="value-card-desc">Fostering a culture of appreciation and support.</p>
-        </div>
-
-        <!-- Value 3 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title"><em>Resilience</em></h3>
-          <p class="value-card-desc">Resilience is bouncing back stronger every time.</p>
-        </div>
-
-        <!-- Value 4 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title">Doing the <em>Right Thing</em></h3>
-          <p class="value-card-desc">Act with integrity and make ethical decisions.</p>
-        </div>
-
-        <!-- Value 5 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title">Think Big, <em>Start Small</em></h3>
-          <p class="value-card-desc">Dream ambitiously while taking actionable steps.</p>
-        </div>
-
-        <!-- Value 6 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title">Purposeful <em>Learning</em></h3>
-          <p class="value-card-desc">Every lesson learned with purpose leads to meaningful change.</p>
-        </div>
-
-        <!-- Value 7 Duplicate -->
-        <div class="value-card" aria-hidden="true">
-          <h3 class="value-card-title">Fostering <em>Connections</em></h3>
-          <p class="value-card-desc">Connections spark growth and fuel possibilities.</p>
+          <!-- Mission Card -->
+          <div class="vm-card vm-mission">
+            <div class="vm-card-header">
+              <div class="vm-icon-box mission-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="12 6 15 11 20 12 16 16 17 21 12 18 7 21 8 16 4 12 9 11 12 6"></polygon>
+                </svg>
+              </div>
+              <span class="vm-label">Our Mission</span>
+            </div>
+            <h3 class="vm-text">“Building better people for better tomorrow.”</h3>
+            <div class="vm-pill">
+              <span class="vm-dot"></span> Purpose & Impact
+            </div>
+          </div>
         </div>
 
       </div>
