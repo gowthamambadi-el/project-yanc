@@ -1,0 +1,11 @@
+# Testing & browser artifacts
+.playwright-mcp/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.claude/

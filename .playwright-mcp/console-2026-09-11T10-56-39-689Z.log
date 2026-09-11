@@ -1,2 +1,0 @@
-[     178ms] TypeError: Cannot read properties of null (reading 'style')
-    at renderCursor (http://localhost:8085/Sections/faq.html:907:11)
