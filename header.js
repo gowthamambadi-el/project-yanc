@@ -245,14 +245,26 @@ class SiteHeader extends HTMLElement {
       </nav>
     `;
 
-    // Handle sticky scroll border state
+    // Handle sticky scroll border state with throttled RAF
     const nav = this.querySelector('#main-nav');
     if (nav && !window.__yanc_nav_scroll_bound) {
       window.__yanc_nav_scroll_bound = true;
+      let headerTicking = false;
+      let isCurrentlyScrolled = false;
       window.addEventListener('scroll', () => {
-        const currentNav = document.getElementById('main-nav');
-        if (currentNav) {
-          currentNav.classList.toggle('scrolled', window.scrollY > 20);
+        if (!headerTicking) {
+          requestAnimationFrame(() => {
+            const shouldBeScrolled = window.scrollY > 20;
+            if (shouldBeScrolled !== isCurrentlyScrolled) {
+              isCurrentlyScrolled = shouldBeScrolled;
+              const currentNav = document.getElementById('main-nav');
+              if (currentNav) {
+                currentNav.classList.toggle('scrolled', shouldBeScrolled);
+              }
+            }
+            headerTicking = false;
+          });
+          headerTicking = true;
         }
       }, { passive: true });
     }

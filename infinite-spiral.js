@@ -172,16 +172,24 @@ class InfiniteSpiral {
     }
 
     if (scrollEnabled) {
+      let scrollTicking = false;
       window.addEventListener('scroll', () => {
-        const nextScrollY = window.scrollY;
-        const scrollDelta = nextScrollY - this.lastScrollY;
-        this.lastScrollY = nextScrollY;
-        if (!this.visible || scrollDelta === 0) return;
-        this.targetProgress += clamp(
-          scrollDelta / (this.options.verticalSpacing * 4.5),
-          -1.0,
-          1.0
-        );
+        if (!scrollTicking) {
+          requestAnimationFrame(() => {
+            const nextScrollY = window.scrollY;
+            const scrollDelta = nextScrollY - this.lastScrollY;
+            this.lastScrollY = nextScrollY;
+            if (this.visible && scrollDelta !== 0) {
+              this.targetProgress += clamp(
+                scrollDelta / (this.options.verticalSpacing * 4.5),
+                -1.0,
+                1.0
+              );
+            }
+            scrollTicking = false;
+          });
+          scrollTicking = true;
+        }
       }, { passive: true });
     }
 
@@ -194,13 +202,27 @@ class InfiniteSpiral {
 
     if (typeof IntersectionObserver !== 'undefined') {
       this.intersectionObs = new IntersectionObserver(([entry]) => {
+        const wasVisible = this.visible;
         this.visible = entry.isIntersecting;
-      }, { threshold: 0.05 });
+        if (this.visible && !wasVisible && !this.rafId) {
+          this.previousTime = performance.now();
+          this.startAnimation();
+        } else if (!this.visible && this.rafId) {
+          cancelAnimationFrame(this.rafId);
+          this.rafId = null;
+        }
+      }, { threshold: 0.02 });
       this.intersectionObs.observe(this.container);
     }
   }
 
   startAnimation() {
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+    if (!this.visible) return;
+
     const {
       speed,
       direction,
@@ -215,6 +237,10 @@ class InfiniteSpiral {
     } = this.options;
 
     const render = time => {
+      if (!this.visible) {
+        this.rafId = null;
+        return;
+      }
       const delta = Math.min((time - this.previousTime) / 1000, 0.05);
       this.previousTime = time;
 

@@ -1,7 +1,8 @@
 /**
- * DriftWall Vanilla JS Component (Smooth & Optimized Version)
- * Ultra 60/120fps hardware-accelerated continuous infinite drift wall
- * with zero layout reflows, seamless column looping, and instant hover response.
+ * DriftWall Vanilla JS Component (Ultra High-Performance Edition)
+ * Optimized 60/120fps hardware-accelerated continuous drift wall with
+ * IntersectionObserver viewport pausing, 50% reduced DOM memory footprint,
+ * and zero main-thread layout thrashing.
  */
 
 const YANC_DEFAULT_DRIFT_ITEMS = [
@@ -35,18 +36,6 @@ const YANC_DEFAULT_DRIFT_ITEMS = [
   { image: 'Mentors/Daisuke Tanji.jpg', title: 'Cross-Border Advisory' }
 ];
 
-// Instant Parallel Image Cache Warm-Up
-if (typeof window !== 'undefined') {
-  const warmedSet = new Set();
-  YANC_DEFAULT_DRIFT_ITEMS.forEach(item => {
-    if (!item.image || warmedSet.has(item.image)) return;
-    warmedSet.add(item.image);
-    const pre = new Image();
-    pre.src = item.image;
-    if (pre.decode) pre.decode().catch(() => {});
-  });
-}
-
 class DriftWall {
   constructor(container, options = {}) {
     if (!container) return;
@@ -78,11 +67,10 @@ class DriftWall {
       variance: options.variance !== undefined ? options.variance : 0.35,
       parallax: options.parallax !== undefined ? options.parallax : 0,
       pauseOnHover: options.pauseOnHover || false,
-      lift: options.lift || 48,
-      fade: options.fade !== undefined ? options.fade : 0.15,
-      dim: options.dim !== undefined ? options.dim : 0.95,
+      lift: options.lift || 40,
+      dim: options.dim !== undefined ? options.dim : 0.96,
       grayscale: options.grayscale || false,
-      overlayColor: options.overlayColor || 'rgba(0, 0, 0, 0.08)',
+      overlayColor: options.overlayColor || 'rgba(0, 0, 0, 0.05)',
       ...options
     };
 
@@ -95,9 +83,9 @@ class DriftWall {
     this.velocities = [];
     this.hoveredCol = -1;
     this.wallHovered = false;
+    this.isVisible = true;
     this.pointer = { x: 0, y: 0 };
     this.pointerDamped = { x: 0, y: 0 };
-    this.containerHeight = this.container.clientHeight || 580;
     this.activeId = null;
 
     this.reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -111,9 +99,8 @@ class DriftWall {
   }
 
   init() {
-    const { items, columns, tileWidth, tileHeight, gap, radius, perspective, lift, dim, grayscale, overlayColor, fade, speed, direction, variance } = this.options;
+    const { items, columns, tileWidth, tileHeight, gap, radius, perspective, lift, dim, grayscale, overlayColor, speed, direction, variance } = this.options;
 
-    // Apply CSS Variables to container
     this.container.classList.add('drift-wall');
     if (this.reduced) this.container.classList.add('drift-wall--reduced');
     this.container.setAttribute('role', 'group');
@@ -128,8 +115,7 @@ class DriftWall {
       '--dw-lift': `${lift}px`,
       '--dw-dim': dim,
       '--dw-gray': grayscale ? 1 : 0,
-      '--dw-overlay': overlayColor,
-      '--dw-edge': `${Math.max(0, (1 - fade) * 100)}%`
+      '--dw-overlay': overlayColor
     };
 
     for (const [key, value] of Object.entries(styleMap)) {
@@ -141,26 +127,25 @@ class DriftWall {
     items.forEach((item, i) => cols[i % columns].push(item));
     this.columnItems = cols.map(col => (col.length ? col : items.slice(0, 1)));
 
-    // Calculate metadata for seamless infinite copies (6 buffer copies guarantee infinite viewport fill)
+    // 3 Buffer copies are optimal for continuous infinite scroll with low DOM overhead
     const unit = tileHeight + gap;
     this.columnMeta = this.columnItems.map(col => {
       const copyHeight = Math.max(unit, col.length * unit);
-      const copies = 6;
+      const copies = 3;
       return { copyHeight, copies };
     });
 
-    // Base velocities with alternating column directions
+    // Base velocities with alternating directions
     const dirSign = direction === 'up' ? 1 : -1;
     this.baseVelocities = this.columnItems.map((_, c) => {
       const altSign = c % 2 === 0 ? 1 : -1;
       return speed * this.columnFactor(c, variance) * dirSign * altSign;
     });
 
-    // Stagger initial column positions smoothly
     this.offsets = this.columnMeta.map((meta, c) => meta.copyHeight * ((c * 0.33) % 1));
     this.velocities = this.columnItems.map((_, c) => this.baseVelocities[c]);
 
-    // Build DOM
+    // Build DOM Fragment
     this.container.innerHTML = '';
     this.plane = document.createElement('div');
     this.plane.className = 'drift-wall__plane';
@@ -196,9 +181,8 @@ class DriftWall {
           const img = document.createElement('img');
           img.src = item.image;
           img.alt = item.title || '';
-          img.loading = 'eager';
+          img.loading = 'lazy';
           img.decoding = 'async';
-          img.fetchPriority = 'high';
           img.draggable = false;
           img.onerror = () => {
             img.src = 'YANC - photos/y2.jpg';
@@ -233,10 +217,8 @@ class DriftWall {
 
     this.container.appendChild(this.plane);
 
-    // Bind event listeners with high-performance native event delegation
     this.bindEvents();
-
-    // Start RAF
+    this.setupViewportObserver();
     this.startAnimation();
   }
 
@@ -268,6 +250,26 @@ class DriftWall {
     activeTiles.forEach(el => el.classList.remove('is-active'));
   }
 
+  setupViewportObserver() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    this.intersectionObs = new IntersectionObserver(([entry]) => {
+      const isIntersecting = entry.isIntersecting;
+      if (isIntersecting && !this.isVisible) {
+        this.isVisible = true;
+        this.lastTs = performance.now();
+        if (!this.rafId) this.startAnimation();
+      } else if (!isIntersecting && this.isVisible) {
+        this.isVisible = false;
+        if (this.rafId) {
+          cancelAnimationFrame(this.rafId);
+          this.rafId = null;
+        }
+      }
+    }, { rootMargin: '120px 0px' });
+
+    this.intersectionObs.observe(this.container);
+  }
+
   bindEvents() {
     this.container.addEventListener('pointerenter', () => {
       this.wallHovered = true;
@@ -279,7 +281,6 @@ class DriftWall {
       this.releaseTile();
     }, { passive: true });
 
-    // High performance hover via native DOM bubbling - zero elementFromPoint layout reflows!
     this.plane.addEventListener('mouseover', e => {
       const tile = e.target.closest('.drift-wall__tile');
       if (!tile) return;
@@ -305,14 +306,17 @@ class DriftWall {
         this.pointer.y = (e.clientY - rect.top) / rect.height - 0.5;
       }, { passive: true });
     }
-
-    window.addEventListener('resize', () => {
-      this.containerHeight = this.container.clientHeight || 580;
-    }, { passive: true });
   }
 
   startAnimation() {
+    if (this.rafId) return;
+
     const animate = ts => {
+      if (!this.isVisible) {
+        this.rafId = null;
+        return;
+      }
+
       if (this.lastTs === null) this.lastTs = ts;
       const dt = Math.min(0.033, Math.max(0, (ts - this.lastTs) / 1000));
       this.lastTs = ts;
@@ -345,8 +349,7 @@ class DriftWall {
 
           const el = this.trackEls[c];
           if (el) {
-            // Buffer shift by 2 full copyHeights to ensure track always covers full viewport height with zero gaps
-            const yPos = -(next + 2 * meta.copyHeight);
+            const yPos = -(next + meta.copyHeight);
             el.style.transform = `translate3d(0, ${yPos.toFixed(1)}px, 0)`;
           }
         }
@@ -360,12 +363,12 @@ class DriftWall {
 
   destroy() {
     if (this.rafId) cancelAnimationFrame(this.rafId);
+    if (this.intersectionObs) this.intersectionObs.disconnect();
     this.rafId = null;
     this.lastTs = null;
   }
 }
 
-// Auto-initialize when DOM is ready if #drift-wall element exists
 if (typeof document !== 'undefined') {
   const init = () => {
     const el = document.getElementById('drift-wall');

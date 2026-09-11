@@ -377,6 +377,7 @@
       gap: 0;
       white-space: nowrap;
       animation: marquee 22s linear infinite;
+      will-change: transform;
     }
 
     .marquee-track:hover {
@@ -406,6 +407,11 @@
     /* ── SECTION SHARED ── */
     section {
       padding: 72px 40px;
+    }
+
+    .about, .what-we-offer, .how-it-works, .values-container, .faq-section {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 700px;
     }
 
     .eyebrow {
@@ -1990,58 +1996,6 @@
   </div>
 
   <script>
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Randomize collage images on load
-    document.addEventListener('DOMContentLoaded', () => {
-      const images = [
-        'workshop.JPG',
-        'workshop2.jpg',
-        'y2.jpg',
-        'y3.jpg',
-        'y4.jpg',
-        'y5.JPG',
-        'y6.JPG',
-        'y7.JPG',
-        'y12.jpg',
-        'y22.jpg',
-        'y23.jpg',
-        'y24(1).JPG',
-        'y24.jpg',
-        'y26.jpg',
-        'y27 (1).jpg',
-        'y27.jpg',
-        'y30.jpg',
-        'y31.jpg',
-        'y33.jpg',
-        'y34.jpg',
-        'WhatsApp Image 2026-06-13 at 6.58.16 PM.jpeg'
-      ];
-
-      // Shuffle images array using Durstenfeld algorithm
-      for (let i = images.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [images[i], images[j]] = [images[j], images[i]];
-      }
-
-      // Assign the first 8 unique shuffled images to the collage frames with preloading
-      const imgElements = document.querySelectorAll('.hero-board .board-photo img');
-      imgElements.forEach((img, index) => {
-        if (images[index]) {
-          const imgUrl = `YANC - photos/${images[index]}`;
-          const tempImg = new Image();
-          tempImg.onload = () => {
-            img.src = imgUrl;
-            img.classList.add('loaded');
-          };
-          tempImg.src = imgUrl;
-        }
-      });
-    });
-
     // ── MENTOR MODAL LIGHTBOX ──
     const mentorModal = document.getElementById('mentor-modal');
     const mentorModalImg = document.getElementById('mentor-modal-img');
