@@ -13,6 +13,8 @@
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
   <script src="header.js"></script>
+  <link rel="stylesheet" href="drift-wall.css">
+  <script src="drift-wall.js" defer></script>
   <style>
     *,
     *::before,
@@ -846,17 +848,18 @@
       line-height: 1.45;
     }
 
-    /* ── MENTOR MODAL LIGHTBOX ── */
+    /* ── LIGHTBOX MODAL ── */
     #mentor-modal {
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(12px);
+      background: rgba(6, 4, 12, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px 16px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -869,14 +872,13 @@
 
     .mentor-modal-card {
       position: relative;
-      max-width: 440px;
+      max-width: 620px;
       width: 100%;
-      aspect-ratio: 1 / 1.05;
-      max-height: 85vh;
-      border-radius: 24px;
+      aspect-ratio: 4 / 3.2;
+      border-radius: 20px;
       overflow: hidden;
-      background: #111110;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      background: #121118;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
       transform: scale(0.92) translateY(12px);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -889,26 +891,28 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
       display: block;
     }
 
     .mentor-modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: rgba(20, 20, 20, 0.75);
+      background: rgba(15, 13, 22, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1.5px solid rgba(255, 255, 255, 0.3);
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
-      z-index: 3;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
     }
 
     .mentor-modal-close:hover {
@@ -923,15 +927,15 @@
       stroke: currentColor;
     }
 
-    .mentor-modal-overlay {
+    .mentor-modal-info {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 60px 24px 28px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+      padding: 36px 24px 22px;
+      background: linear-gradient(to top, rgba(8, 6, 15, 0.95) 0%, rgba(8, 6, 15, 0.65) 60%, transparent 100%);
       text-align: center;
-      pointer-events: none;
+      z-index: 2;
     }
 
     .mentor-modal-name {
@@ -939,15 +943,14 @@
       font-weight: 700;
       color: #FFFFFF;
       margin-bottom: 4px;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.01em;
       font-family: 'Inter', sans-serif;
     }
 
     .mentor-modal-role {
-      font-size: 13.5px;
-      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.82);
       font-weight: 400;
-      letter-spacing: 0.01em;
     }
 
     /* ── CORE VALUES SECTION ── */
@@ -1871,6 +1874,20 @@
     </div>
   </section>
 
+  <!-- DRIFT WALL SECTION -->
+  <section class="drift-wall-section" id="community-moments">
+    <div class="drift-wall-header">
+      <span class="eyebrow">Life at YANC</span>
+      <h2 class="drift-wall-title">Moments of <em>Innovation &amp; Connection</em></h2>
+      <p class="drift-wall-subtitle">
+        Explore the vibrant energy of our workshops, meetups, masterclasses, and collaborative milestones.
+      </p>
+    </div>
+    <div class="drift-wall-container">
+      <div id="drift-wall"></div>
+    </div>
+  </section>
+
   <!-- MENTOR TALKS MARQUEE SECTION -->
   <section class="mentor-talks-section" id="mentor-talks">
     <div class="mentor-talks-header">
@@ -2306,8 +2323,8 @@
     </div>
   </footer>
 
-  <!-- MENTOR MODAL LIGHTBOX -->
-  <div id="mentor-modal" aria-hidden="true" role="dialog" aria-label="Mentor Photo Preview">
+  <!-- MENTOR / GALLERY MODAL LIGHTBOX -->
+  <div id="mentor-modal" aria-hidden="true" role="dialog" aria-label="Photo Preview">
     <div class="mentor-modal-card">
       <button class="mentor-modal-close" id="mentor-modal-close" aria-label="Close modal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2316,7 +2333,7 @@
         </svg>
       </button>
       <img src="" alt="" class="mentor-modal-img" id="mentor-modal-img">
-      <div class="mentor-modal-overlay">
+      <div class="mentor-modal-info">
         <h3 class="mentor-modal-name" id="mentor-modal-name"></h3>
         <p class="mentor-modal-role" id="mentor-modal-role"></p>
       </div>
@@ -2383,10 +2400,20 @@
     const mentorModalRole = document.getElementById('mentor-modal-role');
     const mentorModalClose = document.getElementById('mentor-modal-close');
 
-    function openMentorModal(card) {
-      const name = card.getAttribute('data-mentor-name') || '';
-      const role = card.getAttribute('data-mentor-role') || '';
-      const img = card.getAttribute('data-mentor-img') || '';
+    function openMentorModal(cardOrObj) {
+      let name = '';
+      let role = '';
+      let img = '';
+
+      if (cardOrObj && typeof cardOrObj.getAttribute === 'function') {
+        name = cardOrObj.getAttribute('data-mentor-name') || '';
+        role = cardOrObj.getAttribute('data-mentor-role') || '';
+        img = cardOrObj.getAttribute('data-mentor-img') || '';
+      } else if (cardOrObj) {
+        name = cardOrObj.name || '';
+        role = cardOrObj.role || '';
+        img = cardOrObj.img || '';
+      }
 
       mentorModalImg.src = img;
       mentorModalImg.alt = name;
@@ -2397,6 +2424,7 @@
       mentorModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
+    window.openMentorModal = openMentorModal;
 
     function closeMentorModal() {
       mentorModal.classList.remove('active');
