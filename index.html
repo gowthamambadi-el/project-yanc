@@ -12,6 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <script src="header.js"></script>
   <style>
     *,
     *::before,
@@ -45,12 +46,6 @@
       font-size: 14px;
       line-height: 1.6;
       overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* Hide standard cursor for all interactive elements to make custom cursor feel seamless */
-    a, button, input, select, textarea, .what-card, .who-card {
-      cursor: none;
     }
 
     /* ── NAV ── */
@@ -80,29 +75,34 @@
     }
 
     .nav-logo img {
-      height: 28px;
+      height: 36px;
       width: auto;
       display: block;
     }
 
+    .nav-left-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 28px;
+    }
+
     .nav-links-left {
       display: flex;
-      justify-content: flex-end;
-      gap: 28px;
+      gap: 22px;
       list-style: none;
-      margin-right: 36px;
     }
 
     .nav-right-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-left: 36px;
+      margin-left: 28px;
     }
 
     .nav-links-right {
       display: flex;
-      gap: 28px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -221,28 +221,35 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 60px 40px 0;
-      min-height: 88vh;
+      padding: 40px 40px 0;
+      min-height: calc(100vh - 90px);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
 
     .hero-top {
       display: flex;
-      align-items: stretch;
-      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      width: 100%;
+      max-width: 1380px;
+      margin: auto 0;
       flex: 1;
     }
 
     .hero-left {
-      flex: 1.15;
+      flex: 1.05;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 28px;
-      padding-bottom: 20px;
+      padding-bottom: 0px;
     }
 
     .hero-headline {
@@ -261,9 +268,11 @@
     }
 
     .hero-board {
-      flex: 1.2;
+      flex: 1.15;
+      max-width: 660px;
+      width: 100%;
       position: relative;
-      height: 580px;
+      height: 540px;
       background-color: #F4F0E8;
       background-image: radial-gradient(rgba(17, 17, 16, 0.08) 1.5px, transparent 0);
       background-size: 24px 24px;
@@ -306,82 +315,91 @@
       z-index: 20;
     }
 
-    /* Absolute positions and rotations to scatter them */
+    /* Perfectly balanced collage positions */
     .bp1 {
-      top: 4%;
+      top: 5%;
       left: 4%;
-      width: 28%;
-      height: 170px;
-      transform: rotate(-5deg);
-      z-index: 1;
-    }
-
-    .bp2 {
-      top: 6%;
-      left: 36%;
-      width: 30%;
-      height: 130px;
-      transform: rotate(4deg);
+      width: 29%;
+      height: 155px;
+      transform: rotate(-4deg);
       z-index: 2;
     }
 
-    .bp3 {
-      top: 3%;
-      right: 4%;
-      width: 28%;
+    .bp2 {
+      top: 4%;
+      left: 35%;
+      width: 30%;
       height: 140px;
-      transform: rotate(-4deg);
+      transform: rotate(3deg);
       z-index: 3;
     }
 
+    .bp3 {
+      top: 5%;
+      right: 4%;
+      width: 29%;
+      height: 150px;
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
     .bp4 {
-      top: 38%;
-      left: 5%;
-      width: 26%;
-      height: 180px;
-      transform: rotate(6deg);
+      top: 36%;
+      left: 3%;
+      width: 29%;
+      height: 165px;
+      transform: rotate(4deg);
       z-index: 4;
     }
 
     .bp5 {
-      top: 34%;
-      left: 35%;
-      width: 32%;
-      height: 160px;
+      top: 33%;
+      left: 33%;
+      width: 34%;
+      height: 170px;
+      transform: rotate(-2deg);
+      z-index: 6;
+    }
+
+    .bp6 {
+      top: 35%;
+      right: 3%;
+      width: 29%;
+      height: 165px;
       transform: rotate(-3deg);
       z-index: 5;
     }
 
-    .bp6 {
-      top: 32%;
-      right: 5%;
-      width: 26%;
-      height: 190px;
-      transform: rotate(5deg);
-      z-index: 6;
-    }
-
     .bp7 {
-      bottom: 4%;
-      left: 18%;
-      width: 30%;
-      height: 140px;
-      transform: rotate(-3deg);
+      bottom: 5%;
+      left: 9%;
+      width: 38%;
+      height: 145px;
+      transform: rotate(-2.5deg);
       z-index: 7;
     }
 
     .bp8 {
       bottom: 5%;
-      right: 18%;
-      width: 32%;
-      height: 150px;
-      transform: rotate(4deg);
+      right: 9%;
+      width: 41%;
+      height: 145px;
+      transform: rotate(2.5deg);
       z-index: 8;
     }
 
     @media (max-width: 1024px) {
+      .hero {
+        padding: 40px 24px 0;
+        min-height: auto;
+      }
+
+      .hero-top {
+        gap: 32px;
+      }
+
       .hero-board {
-        height: 480px;
+        height: 440px;
         border: 8px solid #C8BFAF;
       }
 
@@ -390,31 +408,31 @@
       }
 
       .bp1 {
-        height: 130px;
-      }
-
-      .bp2 {
-        height: 100px;
-      }
-
-      .bp3 {
-        height: 110px;
-      }
-
-      .bp4 {
-        height: 140px;
-      }
-
-      .bp5 {
         height: 120px;
       }
 
+      .bp2 {
+        height: 105px;
+      }
+
+      .bp3 {
+        height: 115px;
+      }
+
+      .bp4 {
+        height: 130px;
+      }
+
+      .bp5 {
+        height: 135px;
+      }
+
       .bp6 {
-        height: 145px;
+        height: 130px;
       }
 
       .bp7 {
-        height: 110px;
+        height: 115px;
       }
 
       .bp8 {
@@ -539,82 +557,523 @@
       background: var(--border);
     }
 
-    /* ── ABOUT ── */
+    /* ── ABOUT US (TWO-COLUMN & STACKED VISION/MISSION) ── */
     .about {
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      padding: 84px 40px;
     }
 
-    .about-grid {
+    .about-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .about-main-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 56px;
-      align-items: start;
+      align-items: center;
     }
 
-    .about-big {
+    .about-narrative-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-headline {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(32px, 4.2vw, 46px);
       line-height: 1.15;
-      letter-spacing: -1px;
+      letter-spacing: -1.2px;
       color: var(--ink);
+      margin-bottom: 22px;
     }
 
-    .about-big em {
+    .about-headline em {
       font-style: italic;
       color: var(--accent);
     }
 
-    .about-body {
-      font-size: 14px;
+    .about-paragraphs {
+      font-size: 14.5px;
       color: var(--ink2);
       line-height: 1.85;
     }
 
-    .about-body p+p {
-      margin-top: 16px;
+    .about-paragraphs p + p {
+      margin-top: 18px;
     }
 
-    .about-body strong {
+    .about-paragraphs strong {
       color: var(--ink);
+      font-weight: 600;
+    }
+
+    .about-paragraphs em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 500;
+      background: var(--accent-light);
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+
+    /* ── RIGHT COLUMN: STACKED VISION & MISSION CARDS ── */
+    .about-vm-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .vm-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 26px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      position: relative;
+    }
+
+    .vm-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.09);
+    }
+
+    .vm-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .vm-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .vision-icon {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .mission-icon {
+      background: #FEF3C7;
+      color: #D97706;
+    }
+
+    .vm-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink2);
+    }
+
+    .vm-text {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 16px;
       font-weight: 500;
     }
 
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      margin-top: 48px;
-      border-radius: 14px;
-      overflow: hidden;
+    .vm-pill {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--ink3);
+      font-weight: 500;
+      width: fit-content;
+      background: var(--bg2);
       border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 100px;
     }
 
-    .astat {
+    .vm-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .vm-mission .vm-dot {
+      background: #D97706;
+    }
+
+    /* ── MENTOR TALKS MARQUEE SECTION ── */
+    .mentor-talks-section {
       background: var(--bg);
-      padding: 24px 20px;
-      text-align: center;
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
     }
 
-    .astat-n {
+    .mentor-talks-header {
+      padding: 0 40px;
+      max-width: 1280px;
+      margin: 0 auto 36px;
+    }
+
+    .mentor-header-title {
       font-family: 'Instrument Serif', serif;
-      font-size: 34px;
+      font-size: clamp(32px, 4.5vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -1px;
       color: var(--ink);
-      line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
-    .astat-n span {
+    .mentor-header-title em {
       font-style: italic;
       color: var(--accent);
     }
 
-    .astat-l {
-      font-size: 11px;
-      color: var(--ink3);
-      letter-spacing: 0.04em;
+    .mentor-header-subtitle {
+      font-size: 14px;
+      color: var(--ink2);
+      max-width: 580px;
+      line-height: 1.6;
+    }
+
+    .mentor-marquee-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 12px 0 20px;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .mentor-marquee-track {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: mentorMarqueeScroll 32s linear infinite;
+      will-change: transform;
+    }
+
+    .mentor-marquee-container:hover .mentor-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes mentorMarqueeScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .mentor-card {
+      width: 240px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .mentor-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.12);
+    }
+
+    .mentor-photo-wrap {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--accent-light);
+      position: relative;
+    }
+
+    .mentor-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .mentor-card:hover .mentor-card-img {
+      transform: scale(1.05);
+    }
+
+    .mentor-info {
+      padding: 2px 6px 6px;
+      text-align: center;
+    }
+
+    .mentor-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .mentor-role {
+      font-size: 12px;
+      color: var(--ink2);
+      line-height: 1.45;
+    }
+
+    /* ── MENTOR MODAL LIGHTBOX ── */
+    #mentor-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #mentor-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mentor-modal-card {
+      position: relative;
+      max-width: 440px;
+      width: 100%;
+      aspect-ratio: 1 / 1.05;
+      max-height: 85vh;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111110;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #mentor-modal.active .mentor-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .mentor-modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .mentor-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(20, 20, 20, 0.75);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 3;
+    }
+
+    .mentor-modal-close:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .mentor-modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    .mentor-modal-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 60px 24px 28px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .mentor-modal-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .mentor-modal-role {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── CORE VALUES SECTION ── */
+    .core-values-section {
+      background: var(--bg2);
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .values-header-container {
+      padding: 0 40px;
+      max-width: 1280px;
+      margin: 0 auto 40px;
+    }
+
+    .values-title-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.35fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .values-header-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(34px, 4.5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      color: var(--ink);
+    }
+
+    .values-header-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .values-narrative-text {
+      font-size: 14.5px;
+      color: var(--ink2);
+      line-height: 1.85;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .values-narrative-text strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .values-marquee-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 12px 0 20px;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .values-marquee-track {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: valuesMarqueeScroll 38s linear infinite;
+      will-change: transform;
+    }
+
+    .values-marquee-container:hover .values-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes valuesMarqueeScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .value-card {
+      width: 320px;
+      min-height: 180px;
+      flex-shrink: 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 28px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      user-select: none;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ink);
+      box-shadow: 0 14px 32px rgba(17, 17, 16, 0.08);
+    }
+
+    .value-card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .value-card-title em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .value-card-desc {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.65;
+      max-width: 260px;
     }
 
     /* ── WHAT WE DO ── */
@@ -1148,12 +1607,37 @@
         padding: 16px 20px;
       }
 
-      .nav-links {
+      .nav-links-left, .nav-links-right {
         display: none;
       }
 
       section {
         padding: 48px 20px;
+      }
+
+      .mentor-talks-header {
+        padding: 0 20px;
+        margin-bottom: 24px;
+      }
+
+      .mentor-card {
+        width: 270px;
+        padding: 20px 18px;
+      }
+
+      .values-header-container {
+        padding: 0 20px;
+        margin-bottom: 24px;
+      }
+
+      .values-title-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .value-card {
+        width: 260px;
+        padding: 22px 18px;
       }
 
       .hero {
@@ -1169,9 +1653,17 @@
         letter-spacing: -2px;
       }
 
-      .about-grid {
+      .about {
+        padding: 56px 20px;
+      }
+
+      .about-main-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .about-vm-col {
+        gap: 16px;
       }
 
       .what-grid {
@@ -1215,49 +1707,6 @@
       .hero-board {
         display: none;
       }
-
-      .about-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* ── CUSTOM CURSOR ── */
-    #cursor {
-      width: 10px;
-      height: 10px;
-      background: var(--ink);
-      border-radius: 50%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.25s, height 0.25s, background 0.25s;
-      mix-blend-mode: multiply;
-    }
-
-    #cursor.hover {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      mix-blend-mode: normal;
-      opacity: 0.6;
-    }
-
-    #cursor-ring {
-      width: 36px;
-      height: 36px;
-      border: 1.5px solid var(--ink);
-      border-radius: 50%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.18s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
-      opacity: 0.3;
     }
 
   </style>
@@ -1265,38 +1714,9 @@
 
 <body>
 
-  <!-- CURSOR -->
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
 
   <!-- NAV -->
-  <nav id="main-nav">
-    <!-- Left column: Navigation Links -->
-    <ul class="nav-links nav-links-left">
-      <li><a href="#about" class="has-dropdown">About</a></li>
-      <li><a href="#programs" class="has-dropdown">Programs</a></li>
-      <li><a href="#events">Events</a></li>
-    </ul>
-
-    <!-- Center column: Logo -->
-    <a href="#" class="nav-logo">
-      <img src="YANC Logo.png" alt="YANC Logo">
-    </a>
-
-    <!-- Right column: Navigation Links & Actions -->
-    <div class="nav-right-container">
-      <ul class="nav-links nav-links-right">
-        <li><a href="#join">Join</a></li>
-        <li><a href="#careers" class="has-dropdown">Careers</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="https://web.yanc.in" class="nav-login">Log in</a>
-        <a href="#apply" class="nav-apply-btn">Apply</a>
-      </div>
-    </div>
-  </nav>
+  <site-header root="./"></site-header>
 
   <!-- HERO -->
   <section class="hero">
@@ -1388,226 +1808,450 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT US SECTION -->
   <section class="about" id="about">
-    <div class="eyebrow">About YANC</div>
-    <div class="about-grid">
-      <div>
-        <div class="about-big">
-          We get you<br>ready for <em>real<br>life.</em>
-        </div>
-      </div>
-      <div class="about-body">
-        <p>
-          YANC — <strong>Yet Another Networking Club</strong> — is an exclusive, experiential networking community for
-          young adults aged 15 to 28. We believe the most important skills aren't taught in classrooms.
-        </p>
-        <p>
-          Through <strong>in-person mentoring, peer-to-peer coaching, and hands-on events</strong>, we help young minds
-          build confidence, communicate better, and create connections that actually last.
-        </p>
-        <p>
-          Based in Hyderabad and built by a team that believes in <strong>real-world skills over certificates</strong>,
-          YANC empowers young people to walk into any room and own it.
-        </p>
-      </div>
-    </div>
-    <div class="about-stats">
-      <div class="astat">
-        <div class="astat-n">15<span>–28</span></div>
-        <div class="astat-l">Age range</div>
-      </div>
-      <div class="astat">
-        <div class="astat-n"><span>Free</span></div>
-        <div class="astat-l">To join</div>
-      </div>
-      <div class="astat">
-        <div class="astat-n"><span>In-person</span></div>
-        <div class="astat-l">Format</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE DO -->
-  <section id="programs">
-    <div class="eyebrow">What we do</div>
-    <div class="what-grid">
-      <div class="what-card">
-        <div class="card-art ca1"><span>Network</span></div>
-        <div class="card-body">
-          <div class="card-title">In-person networking</div>
-          <div class="card-sub">Curated meetups connecting young adults with peers, mentors, and professionals who show
-            up.</div>
-          <span class="card-tag">Monthly events</span>
-        </div>
-      </div>
-      <div class="what-card">
-        <div class="card-art ca2"><span>Mentor</span></div>
-        <div class="card-body">
-          <div class="card-title">Mentoring & coaching</div>
-          <div class="card-sub">Guided by experienced professionals invested in your personal and professional growth.
+    <div class="about-container">
+      <div class="eyebrow">About Us</div>
+      
+      <div class="about-main-grid">
+        <!-- Left Column: Narrative & Headline -->
+        <div class="about-narrative-col">
+          <h2 class="about-headline">
+            Empowering <em>Young Minds</em> through Life Skills
+          </h2>
+          
+          <div class="about-paragraphs">
+            <p>
+              <strong>Networking and life skills</strong> are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to <em>job opportunities, partnerships, and mentorships</em> while fostering knowledge sharing and professional growth.
+            </p>
+            <p>
+              <strong>Life skills</strong>—such as <em>communication, problem-solving, and emotional intelligence</em>—are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
+            </p>
           </div>
-          <span class="card-tag">1-on-1 sessions</span>
         </div>
-      </div>
-      <div class="what-card">
-        <div class="card-art ca3"><span>Skills</span></div>
-        <div class="card-body">
-          <div class="card-title">Life skills workshops</div>
-          <div class="card-sub">Communication, leadership, and confidence — built through doing, not just watching.
+
+        <!-- Right Column: Stacked Vision & Mission Cards -->
+        <div class="about-vm-col">
+          <!-- Vision Card -->
+          <div class="vm-card vm-vision">
+            <div class="vm-card-header">
+              <div class="vm-icon-box vision-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"></path>
+                </svg>
+              </div>
+              <span class="vm-label">Our Vision</span>
+            </div>
+            <h3 class="vm-text">“Empowering young minds together.”</h3>
+            <div class="vm-pill">
+              <span class="vm-dot"></span> Collective Growth
+            </div>
           </div>
-          <span class="card-tag">Hands-on</span>
-        </div>
-      </div>
-      <div class="what-card">
-        <div class="card-art ca4"><span>Speak</span></div>
-        <div class="card-body">
-          <div class="card-title">Public speaking</div>
-          <div class="card-sub">Real stages, real practice. Learn to own a room before you need to.</div>
-          <span class="card-tag">Real practice</span>
-        </div>
-      </div>
-      <div class="what-card">
-        <div class="card-art ca5"><span>Peers</span></div>
-        <div class="card-body">
-          <div class="card-title">Peer-to-peer learning</div>
-          <div class="card-sub">A curated community of young adults who push each other forward — not just contacts to
-            collect.</div>
-          <span class="card-tag">Community</span>
-        </div>
-      </div>
-      <div class="what-card">
-        <div class="card-art ca6"><span>Grow</span></div>
-        <div class="card-body">
-          <div class="card-title">Career readiness</div>
-          <div class="card-sub">Get ahead before your peers even know where to start. Real skills for the real world.
+
+          <!-- Mission Card -->
+          <div class="vm-card vm-mission">
+            <div class="vm-card-header">
+              <div class="vm-icon-box mission-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="12 6 15 11 20 12 16 16 17 21 12 18 7 21 8 16 4 12 9 11 12 6"></polygon>
+                </svg>
+              </div>
+              <span class="vm-label">Our Mission</span>
+            </div>
+            <h3 class="vm-text">“Building better people for better tomorrow.”</h3>
+            <div class="vm-pill">
+              <span class="vm-dot"></span> Purpose & Impact
+            </div>
           </div>
-          <span class="card-tag">Future-ready</span>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how">
-    <div class="eyebrow">How it works</div>
-    <div class="how-grid">
-      <div class="how-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Apply online</div>
-        <div class="step-desc">Fill out a short application at yanc.in. We review every application personally — no
-          bots, no auto-rejects. Parental consent required for under-18s.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Get accepted</div>
-        <div class="step-desc">YANC approves memberships at its discretion to keep the community intentional and
-          high-quality. You'll hear back with your next steps.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">03</div>
-        <div class="step-title">Show up & grow</div>
-        <div class="step-desc">Attend in-person events, workshops, and mentoring sessions every month in Hyderabad. The
-          network you build here lasts years.</div>
+  <!-- MENTOR TALKS MARQUEE SECTION -->
+  <section class="mentor-talks-section" id="mentor-talks">
+    <div class="mentor-talks-header">
+      <div class="eyebrow">Insights & Leadership</div>
+      <h2 class="mentor-header-title">Mentor <em>Talks</em></h2>
+      <p class="mentor-header-subtitle">
+        Distinguished industry leaders, innovators, and changemakers guiding our community.
+      </p>
+    </div>
+
+    <!-- INFINITE HORIZONTAL MARQUEE -->
+    <div class="mentor-marquee-container" aria-label="Mentor Talks Scrolling List">
+      <div class="mentor-marquee-track">
+        
+        <!-- Mentor 1: Daisuke Tanji -->
+        <div class="mentor-card" data-mentor-name="Daisuke Tanji" data-mentor-role="CEO - Indobox Inc, Japan" data-mentor-img="Mentors/Daisuke Tanji.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Daisuke Tanji.jpg" alt="Daisuke Tanji" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Daisuke Tanji</h3>
+            <p class="mentor-role">CEO - Indobox Inc, Japan</p>
+          </div>
+        </div>
+
+        <!-- Mentor 2: Dr. Lavanya NJP -->
+        <div class="mentor-card" data-mentor-name="Dr. Lavanya NJP" data-mentor-role="Deputy Commissioner of Police" data-mentor-img="Mentors/Dr. Lavanya NJP.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Dr. Lavanya NJP.jpg" alt="Dr. Lavanya NJP" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Dr. Lavanya NJP</h3>
+            <p class="mentor-role">Deputy Commissioner of Police</p>
+          </div>
+        </div>
+
+        <!-- Mentor 3: Srinivas Rao Mahankali (MSR) -->
+        <div class="mentor-card" data-mentor-name="Srinivas Rao Mahankali" data-mentor-role="Ex CEO, T-Hub" data-mentor-img="Mentors/Srnivas Rao Mahankali.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Srnivas Rao Mahankali.jpg" alt="Srinivas Rao Mahankali" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Srinivas Rao Mahankali</h3>
+            <p class="mentor-role">Ex CEO, T-Hub</p>
+          </div>
+        </div>
+
+        <!-- Mentor 4: Uma Sudhir -->
+        <div class="mentor-card" data-mentor-name="Uma Sudhir" data-mentor-role="NDTV Award-Winning Journalist" data-mentor-img="Mentors/Uma Sudhir .jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Uma Sudhir .jpg" alt="Uma Sudhir" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Uma Sudhir</h3>
+            <p class="mentor-role">NDTV Award-Winning Journalist</p>
+          </div>
+        </div>
+
+        <!-- Mentor 5: Jayesh Ranjan, IAS -->
+        <div class="mentor-card" data-mentor-name="Jayesh Ranjan, IAS" data-mentor-role="Principal Secretary, I&C, IT" data-mentor-img="Mentors/Jayesh Ranjan.JPG">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Jayesh Ranjan.JPG" alt="Jayesh Ranjan, IAS" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
+            <p class="mentor-role">Principal Secretary, I&C, IT</p>
+          </div>
+        </div>
+
+        <!-- Mentor 6: Praveen Dorna -->
+        <div class="mentor-card" data-mentor-name="Praveen Dorna" data-mentor-role="Founder, Startup Byte &amp; Ecosystem Builder" data-mentor-img="Mentors/Praveen Dorna.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Praveen Dorna.jpg" alt="Praveen Dorna" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Praveen Dorna</h3>
+            <p class="mentor-role">Founder, Startup Byte &amp; Ecosystem Builder</p>
+          </div>
+        </div>
+
+        <!-- Mentor 7: Chaitanya Priyanka -->
+        <div class="mentor-card" data-mentor-name="Chaitanya Priyanka" data-mentor-role="Creative Director &amp; Entrepreneur" data-mentor-img="Mentors/Chaitanya Priyanka.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Chaitanya Priyanka.jpg" alt="Chaitanya Priyanka" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Chaitanya Priyanka</h3>
+            <p class="mentor-role">Creative Director &amp; Entrepreneur</p>
+          </div>
+        </div>
+
+        <!-- Mentor 8: Hari -->
+        <div class="mentor-card" data-mentor-name="Hari" data-mentor-role="Leadership &amp; Strategy Mentor" data-mentor-img="Mentors/Hari.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Hari.jpg" alt="Hari" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Hari</h3>
+            <p class="mentor-role">Leadership &amp; Strategy Mentor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 9: Manoj -->
+        <div class="mentor-card" data-mentor-name="Manoj" data-mentor-role="Technology Entrepreneur &amp; Advisor" data-mentor-img="Mentors/Manoj.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Manoj.jpg" alt="Manoj" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Manoj</h3>
+            <p class="mentor-role">Technology Entrepreneur &amp; Advisor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 10: Shoban Babu -->
+        <div class="mentor-card" data-mentor-name="Shoban Babu" data-mentor-role="Industry Mentor &amp; Growth Advisor" data-mentor-img="Mentors/Shoban Babu.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Shoban Babu.jpg" alt="Shoban Babu" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Shoban Babu</h3>
+            <p class="mentor-role">Industry Mentor &amp; Growth Advisor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 11: Sravanth -->
+        <div class="mentor-card" data-mentor-name="Sravanth" data-mentor-role="Startup Mentor &amp; Investor" data-mentor-img="Mentors/Sravanth.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Sravanth.jpg" alt="Sravanth" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Sravanth</h3>
+            <p class="mentor-role">Startup Mentor &amp; Investor</p>
+          </div>
+        </div>
+
+        <!-- Mentor 12: Vijaya Lakshmi -->
+        <div class="mentor-card" data-mentor-name="Vijaya Lakshmi" data-mentor-role="Senior Mentor &amp; Advisor" data-mentor-img="Mentors/Vijaya Lakshmi.jpg">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Vijaya Lakshmi.jpg" alt="Vijaya Lakshmi" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Vijaya Lakshmi</h3>
+            <p class="mentor-role">Senior Mentor &amp; Advisor</p>
+          </div>
+        </div>
+
+        <!-- ── DUPLICATE SET FOR SEAMLESS INFINITE MARQUEE LOOP ── -->
+        <div class="mentor-card" data-mentor-name="Daisuke Tanji" data-mentor-role="CEO - Indobox Inc, Japan" data-mentor-img="Mentors/Daisuke Tanji.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Daisuke Tanji.jpg" alt="Daisuke Tanji" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Daisuke Tanji</h3>
+            <p class="mentor-role">CEO - Indobox Inc, Japan</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Dr. Lavanya NJP" data-mentor-role="Deputy Commissioner of Police" data-mentor-img="Mentors/Dr. Lavanya NJP.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Dr. Lavanya NJP.jpg" alt="Dr. Lavanya NJP" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Dr. Lavanya NJP</h3>
+            <p class="mentor-role">Deputy Commissioner of Police</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Srinivas Rao Mahankali" data-mentor-role="Ex CEO, T-Hub" data-mentor-img="Mentors/Srnivas Rao Mahankali.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Srnivas Rao Mahankali.jpg" alt="Srinivas Rao Mahankali" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Srinivas Rao Mahankali</h3>
+            <p class="mentor-role">Ex CEO, T-Hub</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Uma Sudhir" data-mentor-role="NDTV Award-Winning Journalist" data-mentor-img="Mentors/Uma Sudhir .jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Uma Sudhir .jpg" alt="Uma Sudhir" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Uma Sudhir</h3>
+            <p class="mentor-role">NDTV Award-Winning Journalist</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Jayesh Ranjan, IAS" data-mentor-role="Principal Secretary, I&C, IT" data-mentor-img="Mentors/Jayesh Ranjan.JPG" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Jayesh Ranjan.JPG" alt="Jayesh Ranjan, IAS" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Jayesh Ranjan, IAS</h3>
+            <p class="mentor-role">Principal Secretary, I&C, IT</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Praveen Dorna" data-mentor-role="Founder, Startup Byte &amp; Ecosystem Builder" data-mentor-img="Mentors/Praveen Dorna.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Praveen Dorna.jpg" alt="Praveen Dorna" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Praveen Dorna</h3>
+            <p class="mentor-role">Founder, Startup Byte &amp; Ecosystem Builder</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Chaitanya Priyanka" data-mentor-role="Creative Director &amp; Entrepreneur" data-mentor-img="Mentors/Chaitanya Priyanka.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Chaitanya Priyanka.jpg" alt="Chaitanya Priyanka" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Chaitanya Priyanka</h3>
+            <p class="mentor-role">Creative Director &amp; Entrepreneur</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Hari" data-mentor-role="Leadership &amp; Strategy Mentor" data-mentor-img="Mentors/Hari.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Hari.jpg" alt="Hari" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Hari</h3>
+            <p class="mentor-role">Leadership &amp; Strategy Mentor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Manoj" data-mentor-role="Technology Entrepreneur &amp; Advisor" data-mentor-img="Mentors/Manoj.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Manoj.jpg" alt="Manoj" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Manoj</h3>
+            <p class="mentor-role">Technology Entrepreneur &amp; Advisor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Shoban Babu" data-mentor-role="Industry Mentor &amp; Growth Advisor" data-mentor-img="Mentors/Shoban Babu.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Shoban Babu.jpg" alt="Shoban Babu" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Shoban Babu</h3>
+            <p class="mentor-role">Industry Mentor &amp; Growth Advisor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Sravanth" data-mentor-role="Startup Mentor &amp; Investor" data-mentor-img="Mentors/Sravanth.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Sravanth.jpg" alt="Sravanth" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Sravanth</h3>
+            <p class="mentor-role">Startup Mentor &amp; Investor</p>
+          </div>
+        </div>
+
+        <div class="mentor-card" data-mentor-name="Vijaya Lakshmi" data-mentor-role="Senior Mentor &amp; Advisor" data-mentor-img="Mentors/Vijaya Lakshmi.jpg" aria-hidden="true">
+          <div class="mentor-photo-wrap">
+            <img src="Mentors/Vijaya Lakshmi.jpg" alt="Vijaya Lakshmi" class="mentor-card-img" loading="lazy">
+          </div>
+          <div class="mentor-info">
+            <h3 class="mentor-name">Vijaya Lakshmi</h3>
+            <p class="mentor-role">Senior Mentor &amp; Advisor</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
-  <section class="testimonial">
-    <div class="eyebrow">What members say</div>
-    <div class="testi-quote">
-      "YANC didn't just give me a network — it gave me the <em>confidence</em> to use it."
-    </div>
-    <div class="testi-author">
-      <div class="testi-av">AK</div>
-      <div>
-        <div class="testi-name">Arjun K.</div>
-        <div class="testi-role">YANC Member · Age 22 · Hyderabad</div>
+  <!-- CORE VALUES SECTION -->
+  <section class="core-values-section" id="core-values">
+    <div class="values-header-container">
+      <div class="eyebrow">Our Principles</div>
+      <div class="values-title-grid">
+        <div>
+          <h2 class="values-header-title">
+            Core <em>Values</em>
+          </h2>
+        </div>
+        <div class="values-narrative-text">
+          <p>
+            Our foundational principles guide everything we do and serve as the backbone of our mission and vision. These seven core values are more than just words—they represent the ideals that shape our community, influence our decisions, and inspire how we interact with one another and the world around us.
+          </p>
+          <p>
+            Together, these principles define our organization's character. They encourage <strong>integrity, collaboration, responsibility</strong>, and a commitment to growth and positive impact, empowering individuals to contribute, innovate, and support one another.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="testi-tags">
-      <span class="testi-tag">Public speaking</span>
-      <span class="testi-tag">Networking</span>
-      <span class="testi-tag">Mentoring</span>
-      <span class="testi-tag">Leadership</span>
-      <span class="testi-tag">Life skills</span>
-      <span class="testi-tag">Peer coaching</span>
-      <span class="testi-tag">Career prep</span>
-      <span class="testi-tag">Confidence</span>
-    </div>
-  </section>
 
-  <!-- WHO CAN JOIN -->
-  <section id="join">
-    <div class="eyebrow">Who can join</div>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-icon wi1">🎓</div>
-        <div class="who-title">Students (18+)</div>
-        <div class="who-desc">College students and graduates looking to build professional skills, expand their network,
-          and prepare for the real world before it arrives.</div>
-        <span class="who-age">Ages 18–28</span>
-      </div>
-      <div class="who-card">
-        <div class="who-icon wi2">🌱</div>
-        <div class="who-title">Teens (with consent)</div>
-        <div class="who-desc">Young adults aged 15–17 are welcome with parental or guardian consent. A safe, curated
-          environment for early starters who want a head start.</div>
-        <span class="who-age">Ages 15–17 · Consent required</span>
-      </div>
-      <div class="who-card">
-        <div class="who-icon wi3">💼</div>
-        <div class="who-title">Early career professionals</div>
-        <div class="who-desc">Young professionals in their first few years of work, looking to build confidence,
-          communication skills, and a meaningful peer network.</div>
-        <span class="who-age">Ages 22–28</span>
-      </div>
-      <div class="who-card">
-        <div class="who-icon wi4">🤝</div>
-        <div class="who-title">Aspiring leaders</div>
-        <div class="who-desc">Anyone between 15 and 28 who is serious about personal growth, leadership, and building
-          the kind of network that opens real doors.</div>
-        <span class="who-age">All members · 15–28</span>
-      </div>
-    </div>
-  </section>
+    <!-- INFINITE HORIZONTAL MARQUEE -->
+    <div class="values-marquee-container" aria-label="Core Values Carousel">
+      <div class="values-marquee-track">
 
-  <!-- PLATFORM INFO -->
-  <section class="terms-snap">
-    <div class="eyebrow">Platform & community rules</div>
-    <div class="terms-grid">
-      <div class="term-item">
-        <div class="term-num">i</div>
-        <div>
-          <div class="term-title">Membership is curated</div>
-          <div class="term-desc">YANC reserves the right to approve, suspend, or terminate memberships to maintain the
-            quality and safety of our community.</div>
+        <!-- Value 1: Respect -->
+        <div class="value-card">
+          <h3 class="value-card-title"><em>Respect</em></h3>
+          <p class="value-card-desc">Treat everyone with dignity and value diverse perspectives.</p>
         </div>
-      </div>
-      <div class="term-item">
-        <div class="term-num">ii</div>
-        <div>
-          <div class="term-title">Respectful engagement</div>
-          <div class="term-desc">Members are expected to maintain professionalism. Harassment, discrimination, and
-            misconduct result in immediate removal.</div>
+
+        <!-- Value 2: Gratitude -->
+        <div class="value-card">
+          <h3 class="value-card-title"><em>Gratitude</em></h3>
+          <p class="value-card-desc">Fostering a culture of appreciation and support.</p>
         </div>
-      </div>
-      <div class="term-item">
-        <div class="term-num">iii</div>
-        <div>
-          <div class="term-title">Your data is protected</div>
-          <div class="term-desc">Your personal data is collected and processed as per our Privacy Policy and applicable
-            laws. We don't sell your information.</div>
+
+        <!-- Value 3: Resilience -->
+        <div class="value-card">
+          <h3 class="value-card-title"><em>Resilience</em></h3>
+          <p class="value-card-desc">Resilience is bouncing back stronger every time.</p>
         </div>
-      </div>
-      <div class="term-item">
-        <div class="term-num">iv</div>
-        <div>
-          <div class="term-title">Original content</div>
-          <div class="term-desc">All content on yanc.in — logos, text, videos, graphics — is owned by or licensed to
-            YANC. Please don't reproduce without permission.</div>
+
+        <!-- Value 4: Doing the Right Thing -->
+        <div class="value-card">
+          <h3 class="value-card-title">Doing the <em>Right Thing</em></h3>
+          <p class="value-card-desc">Act with integrity and make ethical decisions.</p>
         </div>
+
+        <!-- Value 5: Think Big, Start Small -->
+        <div class="value-card">
+          <h3 class="value-card-title">Think Big, <em>Start Small</em></h3>
+          <p class="value-card-desc">Dream ambitiously while taking actionable steps.</p>
+        </div>
+
+        <!-- Value 6: Purposeful Learning -->
+        <div class="value-card">
+          <h3 class="value-card-title">Purposeful <em>Learning</em></h3>
+          <p class="value-card-desc">Every lesson learned with purpose leads to meaningful change.</p>
+        </div>
+
+        <!-- Value 7: Fostering Connections -->
+        <div class="value-card">
+          <h3 class="value-card-title">Fostering <em>Connections</em></h3>
+          <p class="value-card-desc">Connections spark growth and fuel possibilities.</p>
+        </div>
+
+        <!-- DUPLICATE SET 1-7 FOR SEAMLESS 100% INFINITE LOOP -->
+        <!-- Value 1 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title"><em>Respect</em></h3>
+          <p class="value-card-desc">Treat everyone with dignity and value diverse perspectives.</p>
+        </div>
+
+        <!-- Value 2 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title"><em>Gratitude</em></h3>
+          <p class="value-card-desc">Fostering a culture of appreciation and support.</p>
+        </div>
+
+        <!-- Value 3 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title"><em>Resilience</em></h3>
+          <p class="value-card-desc">Resilience is bouncing back stronger every time.</p>
+        </div>
+
+        <!-- Value 4 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title">Doing the <em>Right Thing</em></h3>
+          <p class="value-card-desc">Act with integrity and make ethical decisions.</p>
+        </div>
+
+        <!-- Value 5 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title">Think Big, <em>Start Small</em></h3>
+          <p class="value-card-desc">Dream ambitiously while taking actionable steps.</p>
+        </div>
+
+        <!-- Value 6 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title">Purposeful <em>Learning</em></h3>
+          <p class="value-card-desc">Every lesson learned with purpose leads to meaningful change.</p>
+        </div>
+
+        <!-- Value 7 Duplicate -->
+        <div class="value-card" aria-hidden="true">
+          <h3 class="value-card-title">Fostering <em>Connections</em></h3>
+          <p class="value-card-desc">Connections spark growth and fuel possibilities.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1636,9 +2280,10 @@
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="#about">About YANC</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#join">Who can join</a></li>
-          <li><a href="#apply">Apply now</a></li>
+          <li><a href="Sections/Programs/value-proposition.html">Programs & Tracks</a></li>
+          <li><a href="Sections/Team/cohort-founders.html">Team & Leadership</a></li>
+          <li><a href="Sections/Programs/who-can-join.html">Who can join</a></li>
+          <li><a href="https://web.yanc.in/membership-application" target="_blank" rel="noopener noreferrer">Apply now</a></li>
         </ul>
       </div>
       <div>
@@ -1660,6 +2305,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- MENTOR MODAL LIGHTBOX -->
+  <div id="mentor-modal" aria-hidden="true" role="dialog" aria-label="Mentor Photo Preview">
+    <div class="mentor-modal-card">
+      <button class="mentor-modal-close" id="mentor-modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <img src="" alt="" class="mentor-modal-img" id="mentor-modal-img">
+      <div class="mentor-modal-overlay">
+        <h3 class="mentor-modal-name" id="mentor-modal-name"></h3>
+        <p class="mentor-modal-role" id="mentor-modal-role"></p>
+      </div>
+    </div>
+  </div>
 
   <script>
     const nav = document.getElementById('main-nav');
@@ -1714,30 +2376,71 @@
       });
     });
 
+    // ── MENTOR MODAL LIGHTBOX ──
+    const mentorModal = document.getElementById('mentor-modal');
+    const mentorModalImg = document.getElementById('mentor-modal-img');
+    const mentorModalName = document.getElementById('mentor-modal-name');
+    const mentorModalRole = document.getElementById('mentor-modal-role');
+    const mentorModalClose = document.getElementById('mentor-modal-close');
 
-    // ── CURSOR ──
-    const cur = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
+    function openMentorModal(card) {
+      const name = card.getAttribute('data-mentor-name') || '';
+      const role = card.getAttribute('data-mentor-role') || '';
+      const img = card.getAttribute('data-mentor-img') || '';
 
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cur.style.left = mx + 'px';
-      cur.style.top  = my + 'px';
+      mentorModalImg.src = img;
+      mentorModalImg.alt = name;
+      mentorModalName.textContent = name;
+      mentorModalRole.textContent = role;
+
+      mentorModal.classList.add('active');
+      mentorModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMentorModal() {
+      mentorModal.classList.remove('active');
+      mentorModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!mentorModal.classList.contains('active')) {
+          mentorModalImg.src = '';
+        }
+      }, 300);
+    }
+
+    document.querySelectorAll('.mentor-card').forEach(card => {
+      card.addEventListener('click', () => openMentorModal(card));
     });
 
-    function animRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animRing);
+    if (mentorModalClose) {
+      mentorModalClose.addEventListener('click', closeMentorModal);
     }
-    animRing();
 
-    document.querySelectorAll('a, button, .what-card, .who-card').forEach(el => {
-      el.addEventListener('mouseenter', () => cur.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+    if (mentorModal) {
+      mentorModal.addEventListener('click', (e) => {
+        if (e.target === mentorModal) {
+          closeMentorModal();
+        }
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mentorModal && mentorModal.classList.contains('active')) {
+        closeMentorModal();
+      }
+    });
+
+    // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href) return;
+      if (href.includes('web.yanc.in')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
     });
   </script>
 </body>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YANC Application & Access Hub — Apply for Membership, Discover Meet Registration, Mentor Registration, Startup Pitch, and Founder Circle.">
+  <title>Application &amp; Registration Hub | YANC — Yet Another Networking Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../header.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F8F5F0;
+      --bg2: #FFFFFF;
+      --ink: #111110;
+      --ink2: #5C5B58;
+      --ink3: #A09E9A;
+      --accent: #7C3AED;
+      --accent-light: #F0EBFF;
+      --accent-hover: #6D28D9;
+      --border: #E8E4DD;
+      --sand: #E8E0D0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(248, 245, 240, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-left-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 28px;
+    }
+
+    .nav-links-left {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-right-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 28px;
+    }
+
+    .nav-links-right {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-links a.has-dropdown::after {
+      content: '';
+      display: inline-block;
+      margin-left: 5px;
+      border-top: 3.5px solid var(--ink2);
+      border-right: 3.5px solid transparent;
+      border-left: 3.5px solid transparent;
+      border-bottom: 0;
+      transition: border-top-color 0.2s;
+    }
+
+    .nav-links a.has-dropdown:hover::after {
+      border-top-color: var(--ink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-login {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-login:hover {
+      color: var(--ink);
+    }
+
+    .nav-apply-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 76px 40px 48px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: inline-block;
+      background: var(--accent-light);
+      padding: 4px 14px;
+      border-radius: 100px;
+    }
+
+    .page-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .page-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .page-sub {
+      font-size: 16px;
+      color: var(--ink2);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── PORTALS CONTAINER & GRID ── */
+    .portal-container {
+      max-width: 1200px;
+      margin: 0 auto 100px;
+      padding: 0 40px;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .portal-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portal-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 10px 32px rgba(124, 58, 237, 0.09);
+    }
+
+    .portal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portal-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 16px 44px rgba(124, 58, 237, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .portal-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .icon-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .portal-card:hover .icon-badge {
+      transform: scale(1.08) rotate(3deg);
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .icon-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-num {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--sand);
+      font-weight: 500;
+    }
+
+    .portal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .portal-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .portal-desc {
+      font-size: 13.5px;
+      color: var(--ink2);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .btn-portal {
+      margin-top: 14px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-portal-primary {
+      background: var(--ink);
+      color: #FFFFFF;
+    }
+
+    .btn-portal-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.28);
+    }
+
+    .btn-portal-secondary {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .btn-portal-secondary:hover {
+      background: var(--ink);
+      color: #FFFFFF;
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* ── ASSISTANCE BANNER ── */
+    .help-banner {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 100%);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 38px 40px;
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .help-text h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .help-text p {
+      font-size: 14px;
+      color: var(--ink2);
+      max-width: 540px;
+    }
+
+    .help-actions {
+      display: flex;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .help-btn {
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .help-btn-mail {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .help-btn-mail:hover {
+      background: var(--accent);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .help-btn-faq {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .help-btn-faq:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 40px 40px 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #222;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: #666;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #777;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #444;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: white;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 992px) {
+      .portal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .help-banner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-right-container {
+        margin-left: 0;
+      }
+
+      .portal-container {
+        padding: 0 20px;
+      }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .help-btn {
+        justify-content: center;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <site-header root="../" active="application"></site-header>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <span class="eyebrow">Portals &amp; Registration</span>
+    <h1 class="page-headline">
+      Application &amp; Access <em>Hub</em>
+    </h1>
+    <p class="page-sub">
+      Select your designated portal below to apply for membership, register for upcoming events, join our mentor network, or submit a startup pitch.
+    </p>
+  </header>
+
+  <!-- PORTALS GRID -->
+  <main class="portal-container">
+    <div class="portal-grid">
+
+      <!-- Portal 1: Apply for YANC Membership -->
+      <article class="portal-card featured">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <span class="card-num">01</span>
+        </div>
+        <span class="portal-tag">Youth Cohort (15–28) &middot; Primary</span>
+        <h2 class="portal-title">Apply for YANC Membership</h2>
+        <p class="portal-desc">
+          Join our curated community of high-potential youth. Access monthly networking meetups, 1:1 mentor advisory, live projects, and startup incubation.
+        </p>
+        <a href="https://web.yanc.in/" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-primary">
+          Apply for Membership
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+      <!-- Portal 2: Discover Meet Registration -->
+      <article class="portal-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <span class="card-num">02</span>
+        </div>
+        <span class="portal-tag">Introductory Session</span>
+        <h2 class="portal-title">Discover Meet Registration</h2>
+        <p class="portal-desc">
+          Reserve your seat for the upcoming Discover Meet. Experience the YANC culture, interact directly with founders, and learn how our tracks work.
+        </p>
+        <a href="https://web.yanc.in/discover-meet-registration" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+          Register for Meet
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+      <!-- Portal 3: Discover Meet Feedback -->
+      <article class="portal-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <span class="card-num">03</span>
+        </div>
+        <span class="portal-tag">Community Feedback</span>
+        <h2 class="portal-title">Discover Meet Feedback</h2>
+        <p class="portal-desc">
+          Attended our recent session? Share your takeaways, suggestions, and feedback to help us continually elevate the YANC member experience.
+        </p>
+        <a href="https://web.yanc.in/discover-meet-feedback" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+          Submit Feedback
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+      <!-- Portal 4: Mentor Registration -->
+      <article class="portal-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <span class="card-num">04</span>
+        </div>
+        <span class="portal-tag">Advisory &amp; Mentorship</span>
+        <h2 class="portal-title">Mentor Registration</h2>
+        <p class="portal-desc">
+          Join our distinguished roster of industry mentors. Share your expertise, host Masterclasses, and advise rising young leaders and student builders.
+        </p>
+        <a href="https://web.yanc.in/mentor-registration" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+          Register as Mentor
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+      <!-- Portal 5: Startup Pitch -->
+      <article class="portal-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <span class="card-num">05</span>
+        </div>
+        <span class="portal-tag">Young Minds Mashup</span>
+        <h2 class="portal-title">Startup Pitch</h2>
+        <p class="portal-desc">
+          Have an innovative product idea or startup? Submit your pitch to qualify for seed grants, investor demo days, and structured incubation.
+        </p>
+        <a href="https://web.yanc.in/startup-pitch" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+          Submit Startup Pitch
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+      <!-- Portal 6: Founder Circle -->
+      <article class="portal-card">
+        <div class="card-top-row">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          </div>
+          <span class="card-num">06</span>
+        </div>
+        <span class="portal-tag">Founders Only &middot; Exclusive</span>
+        <h2 class="portal-title">Founder Circle</h2>
+        <p class="portal-desc">
+          An intimate peer advisory circle for active founders. Collaborate on growth strategies, cross-border expansion, and founder mental fitness.
+        </p>
+        <a href="https://web.yanc.in/founder-circle" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+          Join Founder Circle
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- ASSISTANCE BANNER -->
+    <section class="help-banner">
+      <div class="help-text">
+        <h3>Need assistance with your application?</h3>
+        <p>Our admissions and community team is here to assist you with any questions regarding tracks, dates, or eligibility.</p>
+      </div>
+      <div class="help-actions">
+        <a href="mailto:hello@yanc.in" class="help-btn help-btn-mail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact Admissions
+        </a>
+        <a href="faq.html" class="help-btn help-btn-faq">Browse FAQs</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">YANC<span>.</span></div>
+        <div class="footer-tagline">Yet Another Networking Club — Fostering connections, leadership, and boundless growth for ambitious minds.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="../index.html#about">About YANC</a></li>
+          <li><a href="Programs/value-proposition.html">Programs &amp; Offerings</a></li>
+          <li><a href="Team/cohort-founders.html">Team &amp; Leadership</a></li>
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <li><a href="application.html">Apply now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/yancclub" target="_blank">Instagram @yancclub</a></li>
+          <li><a href="https://instagram.com/oneyanc" target="_blank">Instagram @oneyanc</a></li>
+          <li><a href="https://twitter.com/YANCOfficial" target="_blank">Twitter @YANCOfficial</a></li>
+          <li><a href="https://yanc.in/tc.html" target="_blank">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2024 YANC &middot; Yet Another Networking Club &middot; Hyderabad, India</div>
+      <div class="footer-social">
+        <a href="https://instagram.com/yancclub" target="_blank">Instagram</a>
+        <a href="https://twitter.com/YANCOfficial" target="_blank">Twitter</a>
+        <a href="https://web.yanc.in" target="_blank">Web App</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href) return;
+      if (href.includes('web.yanc.in')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  </script>
+</body>
+
+</html>
