@@ -1,0 +1,746 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Member Login" [ref=e6] [cursor=pointer]:
+        - /url: https://web.yanc.in
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "About" [ref=e9] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=e10]:
+          - link "Programs" [ref=e11] [cursor=pointer]:
+            - /url: ./Sections/Programs/value-proposition.html
+        - listitem [ref=e12]:
+          - link "Team" [ref=e13] [cursor=pointer]:
+            - /url: ./Sections/Team/cohort-founders.html
+        - listitem [ref=e14]:
+          - link "Application" [ref=e15] [cursor=pointer]:
+            - /url: ./Sections/application.html
+    - link [ref=e16] [cursor=pointer]:
+      - /url: "#"
+      - img "YANC Logo" [ref=e17]
+    - generic [ref=e18]:
+      - list [ref=e19]:
+        - listitem [ref=e20]:
+          - link "Events" [ref=e21] [cursor=pointer]:
+            - /url: "#events"
+        - listitem [ref=e22]:
+          - link "Careers" [ref=e23] [cursor=pointer]:
+            - /url: https://web.yanc.in/careers
+        - listitem [ref=e24]:
+          - link "FAQs" [ref=e25] [cursor=pointer]:
+            - /url: ./Sections/faq.html
+        - listitem [ref=e26]:
+          - link "Contact" [ref=e27] [cursor=pointer]:
+            - /url: https://web.yanc.in/contact-us
+      - link "Apply" [ref=e29] [cursor=pointer]:
+        - /url: https://web.yanc.in/membership-application
+  - generic [ref=e31]:
+    - generic [ref=e32]:
+      - heading [level=1] [ref=e33]:
+        - text: Empowering
+        - emphasis [ref=e34]: young minds.
+      - paragraph [ref=e35]:
+        - text: Yet Another Networking Club — an
+        - strong [ref=e36]: exclusive experiential community
+        - text: for young minds. We get you ready for life through mentoring, coaching, and peer-to-peer connections.
+      - generic [ref=e37]:
+        - generic [ref=e38]: Life skills
+        - generic [ref=e39]: Networking
+        - generic [ref=e40]: Mentoring
+        - generic [ref=e41]: Leadership
+        - generic [ref=e42]: Peer learning
+        - generic [ref=e43]: Career readiness
+        - generic [ref=e44]: Public speaking
+        - generic [ref=e45]: Confidence
+    - generic [ref=e46]:
+      - img "Real Connections" [ref=e48]
+      - img "Life Skills" [ref=e50]
+      - img "Mentorship" [ref=e52]
+      - img "Peer Learning" [ref=e54]
+      - img "Community Events" [ref=e56]
+      - img "Workshops" [ref=e58]
+      - img "Confidence Building" [ref=e60]
+      - img "Leadership" [ref=e62]
+  - generic [ref=e63]: Yet Another Networking Club · Hyderabad
+  - generic [ref=e67]:
+    - generic [ref=e68]: Young Minds
+    - generic [ref=e69]: Networking
+    - generic [ref=e70]: Life Skills
+    - generic [ref=e71]: Mentoring
+    - generic [ref=e72]: Hyderabad
+    - generic [ref=e73]: 15–28 Years
+    - generic [ref=e74]: Peer Learning
+    - generic [ref=e75]: Exclusive Club
+    - generic [ref=e76]: Coaching
+    - generic [ref=e77]: Real Skills
+    - generic [ref=e78]: Real People
+    - generic [ref=e79]: YANC.IN
+    - generic [ref=e80]: Young Minds
+    - generic [ref=e81]: Networking
+    - generic [ref=e82]: Life Skills
+    - generic [ref=e83]: Mentoring
+    - generic [ref=e84]: Hyderabad
+    - generic [ref=e85]: 15–28 Years
+    - generic [ref=e86]: Peer Learning
+    - generic [ref=e87]: Exclusive Club
+    - generic [ref=e88]: Coaching
+    - generic [ref=e89]: Real Skills
+    - generic [ref=e90]: Real People
+    - generic [ref=e91]: YANC.IN
+  - generic [ref=e93]:
+    - generic [ref=e94]: About Us
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - heading [level=2] [ref=e97]:
+          - text: Empowering
+          - emphasis [ref=e98]: Young Minds
+          - text: through Life Skills
+        - generic [ref=e99]:
+          - paragraph [ref=e100]:
+            - strong [ref=e101]: Networking and life skills
+            - text: are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to
+            - emphasis [ref=e102]: job opportunities, partnerships, and mentorships
+            - text: while fostering knowledge sharing and professional growth.
+          - paragraph [ref=e103]:
+            - strong [ref=e104]: Life skills
+            - text: —such as
+            - emphasis [ref=e105]: communication, problem-solving, and emotional intelligence
+            - text: —are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - generic [ref=e108]: Our Vision
+          - heading "“Empowering young minds together.”" [level=3] [ref=e114]
+          - generic [ref=e115]: Collective Growth
+        - generic [ref=e117]:
+          - generic [ref=e118]: Our Mission
+          - heading "“Building better people for better tomorrow.”" [level=3] [ref=e124]
+          - generic [ref=e125]: Purpose & Impact
+  - generic [ref=e127]:
+    - generic [ref=e128]:
+      - generic [ref=e129]: Life at YANC
+      - heading [level=2] [ref=e130]:
+        - text: Moments of
+        - emphasis [ref=e131]: Innovation & Connection
+      - paragraph [ref=e132]: Explore the vibrant energy of our workshops, meetups, masterclasses, and collaborative milestones.
+    - group "Drifting wall of community moments" [ref=e134]:
+      - generic [ref=e135]:
+        - generic [ref=e137]:
+          - generic "YANC Community" [ref=e138] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e139] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e140] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e141] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e142] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+          - generic "YANC Community" [ref=e143] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e144] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e145] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e146] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e147] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+          - generic "YANC Community" [ref=e148] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e149] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e150] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e151] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e152] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+          - generic "YANC Community" [ref=e153] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e154] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e155] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e156] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e157] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+          - generic "YANC Community" [ref=e158] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e159] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e160] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e161] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e162] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+          - generic "YANC Community" [ref=e163] [cursor=pointer]:
+            - generic:
+              - img "YANC Community"
+          - generic "Hands-on Learning" [ref=e164] [cursor=pointer]:
+            - generic:
+              - img "Hands-on Learning"
+          - generic "Founder Circles" [ref=e165] [cursor=pointer]:
+            - generic:
+              - img "Founder Circles"
+          - generic "Interactive Sessions" [ref=e166] [cursor=pointer]:
+            - generic:
+              - img "Interactive Sessions"
+          - generic "Skill Building" [ref=e167] [cursor=pointer]:
+            - generic:
+              - img "Skill Building"
+        - generic [ref=e169]:
+          - generic "Workshop & Mentorship" [ref=e170] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e171] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e172] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e173] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e174] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+          - generic "Workshop & Mentorship" [ref=e175] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e176] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e177] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e178] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e179] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+          - generic "Workshop & Mentorship" [ref=e180] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e181] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e182] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e183] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e184] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+          - generic "Workshop & Mentorship" [ref=e185] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e186] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e187] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e188] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e189] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+          - generic "Workshop & Mentorship" [ref=e190] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e191] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e192] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e193] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e194] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+          - generic "Workshop & Mentorship" [ref=e195] [cursor=pointer]:
+            - generic:
+              - img "Workshop & Mentorship"
+          - generic "Masterclass Sessions" [ref=e196] [cursor=pointer]:
+            - generic:
+              - img "Masterclass Sessions"
+          - generic "Creative Brainstorming" [ref=e197] [cursor=pointer]:
+            - generic:
+              - img "Creative Brainstorming"
+          - generic "Mentorship Exchange" [ref=e198] [cursor=pointer]:
+            - generic:
+              - img "Mentorship Exchange"
+          - generic "Idea Exploration" [ref=e199] [cursor=pointer]:
+            - generic:
+              - img "Idea Exploration"
+        - generic [ref=e201]:
+          - generic "Young Innovators" [ref=e202] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e203] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e204] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e205] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e206] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+          - generic "Young Innovators" [ref=e207] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e208] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e209] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e210] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e211] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+          - generic "Young Innovators" [ref=e212] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e213] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e214] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e215] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e216] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+          - generic "Young Innovators" [ref=e217] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e218] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e219] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e220] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e221] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+          - generic "Young Innovators" [ref=e222] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e223] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e224] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e225] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e226] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+          - generic "Young Innovators" [ref=e227] [cursor=pointer]:
+            - generic:
+              - img "Young Innovators"
+          - generic "Cohort Discussions" [ref=e228] [cursor=pointer]:
+            - generic:
+              - img "Cohort Discussions"
+          - generic "Youth Leadership" [ref=e229] [cursor=pointer]:
+            - generic:
+              - img "Youth Leadership"
+          - generic "Collaborative Growth" [ref=e230] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Growth"
+          - generic "Future Leaders" [ref=e231] [cursor=pointer]:
+            - generic:
+              - img "Future Leaders"
+        - generic [ref=e233]:
+          - generic "Networking Meetup" [ref=e234] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e235] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e236] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e237] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e238] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+          - generic "Networking Meetup" [ref=e239] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e240] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e241] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e242] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e243] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+          - generic "Networking Meetup" [ref=e244] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e245] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e246] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e247] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e248] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+          - generic "Networking Meetup" [ref=e249] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e250] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e251] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e252] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e253] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+          - generic "Networking Meetup" [ref=e254] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e255] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e256] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e257] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e258] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+          - generic "Networking Meetup" [ref=e259] [cursor=pointer]:
+            - generic:
+              - img "Networking Meetup"
+          - generic "Collaborative Projects" [ref=e260] [cursor=pointer]:
+            - generic:
+              - img "Collaborative Projects"
+          - generic "Pitch Day" [ref=e261] [cursor=pointer]:
+            - generic:
+              - img "Pitch Day"
+          - generic "Community Bonding" [ref=e262] [cursor=pointer]:
+            - generic:
+              - img "Community Bonding"
+          - generic "Team Collaboration" [ref=e263] [cursor=pointer]:
+            - generic:
+              - img "Team Collaboration"
+  - generic [ref=e264]:
+    - generic [ref=e265]:
+      - generic [ref=e266]: Insights & Leadership
+      - heading [level=2] [ref=e267]:
+        - text: Mentor
+        - emphasis [ref=e268]: Talks
+      - paragraph [ref=e269]: Distinguished industry leaders, innovators, and changemakers guiding our community.
+    - generic "Mentor Talks Scrolling List" [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272] [cursor=pointer]:
+          - img "Daisuke Tanji" [ref=e274]
+          - generic [ref=e275]:
+            - heading "Daisuke Tanji" [level=3] [ref=e276]
+            - paragraph [ref=e277]: CEO - Indobox Inc, Japan
+        - generic [ref=e278] [cursor=pointer]:
+          - img "Dr. Lavanya NJP" [ref=e280]
+          - generic [ref=e281]:
+            - heading "Dr. Lavanya NJP" [level=3] [ref=e282]
+            - paragraph [ref=e283]: Deputy Commissioner of Police
+        - generic [ref=e284] [cursor=pointer]:
+          - img "Srinivas Rao Mahankali" [ref=e286]
+          - generic [ref=e287]:
+            - heading "Srinivas Rao Mahankali" [level=3] [ref=e288]
+            - paragraph [ref=e289]: Ex CEO, T-Hub
+        - generic [ref=e290] [cursor=pointer]:
+          - img "Uma Sudhir" [ref=e292]
+          - generic [ref=e293]:
+            - heading "Uma Sudhir" [level=3] [ref=e294]
+            - paragraph [ref=e295]: NDTV Award-Winning Journalist
+        - generic [ref=e296] [cursor=pointer]:
+          - img "Jayesh Ranjan, IAS" [ref=e298]
+          - generic [ref=e299]:
+            - heading "Jayesh Ranjan, IAS" [level=3] [ref=e300]
+            - paragraph [ref=e301]: Principal Secretary, I&C, IT
+        - generic [ref=e302] [cursor=pointer]:
+          - img "Praveen Dorna" [ref=e304]
+          - generic [ref=e305]:
+            - heading "Praveen Dorna" [level=3] [ref=e306]
+            - paragraph [ref=e307]: Founder, Startup Byte & Ecosystem Builder
+        - generic [ref=e308] [cursor=pointer]:
+          - img "Chaitanya Priyanka" [ref=e310]
+          - generic [ref=e311]:
+            - heading "Chaitanya Priyanka" [level=3] [ref=e312]
+            - paragraph [ref=e313]: Creative Director & Entrepreneur
+        - generic [ref=e314] [cursor=pointer]:
+          - img "Hari" [ref=e316]
+          - generic [ref=e317]:
+            - heading "Hari" [level=3] [ref=e318]
+            - paragraph [ref=e319]: Leadership & Strategy Mentor
+        - generic [ref=e320] [cursor=pointer]:
+          - img "Manoj" [ref=e322]
+          - generic [ref=e323]:
+            - heading "Manoj" [level=3] [ref=e324]
+            - paragraph [ref=e325]: Technology Entrepreneur & Advisor
+        - generic [ref=e326] [cursor=pointer]:
+          - img "Shoban Babu" [ref=e328]
+          - generic [ref=e329]:
+            - heading "Shoban Babu" [level=3] [ref=e330]
+            - paragraph [ref=e331]: Industry Mentor & Growth Advisor
+        - generic [ref=e332] [cursor=pointer]:
+          - img "Sravanth" [ref=e334]
+          - generic [ref=e335]:
+            - heading "Sravanth" [level=3] [ref=e336]
+            - paragraph [ref=e337]: Startup Mentor & Investor
+        - generic [ref=e338] [cursor=pointer]:
+          - img "Vijaya Lakshmi" [ref=e340]
+          - generic [ref=e341]:
+            - heading "Vijaya Lakshmi" [level=3] [ref=e342]
+            - paragraph [ref=e343]: Senior Mentor & Advisor
+        - generic [ref=e347] [cursor=pointer]:
+          - heading [level=3] [ref=e348]: Daisuke Tanji
+          - paragraph [ref=e349]: CEO - Indobox Inc, Japan
+        - generic [ref=e353] [cursor=pointer]:
+          - heading [level=3] [ref=e354]: Dr. Lavanya NJP
+          - paragraph [ref=e355]: Deputy Commissioner of Police
+        - generic [ref=e359] [cursor=pointer]:
+          - heading [level=3] [ref=e360]: Srinivas Rao Mahankali
+          - paragraph [ref=e361]: Ex CEO, T-Hub
+        - generic [ref=e365] [cursor=pointer]:
+          - heading [level=3] [ref=e366]: Uma Sudhir
+          - paragraph [ref=e367]: NDTV Award-Winning Journalist
+        - generic [ref=e371] [cursor=pointer]:
+          - heading [level=3] [ref=e372]: Jayesh Ranjan, IAS
+          - paragraph [ref=e373]: Principal Secretary, I&C, IT
+        - generic [ref=e377] [cursor=pointer]:
+          - heading [level=3] [ref=e378]: Praveen Dorna
+          - paragraph [ref=e379]: Founder, Startup Byte & Ecosystem Builder
+        - generic [ref=e383] [cursor=pointer]:
+          - heading [level=3] [ref=e384]: Chaitanya Priyanka
+          - paragraph [ref=e385]: Creative Director & Entrepreneur
+        - generic [ref=e389] [cursor=pointer]:
+          - heading [level=3] [ref=e390]: Hari
+          - paragraph [ref=e391]: Leadership & Strategy Mentor
+        - generic [ref=e395] [cursor=pointer]:
+          - heading [level=3] [ref=e396]: Manoj
+          - paragraph [ref=e397]: Technology Entrepreneur & Advisor
+        - generic [ref=e401] [cursor=pointer]:
+          - heading [level=3] [ref=e402]: Shoban Babu
+          - paragraph [ref=e403]: Industry Mentor & Growth Advisor
+        - generic [ref=e407] [cursor=pointer]:
+          - heading [level=3] [ref=e408]: Sravanth
+          - paragraph [ref=e409]: Startup Mentor & Investor
+        - generic [ref=e413] [cursor=pointer]:
+          - heading [level=3] [ref=e414]: Vijaya Lakshmi
+          - paragraph [ref=e415]: Senior Mentor & Advisor
+  - generic [ref=e417]:
+    - generic [ref=e418]:
+      - generic [ref=e419]: Our Principles
+      - heading [level=2] [ref=e420]:
+        - text: Core
+        - emphasis [ref=e421]: Values
+      - generic [ref=e422]:
+        - paragraph [ref=e423]: Our foundational principles guide everything we do and serve as the backbone of our mission and vision. These seven core values are more than just words—they represent the ideals that shape our community, influence our decisions, and inspire how we interact with one another and the world around us.
+        - paragraph [ref=e424]:
+          - text: Together, these principles define our organization's character. They encourage
+          - strong [ref=e425]: integrity, collaboration, responsibility
+          - text: ", and a commitment to growth and positive impact, empowering individuals to contribute, innovate, and support one another."
+    - generic [ref=e427]:
+      - list "Core Values 3D Spiral":
+        - listitem "Respect" [ref=e428] [cursor=pointer]:
+          - generic [ref=e429]: Principle 01
+          - heading [level=4] [ref=e430]:
+            - emphasis [ref=e431]: Respect
+          - paragraph [ref=e432]: Treat everyone with dignity and value diverse perspectives.
+        - listitem "Gratitude":
+          - generic: Principle 02
+          - heading "Gratitude" [level=4]:
+            - emphasis: Gratitude
+          - paragraph: Fostering a culture of appreciation and support.
+        - listitem "Resilience":
+          - generic: Principle 03
+          - heading "Resilience" [level=4]:
+            - emphasis: Resilience
+          - paragraph: Bouncing back stronger every time.
+        - listitem "Doing the Right Thing":
+          - generic: Principle 04
+          - heading "Doing the Right Thing" [level=4]:
+            - text: Doing the Right
+            - emphasis: Thing
+          - paragraph: Act with integrity and make ethical decisions.
+        - listitem "Think Big, Start Small":
+          - generic: Principle 05
+          - heading "Think Big, Start Small" [level=4]:
+            - text: Think Big, Start
+            - emphasis: Small
+          - paragraph: Dream ambitiously while taking actionable steps.
+        - listitem "Purposeful Learning":
+          - generic: Principle 06
+          - heading "Purposeful Learning" [level=4]:
+            - text: Purposeful
+            - emphasis: Learning
+          - paragraph: Every lesson learned with purpose leads to meaningful change.
+        - listitem "Fostering Connections":
+          - generic: Principle 07
+          - heading "Fostering Connections" [level=4]:
+            - text: Fostering
+            - emphasis: Connections
+          - paragraph: Connections spark growth and fuel possibilities.
+        - listitem "Respect":
+          - generic: Principle 01
+          - heading "Respect" [level=4]:
+            - emphasis: Respect
+          - paragraph: Treat everyone with dignity and value diverse perspectives.
+        - listitem "Gratitude":
+          - generic: Principle 02
+          - heading "Gratitude" [level=4]:
+            - emphasis: Gratitude
+          - paragraph: Fostering a culture of appreciation and support.
+        - listitem "Resilience":
+          - generic: Principle 03
+          - heading "Resilience" [level=4]:
+            - emphasis: Resilience
+          - paragraph: Bouncing back stronger every time.
+        - listitem "Doing the Right Thing" [ref=e516] [cursor=pointer]:
+          - generic [ref=e517]: Principle 04
+          - heading [level=4] [ref=e518]:
+            - text: Doing the Right
+            - emphasis [ref=e519]: Thing
+          - paragraph [ref=e520]: Act with integrity and make ethical decisions.
+        - listitem "Think Big, Start Small" [ref=e521] [cursor=pointer]:
+          - generic [ref=e522]: Principle 05
+          - heading [level=4] [ref=e523]:
+            - text: Think Big, Start
+            - emphasis [ref=e524]: Small
+          - paragraph [ref=e525]: Dream ambitiously while taking actionable steps.
+        - listitem "Purposeful Learning" [ref=e443] [cursor=pointer]:
+          - generic [ref=e444]: Principle 06
+          - heading [level=4] [ref=e445]:
+            - text: Purposeful
+            - emphasis [ref=e446]: Learning
+          - paragraph [ref=e447]: Every lesson learned with purpose leads to meaningful change.
+        - listitem "Fostering Connections" [ref=e448] [cursor=pointer]:
+          - generic [ref=e449]: Principle 07
+          - heading [level=4] [ref=e450]:
+            - text: Fostering
+            - emphasis [ref=e451]: Connections
+          - paragraph [ref=e452]: Connections spark growth and fuel possibilities.
+  - generic [ref=e453]:
+    - generic [ref=e454]: Limited spots · Applications open
+    - generic [ref=e455]: Ready to join YANC?
+    - generic [ref=e456]: Ages 15–28. Hyderabad. Free to join. Every application reviewed personally.
+    - generic [ref=e457]:
+      - textbox "your@email.com" [ref=e458]
+      - button "Apply now →" [ref=e459] [cursor=pointer]
+    - generic [ref=e460]: No spam. Just YANC. Parental consent required for under 18.
+  - contentinfo [ref=e461]:
+    - generic [ref=e462]:
+      - generic [ref=e463]:
+        - generic [ref=e464]: YANC
+        - generic [ref=e465]: Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+      - generic [ref=e466]:
+        - generic [ref=e467]: Navigate
+        - list [ref=e468]:
+          - listitem [ref=e469]:
+            - link "About YANC" [ref=e470] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e471]:
+            - link "Programs & Tracks" [ref=e472] [cursor=pointer]:
+              - /url: Sections/Programs/value-proposition.html
+          - listitem [ref=e473]:
+            - link "Team & Leadership" [ref=e474] [cursor=pointer]:
+              - /url: Sections/Team/cohort-founders.html
+          - listitem [ref=e475]:
+            - link "Who can join" [ref=e476] [cursor=pointer]:
+              - /url: Sections/Programs/who-can-join.html
+          - listitem [ref=e477]:
+            - link "Apply now" [ref=e478] [cursor=pointer]:
+              - /url: https://web.yanc.in/membership-application
+      - generic [ref=e479]:
+        - generic [ref=e480]: Connect
+        - list [ref=e481]:
+          - listitem [ref=e482]:
+            - link "Instagram @yancclub" [ref=e483] [cursor=pointer]:
+              - /url: https://instagram.com/yancclub
+          - listitem [ref=e484]:
+            - link "Instagram @oneyanc" [ref=e485] [cursor=pointer]:
+              - /url: https://instagram.com/oneyanc
+          - listitem [ref=e486]:
+            - link "Twitter @YANCOfficial" [ref=e487] [cursor=pointer]:
+              - /url: https://twitter.com/YANCOfficial
+          - listitem [ref=e488]:
+            - link "Terms & Conditions" [ref=e489] [cursor=pointer]:
+              - /url: https://yanc.in/tc.html
+    - generic [ref=e490]:
+      - generic [ref=e491]: © 2024 YANC · Yet Another Networking Club · Hyderabad, India
+      - generic [ref=e492]:
+        - link "Instagram" [ref=e493] [cursor=pointer]:
+          - /url: https://instagram.com/yancclub
+        - link "Twitter" [ref=e494] [cursor=pointer]:
+          - /url: https://twitter.com/YANCOfficial
+        - link "Web App" [ref=e495] [cursor=pointer]:
+          - /url: https://web.yanc.in
+  - dialog [aria-hidden]:
+    - generic:
+      - button

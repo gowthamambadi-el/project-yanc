@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="YANC Application & Access Hub — Apply for Membership, Discover Meet Registration, Mentor Registration, Startup Pitch, and Founder Circle.">
-  <title>Application &amp; Registration Hub | YANC — Yet Another Networking Club</title>
+  <meta name="description" content="YANC Events & Initiatives — Discover Meet Registration, Young Minds Mashup Startup Pitch, and Exclusive Founder Circle.">
+  <title>Events &amp; Initiatives | YANC — Yet Another Networking Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="../header.js"></script>
   <link rel="stylesheet" href="../footer.css">
   <script src="../footer.js" defer></script>
@@ -43,8 +44,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-
 
     /* ── NAVIGATION ── */
     nav {
@@ -186,7 +185,7 @@
       margin-bottom: 12px;
       display: inline-block;
       background: var(--accent-light);
-      padding: 4px 14px;
+      padding: 5px 16px;
       border-radius: 100px;
     }
 
@@ -197,7 +196,7 @@
       line-height: 1.05;
       letter-spacing: -1.5px;
       color: var(--ink);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .page-headline em {
@@ -208,29 +207,56 @@
     .page-sub {
       font-size: 16px;
       color: var(--ink2);
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* ── PORTALS CONTAINER & GRID ── */
-    .portal-container {
+    /* ── SECTION HEADINGS ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--ink2);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── INITIATIVES SECTION ── */
+    .initiatives-container {
       max-width: 1200px;
-      margin: 0 auto 100px;
+      margin: 0 auto 90px;
       padding: 0 40px;
     }
 
-    .portal-grid {
+    .initiatives-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
     }
 
-    .portal-card {
+    .initiative-card {
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 34px 28px;
+      padding: 36px 30px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -240,12 +266,7 @@
       overflow: hidden;
     }
 
-    .portal-card.featured {
-      border-color: var(--accent);
-      box-shadow: 0 10px 32px rgba(255, 145, 76, 0.09);
-    }
-
-    .portal-card::before {
+    .initiative-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -257,13 +278,13 @@
       transition: opacity 0.3s ease;
     }
 
-    .portal-card:hover {
+    .initiative-card:hover {
       border-color: var(--accent);
       box-shadow: 0 16px 44px rgba(255, 145, 76, 0.12);
-      transform: translateY(-4px);
+      transform: translateY(-5px);
     }
 
-    .portal-card:hover::before {
+    .initiative-card:hover::before {
       opacity: 1;
     }
 
@@ -271,12 +292,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .icon-badge {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       border-radius: 14px;
       background: var(--accent-light);
       display: flex;
@@ -286,15 +307,15 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .portal-card:hover .icon-badge {
+    .initiative-card:hover .icon-badge {
       transform: scale(1.08) rotate(3deg);
       background: var(--accent);
       color: #FFFFFF;
     }
 
     .icon-badge svg {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       fill: none;
       stroke: currentColor;
       stroke-width: 2;
@@ -305,12 +326,12 @@
     .card-num {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
-      font-size: 24px;
+      font-size: 28px;
       color: var(--sand);
       font-weight: 500;
     }
 
-    .portal-tag {
+    .initiative-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -318,30 +339,31 @@
       font-weight: 600;
       color: var(--accent);
       background: var(--accent-light);
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 6px;
       width: fit-content;
+      letter-spacing: 0.02em;
     }
 
-    .portal-title {
-      font-size: 20px;
+    .initiative-title {
+      font-size: 22px;
       font-weight: 600;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
       color: var(--ink);
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
-    .portal-desc {
-      font-size: 13.5px;
+    .initiative-desc {
+      font-size: 14px;
       color: var(--ink2);
-      line-height: 1.6;
+      line-height: 1.65;
       flex-grow: 1;
     }
 
-    .btn-portal {
+    .btn-initiative {
       margin-top: 14px;
       width: 100%;
-      padding: 12px 20px;
+      padding: 13px 22px;
       border-radius: 12px;
       font-size: 13.5px;
       font-weight: 600;
@@ -351,43 +373,98 @@
       justify-content: center;
       gap: 8px;
       transition: all 0.2s ease;
-    }
-
-    .btn-portal-primary {
       background: var(--ink);
       color: #FFFFFF;
     }
 
-    .btn-portal-primary:hover {
+    .btn-initiative:hover {
       background: var(--accent);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 145, 76, 0.28);
     }
 
-    .btn-portal-secondary {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--ink);
+    /* ── WHAT TO EXPECT ── */
+    .features-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 40px;
+      margin-bottom: 80px;
     }
 
-    .btn-portal-secondary:hover {
-      background: var(--ink);
-      color: #FFFFFF;
-      border-color: var(--ink);
-      transform: translateY(-2px);
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature-item {
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+    }
+
+    .feature-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
     }
 
     /* ── ASSISTANCE BANNER ── */
+    .help-banner-wrapper {
+      max-width: 1200px;
+      margin: 0 auto 90px;
+      padding: 0 40px;
+    }
+
     .help-banner {
       background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 100%);
       border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 38px 40px;
-      margin-top: 48px;
+      padding: 38px 44px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
 
     .help-text h3 {
@@ -401,17 +478,17 @@
     .help-text p {
       font-size: 14px;
       color: var(--ink2);
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .help-actions {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       white-space: nowrap;
     }
 
     .help-btn {
-      padding: 10px 22px;
+      padding: 11px 24px;
       border-radius: 100px;
       font-size: 13px;
       font-weight: 600;
@@ -445,93 +522,12 @@
       transform: translateY(-2px);
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 40px 40px 32px;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 36px;
-      border-bottom: 1px solid #222;
-      margin-bottom: 28px;
-    }
-
-    .footer-brand {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-size: 24px;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .footer-brand span {
-      color: var(--accent);
-    }
-
-    .footer-tagline {
-      font-size: 13px;
-      color: #666;
-      max-width: 280px;
-      line-height: 1.5;
-    }
-
-    .footer-col-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #555;
-      margin-bottom: 14px;
-      font-weight: 600;
-    }
-
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: #777;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #444;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
-
-    .footer-social a {
-      color: #444;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-social a:hover {
-      color: white;
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 992px) {
-      .portal-grid {
+      .initiatives-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .features-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .help-banner {
@@ -557,11 +553,14 @@
         margin-left: 0;
       }
 
-      .portal-container {
+      .initiatives-container,
+      .features-section,
+      .help-banner-wrapper {
         padding: 0 20px;
       }
 
-      .portal-grid {
+      .initiatives-grid,
+      .features-grid {
         grid-template-columns: 1fr;
       }
 
@@ -573,17 +572,6 @@
       .help-btn {
         justify-content: center;
       }
-
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -591,165 +579,149 @@
 <body>
 
   <!-- NAVIGATION -->
-  <site-header root="../" active="application"></site-header>
+  <site-header root="../" active="events"></site-header>
 
   <!-- PAGE HERO -->
   <header class="page-hero">
-    <span class="eyebrow">Portals &amp; Registration</span>
+    <span class="eyebrow">Flagship Gatherings &amp; Access</span>
     <h1 class="page-headline">
-      Application &amp; Access <em>Hub</em>
+      YANC <em>Initiatives</em>
     </h1>
     <p class="page-sub">
-      Select your designated portal below to apply for membership, register for upcoming events, join our mentor network, or submit a startup pitch.
+      Experience our curated experiential meetups, startup pitch stages, and exclusive founder advisory circles designed to accelerate high-potential young minds.
     </p>
   </header>
 
-  <!-- PORTALS GRID -->
-  <main class="portal-container">
-    <div class="portal-grid">
+  <!-- INITIATIVES GRID -->
+  <main class="initiatives-container">
+    <div class="initiatives-grid">
 
-      <!-- Portal 1: Apply for YANC Membership -->
-      <article class="portal-card featured">
-        <div class="card-top-row">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <span class="card-num">01</span>
-        </div>
-        <span class="portal-tag">Youth Cohort (15–28) &middot; Primary</span>
-        <h2 class="portal-title">Apply for YANC Membership</h2>
-        <p class="portal-desc">
-          Join our curated community of high-potential youth. Access monthly networking meetups, 1:1 mentor advisory, live projects, and startup incubation.
-        </p>
-        <a href="https://web.yanc.in/" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-primary">
-          Apply for Membership
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-      </article>
-
-      <!-- Portal 2: Discover Meet Registration -->
-      <article class="portal-card">
+      <!-- Initiative 1: Discover Meet Registration -->
+      <article class="initiative-card">
         <div class="card-top-row">
           <div class="icon-badge">
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
           </div>
           <span class="card-num">02</span>
         </div>
-        <span class="portal-tag">Introductory Session</span>
-        <h2 class="portal-title">Discover Meet Registration</h2>
-        <p class="portal-desc">
+        <span class="initiative-tag">Introductory Session</span>
+        <h2 class="initiative-title">Discover Meet Registration</h2>
+        <p class="initiative-desc">
           Reserve your seat for the upcoming Discover Meet. Experience the YANC culture, interact directly with founders, and learn how our tracks work.
         </p>
-        <a href="https://web.yanc.in/discover-meet-registration" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+        <a href="https://web.yanc.in/discover-meet-registration" target="_blank" rel="noopener noreferrer" class="btn-initiative">
           Register for Meet
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
         </a>
       </article>
 
-      <!-- Portal 3: Discover Meet Feedback -->
-      <article class="portal-card">
-        <div class="card-top-row">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          </div>
-          <span class="card-num">03</span>
-        </div>
-        <span class="portal-tag">Community Feedback</span>
-        <h2 class="portal-title">Discover Meet Feedback</h2>
-        <p class="portal-desc">
-          Attended our recent session? Share your takeaways, suggestions, and feedback to help us continually elevate the YANC member experience.
-        </p>
-        <a href="https://web.yanc.in/discover-meet-feedback" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
-          Submit Feedback
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-      </article>
-
-      <!-- Portal 4: Mentor Registration -->
-      <article class="portal-card">
-        <div class="card-top-row">
-          <div class="icon-badge">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          </div>
-          <span class="card-num">04</span>
-        </div>
-        <span class="portal-tag">Advisory &amp; Mentorship</span>
-        <h2 class="portal-title">Mentor Registration</h2>
-        <p class="portal-desc">
-          Join our distinguished roster of industry mentors. Share your expertise, host Masterclasses, and advise rising young leaders and student builders.
-        </p>
-        <a href="https://web.yanc.in/mentor-registration" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
-          Register as Mentor
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-      </article>
-
-      <!-- Portal 5: Startup Pitch -->
-      <article class="portal-card">
+      <!-- Initiative 2: Startup Pitch -->
+      <article class="initiative-card">
         <div class="card-top-row">
           <div class="icon-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
           </div>
-          <span class="card-num">05</span>
+          <span class="card-num">04</span>
         </div>
-        <span class="portal-tag">Young Minds Mashup</span>
-        <h2 class="portal-title">Startup Pitch</h2>
-        <p class="portal-desc">
+        <span class="initiative-tag">Young Minds Mashup</span>
+        <h2 class="initiative-title">Startup Pitch</h2>
+        <p class="initiative-desc">
           Have an innovative product idea or startup? Submit your pitch to qualify for seed grants, investor demo days, and structured incubation.
         </p>
-        <a href="https://web.yanc.in/startup-pitch" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+        <a href="https://web.yanc.in/startup-pitch" target="_blank" rel="noopener noreferrer" class="btn-initiative">
           Submit Startup Pitch
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
         </a>
       </article>
 
-      <!-- Portal 6: Founder Circle -->
-      <article class="portal-card">
+      <!-- Initiative 3: Founder Circle -->
+      <article class="initiative-card">
         <div class="card-top-row">
           <div class="icon-badge">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
           </div>
           <span class="card-num">06</span>
         </div>
-        <span class="portal-tag">Founders Only &middot; Exclusive</span>
-        <h2 class="portal-title">Founder Circle</h2>
-        <p class="portal-desc">
+        <span class="initiative-tag">Founders Only &middot; Exclusive</span>
+        <h2 class="initiative-title">Founder Circle</h2>
+        <p class="initiative-desc">
           An intimate peer advisory circle for active founders. Collaborate on growth strategies, cross-border expansion, and founder mental fitness.
         </p>
-        <a href="https://web.yanc.in/founder-circle" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-secondary">
+        <a href="https://web.yanc.in/founder-circle" target="_blank" rel="noopener noreferrer" class="btn-initiative">
           Join Founder Circle
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
         </a>
       </article>
 
     </div>
+  </main>
 
-    <!-- ASSISTANCE BANNER -->
+  <!-- WHAT TO EXPECT AT YANC EVENTS -->
+  <section class="features-section">
+    <div class="features-inner">
+      <div class="section-header">
+        <h2 class="section-title">What to Expect at <em>YANC Gatherings</em></h2>
+        <p class="section-desc">Every event is intentionally structured to maximize peer learning, candid insights, and real opportunities.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="feature-title">Curated Cohorts</h3>
+          <p class="feature-desc">Small group settings capped to preserve discussion quality, trust, and deep authentic networking.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <h3 class="feature-title">Unfiltered Dialogues</h3>
+          <p class="feature-desc">Off-the-record discussions, case breakdowns, and real experiences from seasoned founders and operators.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <h3 class="feature-title">Direct Mentor Access</h3>
+          <p class="feature-desc">Interact 1-on-1 with industry leaders without gatekeepers, pitch barriers, or bureaucracy.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3 class="feature-title">Actionable Growth</h3>
+          <p class="feature-desc">Leave every session with tangible frameworks, vetted partner connections, and immediate next steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSISTANCE BANNER -->
+  <div class="help-banner-wrapper">
     <section class="help-banner">
       <div class="help-text">
-        <h3>Need assistance with your application?</h3>
-        <p>Our admissions and community team is here to assist you with any questions regarding tracks, dates, or eligibility.</p>
+        <h3>Have questions about attending or hosting an initiative?</h3>
+        <p>Our events and community management team is available to help with scheduling, guest passes, and partnership opportunities.</p>
       </div>
       <div class="help-actions">
-        <a href="mailto:hello@yanc.in" class="help-btn help-btn-mail">
+        <a href="mailto:events@yanc.in" class="help-btn help-btn-mail">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Contact Admissions
+          Contact Events Team
         </a>
         <a href="faq.html" class="help-btn help-btn-faq">Browse FAQs</a>
       </div>
     </section>
-  </main>
+  </div>
 
   <!-- CENTRALIZED FOOTER -->
   <site-footer root="../"></site-footer>
 
   <!-- SCRIPT -->
   <script>
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
     // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
     document.addEventListener('click', e => {
       const link = e.target.closest('a');

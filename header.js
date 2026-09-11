@@ -12,7 +12,7 @@ class SiteHeader extends HTMLElement {
 
     const isRoot = root === './' || root === '';
     const aboutHref = isRoot ? '#about' : `${root}index.html#about`;
-    const eventsHref = isRoot ? '#events' : `${root}index.html#events`;
+    const eventsHref = `${root}Sections/events.html`;
     const homeHref = isRoot ? '#' : `${root}index.html`;
 
     this.innerHTML = `
@@ -38,7 +38,7 @@ class SiteHeader extends HTMLElement {
         <!-- Right column: Navigation Links & Actions -->
         <div class="nav-right-container">
           <ul class="nav-links nav-links-right">
-            <li><a href="${eventsHref}">Events</a></li>
+            <li><a href="${eventsHref}" class="${active === 'events' ? 'active' : ''}">Events</a></li>
             <li><a href="https://web.yanc.in/careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
             <li><a href="${root}Sections/faq.html" class="${active === 'faq' ? 'active' : ''}">FAQs</a></li>
             <li><a href="https://web.yanc.in/contact-us" target="_blank" rel="noopener noreferrer">Contact</a></li>

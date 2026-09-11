@@ -1,0 +1,327 @@
+- generic [active] [ref=f8e1]:
+  - navigation [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - link "Member Login" [ref=f8e6] [cursor=pointer]:
+        - /url: https://web.yanc.in
+      - list [ref=f8e7]:
+        - listitem [ref=f8e8]:
+          - link "About" [ref=f8e9] [cursor=pointer]:
+            - /url: ../../index.html#about
+        - listitem [ref=f8e10]:
+          - link "Programs" [ref=f8e11] [cursor=pointer]:
+            - /url: ../../Sections/Programs/value-proposition.html
+        - listitem [ref=f8e12]:
+          - link "Team" [ref=f8e13] [cursor=pointer]:
+            - /url: ../../Sections/Team/cohort-founders.html
+        - listitem [ref=f8e14]:
+          - link "Application" [ref=f8e15] [cursor=pointer]:
+            - /url: ../../Sections/application.html
+    - link [ref=f8e16] [cursor=pointer]:
+      - /url: ../../index.html
+      - img "YANC Logo" [ref=f8e17]
+    - generic [ref=f8e18]:
+      - list [ref=f8e19]:
+        - listitem [ref=f8e20]:
+          - link "Events" [ref=f8e21] [cursor=pointer]:
+            - /url: ../../index.html#events
+        - listitem [ref=f8e22]:
+          - link "Careers" [ref=f8e23] [cursor=pointer]:
+            - /url: https://web.yanc.in/careers
+        - listitem [ref=f8e24]:
+          - link "FAQs" [ref=f8e25] [cursor=pointer]:
+            - /url: ../../Sections/faq.html
+        - listitem [ref=f8e26]:
+          - link "Contact" [ref=f8e27] [cursor=pointer]:
+            - /url: https://web.yanc.in/contact-us
+      - link "Apply" [ref=f8e29] [cursor=pointer]:
+        - /url: https://web.yanc.in/membership-application
+  - banner [ref=f8e30]:
+    - generic [ref=f8e31]:
+      - generic [ref=f8e32]: Legal & Compliance Portal
+      - heading [level=1] [ref=f8e35]:
+        - text: Terms &
+        - emphasis [ref=f8e36]: Conditions
+      - generic [ref=f8e37]:
+        - generic [ref=f8e38]: "Effective Date: February 27, 2025"
+        - generic [ref=f8e40]: "Entity: YANC ENTERPRISES"
+        - generic [ref=f8e41]: "Platform: www.yanc.in"
+      - textbox "Search clauses, keywords, or obligations..." [ref=f8e43]
+  - main [ref=f8e44]:
+    - complementary [ref=f8e45]:
+      - generic [ref=f8e46]:
+        - generic [ref=f8e47]: All Legal Documents
+        - list [ref=f8e48]:
+          - listitem [ref=f8e49]:
+            - link "Terms & Conditions" [ref=f8e50] [cursor=pointer]:
+              - /url: terms-and-conditions.html
+          - listitem [ref=f8e54]:
+            - link "Privacy Policy" [ref=f8e55] [cursor=pointer]:
+              - /url: privacy-policy.html
+          - listitem [ref=f8e59]:
+            - link "Cookie Policy" [ref=f8e60] [cursor=pointer]:
+              - /url: cookie-policy.html
+          - listitem [ref=f8e64]:
+            - link "Refund Policy" [ref=f8e65] [cursor=pointer]:
+              - /url: refund-policy.html
+      - generic [ref=f8e69]:
+        - generic [ref=f8e70]: Table of Contents
+        - navigation [ref=f8e71]:
+          - link "1. Introduction" [ref=f8e72] [cursor=pointer]:
+            - /url: "#sec-1"
+          - link "2. Eligibility" [ref=f8e73] [cursor=pointer]:
+            - /url: "#sec-2"
+          - link "3. User Responsibilities" [ref=f8e74] [cursor=pointer]:
+            - /url: "#sec-3"
+          - link "4. Membership & Account" [ref=f8e75] [cursor=pointer]:
+            - /url: "#sec-4"
+          - link "5. Intellectual Property" [ref=f8e76] [cursor=pointer]:
+            - /url: "#sec-5"
+          - link "6. Privacy & Data Protection" [ref=f8e77] [cursor=pointer]:
+            - /url: "#sec-6"
+          - link "7. Code of Conduct" [ref=f8e78] [cursor=pointer]:
+            - /url: "#sec-7"
+          - link "8. Third-Party Links & Services" [ref=f8e79] [cursor=pointer]:
+            - /url: "#sec-8"
+          - link "9. Limitation of Liability" [ref=f8e80] [cursor=pointer]:
+            - /url: "#sec-9"
+          - link "10. Modifications to Terms" [ref=f8e81] [cursor=pointer]:
+            - /url: "#sec-10"
+          - link "11. Termination" [ref=f8e82] [cursor=pointer]:
+            - /url: "#sec-11"
+          - link "12. Governing Law & Jurisdiction" [ref=f8e83] [cursor=pointer]:
+            - /url: "#sec-12"
+          - link "13. Contact Us" [ref=f8e84] [cursor=pointer]:
+            - /url: "#sec-13"
+    - article [ref=f8e85]:
+      - generic [ref=f8e86]:
+        - heading "01 Introduction & Scope" [level=2] [ref=f8e87]:
+          - generic [ref=f8e88]: "01"
+          - text: Introduction & Scope
+        - paragraph [ref=f8e89]:
+          - text: Welcome to
+          - strong [ref=f8e90]: YANC ENTERPRISES
+          - text: (“YANC”, “we”, “our”, or “us”). These Terms & Conditions (“Terms”) govern your access to and use of our official website (
+          - link "www.yanc.in" [ref=f8e91] [cursor=pointer]:
+            - /url: https://www.yanc.in
+          - text: ), web applications, cohort memberships, offline meetups, and associated services.
+        - paragraph [ref=f8e92]: By accessing or using our platform, submitting an application, or attending YANC events, you acknowledge that you have read, understood, and agreed to be bound by these Terms. If you do not agree, you must refrain from using the platform and its services.
+      - generic [ref=f8e93]:
+        - heading "02 Eligibility & Age Requirements" [level=2] [ref=f8e94]:
+          - generic [ref=f8e95]: "02"
+          - text: Eligibility & Age Requirements
+        - paragraph [ref=f8e96]:
+          - text: YANC is curated specifically for ambitious young minds. Membership and participation are strictly open to individuals aged
+          - strong [ref=f8e97]: 15 to 28 years
+          - text: at the time of application.
+        - generic [ref=f8e102]:
+          - strong [ref=f8e103]: "Parental / Guardian Consent:"
+          - text: Applicants under 18 years of age are required to obtain express parental or legal guardian consent prior to final onboarding and cohort fee payment.
+        - paragraph [ref=f8e104]: You represent and warrant that all information submitted during the registration, screening, and interview stages is accurate, current, and truthful. Providing false identification or inaccurate details constitutes grounds for immediate application rejection or revocation of membership.
+      - generic [ref=f8e105]:
+        - heading "03 User Responsibilities" [level=2] [ref=f8e106]:
+          - generic [ref=f8e107]: "03"
+          - text: User Responsibilities
+        - paragraph [ref=f8e108]: "As a user or cohort member of YANC, you agree to maintain a high standard of professional and personal integrity. You agree that you shall NOT:"
+        - list [ref=f8e109]:
+          - listitem [ref=f8e110]: Post, transmit, or share any abusive, offensive, defamatory, obscene, or unlawful content across YANC digital groups, events, or workshops.
+          - listitem [ref=f8e111]: Engage in spamming, unsolicited commercial marketing, scraping, or mass distribution of promotional materials to other members.
+          - listitem [ref=f8e112]: Attempt to hack, breach, probe, or disrupt any digital infrastructure, servers, databases, or networks belonging to YANC.
+          - listitem [ref=f8e113]: Impersonate any individual, organization, mentor, executive, or fellow club member.
+          - listitem [ref=f8e114]: Engage in unauthorized photography, video recording, or distribution of internal confidential sessions without prior written authorization.
+      - generic [ref=f8e115]:
+        - heading "04 Membership & Account Security" [level=2] [ref=f8e116]:
+          - generic [ref=f8e117]: "04"
+          - text: Membership & Account Security
+        - paragraph [ref=f8e118]: Application and acceptance into YANC are subject to selective screening and cohort capacity limits. YANC reserves the exclusive right to approve, waitlist, suspend, or terminate any account or membership application at its sole discretion.
+        - paragraph [ref=f8e119]:
+          - text: You are solely responsible for maintaining the confidentiality of your login credentials, magic links, or account access tokens. Any activity conducted under your registered account is deemed to be executed by you. You must immediately notify YANC at
+          - link "connect@yanc.in" [ref=f8e120] [cursor=pointer]:
+            - /url: mailto:connect@yanc.in
+          - text: upon suspecting any unauthorized access.
+      - generic [ref=f8e121]:
+        - heading "05 Intellectual Property Rights" [level=2] [ref=f8e122]:
+          - generic [ref=f8e123]: "05"
+          - text: Intellectual Property Rights
+        - paragraph [ref=f8e124]:
+          - text: All trademarks, service marks, brand names, visual logos, interface designs, curriculum materials, proprietary masterclasses, and digital media hosted on www.yanc.in are the sole intellectual property of
+          - strong [ref=f8e125]: YANC ENTERPRISES
+          - text: or its licensors.
+        - paragraph [ref=f8e126]: No content, workshop frameworks, or community recordings may be reproduced, modified, republished, distributed, or commercially exploited without prior written consent from YANC management.
+      - generic [ref=f8e127]:
+        - heading "06 Privacy & Data Protection" [level=2] [ref=f8e128]:
+          - generic [ref=f8e129]: "06"
+          - text: Privacy & Data Protection
+        - paragraph [ref=f8e130]:
+          - text: Your privacy is paramount. All personal data collected through applications, surveys, onboarding forms, and event participation is processed in strict compliance with our
+          - link "Privacy Policy" [ref=f8e131] [cursor=pointer]:
+            - /url: privacy-policy.html
+          - text: and applicable Indian data protection legislation (including the Digital Personal Data Protection Act 2023).
+      - generic [ref=f8e132]:
+        - heading "07 Code of Conduct & Zero Tolerance" [level=2] [ref=f8e133]:
+          - generic [ref=f8e134]: "07"
+          - text: Code of Conduct & Zero Tolerance
+        - generic [ref=f8e139]:
+          - strong [ref=f8e140]: "Zero Tolerance Policy:"
+          - text: YANC enforces an absolute zero-tolerance standard against harassment, bullying, sexual misconduct, hate speech, discrimination (on grounds of race, caste, gender, religion, or orientation), or physical/verbal intimidation.
+        - paragraph [ref=f8e141]:
+          - text: Any member found in breach of this Code of Conduct will face
+          - strong [ref=f8e142]: immediate expulsion
+          - text: ", forfeiture of cohort membership with zero refund, and potential escalation to law enforcement authorities."
+      - generic [ref=f8e143]:
+        - heading "08 Third-Party Links & External Services" [level=2] [ref=f8e144]:
+          - generic [ref=f8e145]: "08"
+          - text: Third-Party Links & External Services
+        - paragraph [ref=f8e146]: Our platform may feature links to external websites, third-party mentors, event venues, ticketing tools, or job portals. These links are provided solely for your convenience. YANC does not control, endorse, or accept liability for the content, privacy practices, or accuracy of third-party platforms.
+      - generic [ref=f8e147]:
+        - heading "09 Limitation of Liability" [level=2] [ref=f8e148]:
+          - generic [ref=f8e149]: "09"
+          - text: Limitation of Liability
+        - paragraph [ref=f8e150]: To the maximum extent permitted by applicable Indian law, YANC ENTERPRISES, its directors, officers, mentors, and partners shall not be held liable for any direct, indirect, incidental, punitive, or consequential damages resulting from your use of or inability to use the platform, event participation, or interpersonal interactions between members.
+        - paragraph [ref=f8e151]: While we strive for high uptime and smooth operations, services are provided on an “as-is” and “as-available” basis without warranties of any kind.
+      - generic [ref=f8e152]:
+        - heading "10 Modifications to Terms" [level=2] [ref=f8e153]:
+          - generic [ref=f8e154]: "10"
+          - text: Modifications to Terms
+        - paragraph [ref=f8e155]: YANC reserves the right to review, modify, or update these Terms at any time. Material revisions will be posted on this page with an updated Effective Date. Your continued use of the website or attendance at club activities after updates are published constitutes binding acceptance.
+      - generic [ref=f8e156]:
+        - heading "11 Termination & Account Deletion" [level=2] [ref=f8e157]:
+          - generic [ref=f8e158]: "11"
+          - text: Termination & Account Deletion
+        - paragraph [ref=f8e159]: We may suspend or terminate your membership immediately without prior notice in the event of Terms violations, misconduct, or fraudulent activities.
+        - paragraph [ref=f8e160]:
+          - text: Members who wish to voluntarily terminate their membership or request record deletion may submit a written notice to
+          - link "connect@yanc.in" [ref=f8e161] [cursor=pointer]:
+            - /url: mailto:connect@yanc.in
+          - text: . Financial provisions upon termination are governed by our
+          - link "Refund Policy" [ref=f8e162] [cursor=pointer]:
+            - /url: refund-policy.html
+          - text: .
+      - generic [ref=f8e163]:
+        - heading "12 Governing Law & Dispute Resolution" [level=2] [ref=f8e164]:
+          - generic [ref=f8e165]: "12"
+          - text: Governing Law & Dispute Resolution
+        - paragraph [ref=f8e166]:
+          - text: These Terms and any disputes arising out of or related to YANC shall be governed by and construed in accordance with the
+          - strong [ref=f8e167]: laws of the Republic of India
+          - text: .
+        - paragraph [ref=f8e168]:
+          - text: Any legal proceedings, claims, or arbitration shall be subject to the exclusive jurisdiction of the competent courts situated in
+          - strong [ref=f8e169]: Hyderabad, Telangana, India
+          - text: .
+      - generic [ref=f8e170]:
+        - heading "13 Contact Us" [level=2] [ref=f8e171]:
+          - generic [ref=f8e172]: "13"
+          - text: Contact Us
+        - paragraph [ref=f8e173]: "For questions, legal inquiries, or notices concerning these Terms & Conditions, please reach out directly to our compliance desk:"
+        - paragraph [ref=f8e174]:
+          - link "connect@yanc.in" [ref=f8e175] [cursor=pointer]:
+            - /url: mailto:connect@yanc.in
+        - paragraph [ref=f8e179]: YANC ENTERPRISES · Hyderabad, Telangana, India
+  - contentinfo [ref=f8e181]:
+    - generic [ref=f8e182]:
+      - generic [ref=f8e183]:
+        - generic [ref=f8e184]:
+          - link "YANC Home" [ref=f8e185] [cursor=pointer]:
+            - /url: ../../index.html
+            - img "YANC Logo" [ref=f8e186]
+          - paragraph [ref=f8e187]: Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+        - generic [ref=f8e188]:
+          - generic [ref=f8e189]: Follow Us
+          - generic [ref=f8e190]:
+            - link "LinkedIn" [ref=f8e191] [cursor=pointer]:
+              - /url: https://linkedin.com/company/yanc
+            - link "Instagram" [ref=f8e194] [cursor=pointer]:
+              - /url: https://instagram.com/yancclub
+            - link "X (Twitter)" [ref=f8e197] [cursor=pointer]:
+              - /url: https://twitter.com/YANCOfficial
+            - link "YouTube" [ref=f8e200] [cursor=pointer]:
+              - /url: https://youtube.com/@yancclub
+            - link "WhatsApp" [ref=f8e203] [cursor=pointer]:
+              - /url: https://wa.me/919999999999
+      - navigation "Footer Navigation" [ref=f8e206]:
+        - generic [ref=f8e207]:
+          - heading "Our Offerings" [level=3] [ref=f8e208]
+          - list [ref=f8e209]:
+            - listitem [ref=f8e210]:
+              - link "Value Propositions" [ref=f8e211] [cursor=pointer]:
+                - /url: ../../Sections/Programs/value-proposition.html
+            - listitem [ref=f8e212]:
+              - link "Why Us" [ref=f8e213] [cursor=pointer]:
+                - /url: ../../Sections/Programs/yanc-advantage.html
+            - listitem [ref=f8e214]:
+              - link "Who Can Join" [ref=f8e215] [cursor=pointer]:
+                - /url: ../../Sections/Programs/who-can-join.html
+            - listitem [ref=f8e216]:
+              - link "Young Minds Mashup" [ref=f8e217] [cursor=pointer]:
+                - /url: ../../Sections/Programs/young-minds-mashup.html
+        - generic [ref=f8e218]:
+          - heading "Careers" [level=3] [ref=f8e219]
+          - list [ref=f8e220]:
+            - listitem [ref=f8e221]:
+              - link "Job Openings" [ref=f8e222] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+            - listitem [ref=f8e223]:
+              - link "Internships" [ref=f8e224] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+        - generic [ref=f8e225]:
+          - heading "Application" [level=3] [ref=f8e226]
+          - list [ref=f8e227]:
+            - listitem [ref=f8e228]:
+              - link "Applications" [ref=f8e229] [cursor=pointer]:
+                - /url: ../../Sections/application.html
+            - listitem [ref=f8e230]:
+              - link "YANC Membership" [ref=f8e231] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f8e232]:
+              - link "Discover Meet Registration" [ref=f8e233] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f8e234]:
+              - link "Mentor Registration" [ref=f8e235] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f8e236]:
+              - link "Startup Pitch" [ref=f8e237] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+        - generic [ref=f8e238]:
+          - heading "Events" [level=3] [ref=f8e239]
+          - list [ref=f8e240]:
+            - listitem [ref=f8e241]:
+              - link "Upcoming Events" [ref=f8e242] [cursor=pointer]:
+                - /url: ../../index.html#events
+            - listitem [ref=f8e243]:
+              - link "Past Events" [ref=f8e244] [cursor=pointer]:
+                - /url: ../../index.html#community-moments
+            - listitem [ref=f8e245]:
+              - link "Event Gallery" [ref=f8e246] [cursor=pointer]:
+                - /url: ../../index.html#community-moments
+        - generic [ref=f8e247]:
+          - heading "Legal" [level=3] [ref=f8e248]
+          - list [ref=f8e249]:
+            - listitem [ref=f8e250]:
+              - link "Terms & Conditions" [ref=f8e251] [cursor=pointer]:
+                - /url: ../../Sections/Legal/terms-and-conditions.html
+            - listitem [ref=f8e252]:
+              - link "Privacy Policy" [ref=f8e253] [cursor=pointer]:
+                - /url: ../../Sections/Legal/privacy-policy.html
+            - listitem [ref=f8e254]:
+              - link "Cookie Policy" [ref=f8e255] [cursor=pointer]:
+                - /url: ../../Sections/Legal/cookie-policy.html
+            - listitem [ref=f8e256]:
+              - link "Refund Policy" [ref=f8e257] [cursor=pointer]:
+                - /url: ../../Sections/Legal/refund-policy.html
+        - generic [ref=f8e258]:
+          - heading "Support" [level=3] [ref=f8e259]
+          - list [ref=f8e260]:
+            - listitem [ref=f8e261]:
+              - link "FAQ" [ref=f8e262] [cursor=pointer]:
+                - /url: ../../Sections/faq.html
+            - listitem [ref=f8e263]:
+              - link "Contact Us" [ref=f8e264] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+            - listitem [ref=f8e265]:
+              - link "Log Issues" [ref=f8e266] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+      - generic [ref=f8e267]:
+        - paragraph [ref=f8e268]: © 2026 YANC. All rights reserved.
+        - generic [ref=f8e269]:
+          - generic [ref=f8e270]: Hyderabad, India
+          - generic [ref=f8e272]: v2026.09.09

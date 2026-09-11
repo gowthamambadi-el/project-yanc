@@ -8,8 +8,9 @@
   <title>Cohort Founders | YANC — Yet Another Networking Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="../../header.js"></script>
+  <link rel="stylesheet" href="../../footer.css">
+  <script src="../../footer.js" defer></script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -23,9 +24,9 @@
       --ink: #111110;
       --ink2: #5C5B58;
       --ink3: #A09E9A;
-      --accent: #7C3AED;
-      --accent-light: #F0EBFF;
-      --accent-hover: #6D28D9;
+      --accent: #ff914c;
+      --accent-light: #FFF3EB;
+      --accent-hover: #e87a35;
       --border: #E8E4DD;
       --sand: #E8E0D0;
     }
@@ -292,7 +293,7 @@
       width: 100%;
       height: 200px;
       border-radius: 10px;
-      background: linear-gradient(135deg, #F0EBFF 0%, #E8E0D0 100%);
+      background: linear-gradient(135deg, #FFF3EB 0%, #E8E0D0 100%);
       overflow: hidden;
       position: relative;
       display: flex;
@@ -676,44 +677,8 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer id="contact">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">YAN<span>C</span></div>
-        <div class="footer-tagline">
-          Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a href="../../index.html#about">About YANC</a></li>
-          <li><a href="../Programs/value-proposition.html">Programs & Tracks</a></li>
-          <li><a href="cohort-founders.html">Team & Leadership</a></li>
-          <li><a href="../faq.html">Frequently Asked Questions</a></li>
-          <li><a href="../../index.html#apply">Apply now</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Connect</div>
-        <ul class="footer-links">
-          <li><a href="https://instagram.com/yancclub" target="_blank">Instagram @yancclub</a></li>
-          <li><a href="https://instagram.com/oneyanc" target="_blank">Instagram @oneyanc</a></li>
-          <li><a href="https://twitter.com/YANCOfficial" target="_blank">Twitter @YANCOfficial</a></li>
-          <li><a href="https://yanc.in/tc.html" target="_blank">Terms & Conditions</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2024 YANC · Yet Another Networking Club · Hyderabad, India</div>
-      <div class="footer-social">
-        <a href="https://instagram.com/yancclub" target="_blank">Instagram</a>
-        <a href="https://twitter.com/YANCOfficial" target="_blank">Twitter</a>
-        <a href="https://web.yanc.in" target="_blank">Web App</a>
-      </div>
-    </div>
-  </footer>
+  <!-- CENTRALIZED FOOTER -->
+  <site-footer root="../../"></site-footer>
 
   <!-- SCRIPT -->
   <script>

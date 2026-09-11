@@ -1,0 +1,202 @@
+- generic [active] [ref=f14e1]:
+  - navigation [ref=f14e3]:
+    - generic [ref=f14e4]:
+      - link "Member Login" [ref=f14e6] [cursor=pointer]:
+        - /url: https://web.yanc.in
+      - list [ref=f14e7]:
+        - listitem [ref=f14e8]:
+          - link "About" [ref=f14e9] [cursor=pointer]:
+            - /url: ../index.html#about
+        - listitem [ref=f14e10]:
+          - link "Programs" [ref=f14e11] [cursor=pointer]:
+            - /url: ../Sections/Programs/value-proposition.html
+        - listitem [ref=f14e12]:
+          - link "Team" [ref=f14e13] [cursor=pointer]:
+            - /url: ../Sections/Team/cohort-founders.html
+        - listitem [ref=f14e14]:
+          - link "Application" [ref=f14e15] [cursor=pointer]:
+            - /url: ../Sections/application.html
+    - link [ref=f14e16] [cursor=pointer]:
+      - /url: ../index.html
+      - img "YANC Logo" [ref=f14e17]
+    - generic [ref=f14e18]:
+      - list [ref=f14e19]:
+        - listitem [ref=f14e20]:
+          - link "Events" [ref=f14e21] [cursor=pointer]:
+            - /url: ../index.html#events
+        - listitem [ref=f14e22]:
+          - link "Careers" [ref=f14e23] [cursor=pointer]:
+            - /url: https://web.yanc.in/careers
+        - listitem [ref=f14e24]:
+          - link "FAQs" [ref=f14e25] [cursor=pointer]:
+            - /url: ../Sections/faq.html
+        - listitem [ref=f14e26]:
+          - link "Contact" [ref=f14e27] [cursor=pointer]:
+            - /url: https://web.yanc.in/contact-us
+      - link "Apply" [ref=f14e29] [cursor=pointer]:
+        - /url: https://web.yanc.in/membership-application
+  - banner [ref=f14e30]:
+    - generic [ref=f14e31]: Flagship Gatherings & Access
+    - heading [level=1] [ref=f14e32]:
+      - text: YANC
+      - emphasis [ref=f14e33]: Initiatives
+    - paragraph [ref=f14e34]: Experience our curated experiential meetups, startup pitch stages, and exclusive founder advisory circles designed to accelerate high-potential young minds.
+  - main [ref=f14e35]:
+    - generic [ref=f14e36]:
+      - article [ref=f14e37]:
+        - generic [ref=f14e38]: "02"
+        - generic [ref=f14e43]: Introductory Session
+        - heading "Discover Meet Registration" [level=2] [ref=f14e44]
+        - paragraph [ref=f14e45]: Reserve your seat for the upcoming Discover Meet. Experience the YANC culture, interact directly with founders, and learn how our tracks work.
+        - link "Register for Meet" [ref=f14e46] [cursor=pointer]:
+          - /url: https://web.yanc.in/discover-meet-registration
+      - article [ref=f14e50]:
+        - generic [ref=f14e51]: "04"
+        - generic [ref=f14e56]: Young Minds Mashup
+        - heading "Startup Pitch" [level=2] [ref=f14e57]
+        - paragraph [ref=f14e58]: Have an innovative product idea or startup? Submit your pitch to qualify for seed grants, investor demo days, and structured incubation.
+        - link "Submit Startup Pitch" [ref=f14e59] [cursor=pointer]:
+          - /url: https://web.yanc.in/startup-pitch
+      - article [ref=f14e63]:
+        - generic [ref=f14e64]: "06"
+        - generic [ref=f14e70]: Founders Only · Exclusive
+        - heading "Founder Circle" [level=2] [ref=f14e71]
+        - paragraph [ref=f14e72]: An intimate peer advisory circle for active founders. Collaborate on growth strategies, cross-border expansion, and founder mental fitness.
+        - link "Join Founder Circle" [ref=f14e73] [cursor=pointer]:
+          - /url: https://web.yanc.in/founder-circle
+  - generic [ref=f14e78]:
+    - generic [ref=f14e79]:
+      - heading [level=2] [ref=f14e80]:
+        - text: What to Expect at
+        - emphasis [ref=f14e81]: YANC Gatherings
+      - paragraph [ref=f14e82]: Every event is intentionally structured to maximize peer learning, candid insights, and real opportunities.
+    - generic [ref=f14e83]:
+      - generic [ref=f14e84]:
+        - heading "Curated Cohorts" [level=3] [ref=f14e91]
+        - paragraph [ref=f14e92]: Small group settings capped to preserve discussion quality, trust, and deep authentic networking.
+      - generic [ref=f14e93]:
+        - heading "Unfiltered Dialogues" [level=3] [ref=f14e98]
+        - paragraph [ref=f14e99]: Off-the-record discussions, case breakdowns, and real experiences from seasoned founders and operators.
+      - generic [ref=f14e100]:
+        - heading "Direct Mentor Access" [level=3] [ref=f14e104]
+        - paragraph [ref=f14e105]: Interact 1-on-1 with industry leaders without gatekeepers, pitch barriers, or bureaucracy.
+      - generic [ref=f14e106]:
+        - heading "Actionable Growth" [level=3] [ref=f14e110]
+        - paragraph [ref=f14e111]: Leave every session with tangible frameworks, vetted partner connections, and immediate next steps.
+  - generic [ref=f14e113]:
+    - generic [ref=f14e114]:
+      - heading "Have questions about attending or hosting an initiative?" [level=3] [ref=f14e115]
+      - paragraph [ref=f14e116]: Our events and community management team is available to help with scheduling, guest passes, and partnership opportunities.
+    - generic [ref=f14e117]:
+      - link "Contact Events Team" [ref=f14e118] [cursor=pointer]:
+        - /url: mailto:events@yanc.in
+      - link "Browse FAQs" [ref=f14e122] [cursor=pointer]:
+        - /url: faq.html
+  - contentinfo [ref=f14e124]:
+    - generic [ref=f14e125]:
+      - generic [ref=f14e126]:
+        - generic [ref=f14e127]:
+          - link "YANC Home" [ref=f14e128] [cursor=pointer]:
+            - /url: ../index.html
+            - img "YANC Logo" [ref=f14e129]
+          - paragraph [ref=f14e130]: Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+        - generic [ref=f14e131]:
+          - generic [ref=f14e132]: Follow Us
+          - generic [ref=f14e133]:
+            - link "LinkedIn" [ref=f14e134] [cursor=pointer]:
+              - /url: https://linkedin.com/company/yanc
+            - link "Instagram" [ref=f14e137] [cursor=pointer]:
+              - /url: https://instagram.com/yancclub
+            - link "X (Twitter)" [ref=f14e140] [cursor=pointer]:
+              - /url: https://twitter.com/YANCOfficial
+            - link "YouTube" [ref=f14e143] [cursor=pointer]:
+              - /url: https://youtube.com/@yancclub
+            - link "WhatsApp" [ref=f14e146] [cursor=pointer]:
+              - /url: https://wa.me/919999999999
+      - navigation "Footer Navigation" [ref=f14e149]:
+        - generic [ref=f14e150]:
+          - heading "Our Offerings" [level=3] [ref=f14e151]
+          - list [ref=f14e152]:
+            - listitem [ref=f14e153]:
+              - link "Value Propositions" [ref=f14e154] [cursor=pointer]:
+                - /url: ../Sections/Programs/value-proposition.html
+            - listitem [ref=f14e155]:
+              - link "Why Us" [ref=f14e156] [cursor=pointer]:
+                - /url: ../Sections/Programs/yanc-advantage.html
+            - listitem [ref=f14e157]:
+              - link "Who Can Join" [ref=f14e158] [cursor=pointer]:
+                - /url: ../Sections/Programs/who-can-join.html
+            - listitem [ref=f14e159]:
+              - link "Young Minds Mashup" [ref=f14e160] [cursor=pointer]:
+                - /url: ../Sections/Programs/young-minds-mashup.html
+        - generic [ref=f14e161]:
+          - heading "Careers" [level=3] [ref=f14e162]
+          - list [ref=f14e163]:
+            - listitem [ref=f14e164]:
+              - link "Job Openings" [ref=f14e165] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+            - listitem [ref=f14e166]:
+              - link "Internships" [ref=f14e167] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+        - generic [ref=f14e168]:
+          - heading "Application" [level=3] [ref=f14e169]
+          - list [ref=f14e170]:
+            - listitem [ref=f14e171]:
+              - link "Applications" [ref=f14e172] [cursor=pointer]:
+                - /url: ../Sections/application.html
+            - listitem [ref=f14e173]:
+              - link "YANC Membership" [ref=f14e174] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f14e175]:
+              - link "Discover Meet Registration" [ref=f14e176] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f14e177]:
+              - link "Mentor Registration" [ref=f14e178] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=f14e179]:
+              - link "Startup Pitch" [ref=f14e180] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+        - generic [ref=f14e181]:
+          - heading "Events" [level=3] [ref=f14e182]
+          - list [ref=f14e183]:
+            - listitem [ref=f14e184]:
+              - link "Upcoming Events" [ref=f14e185] [cursor=pointer]:
+                - /url: ../Sections/events.html
+            - listitem [ref=f14e186]:
+              - link "Past Events" [ref=f14e187] [cursor=pointer]:
+                - /url: ../index.html#community-moments
+            - listitem [ref=f14e188]:
+              - link "Event Gallery" [ref=f14e189] [cursor=pointer]:
+                - /url: ../index.html#community-moments
+        - generic [ref=f14e190]:
+          - heading "Legal" [level=3] [ref=f14e191]
+          - list [ref=f14e192]:
+            - listitem [ref=f14e193]:
+              - link "Terms & Conditions" [ref=f14e194] [cursor=pointer]:
+                - /url: ../Sections/Legal/terms-and-conditions.html
+            - listitem [ref=f14e195]:
+              - link "Privacy Policy" [ref=f14e196] [cursor=pointer]:
+                - /url: ../Sections/Legal/privacy-policy.html
+            - listitem [ref=f14e197]:
+              - link "Cookie Policy" [ref=f14e198] [cursor=pointer]:
+                - /url: ../Sections/Legal/cookie-policy.html
+            - listitem [ref=f14e199]:
+              - link "Refund Policy" [ref=f14e200] [cursor=pointer]:
+                - /url: ../Sections/Legal/refund-policy.html
+        - generic [ref=f14e201]:
+          - heading "Support" [level=3] [ref=f14e202]
+          - list [ref=f14e203]:
+            - listitem [ref=f14e204]:
+              - link "FAQ" [ref=f14e205] [cursor=pointer]:
+                - /url: ../Sections/faq.html
+            - listitem [ref=f14e206]:
+              - link "Contact Us" [ref=f14e207] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+            - listitem [ref=f14e208]:
+              - link "Log Issues" [ref=f14e209] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+      - generic [ref=f14e210]:
+        - paragraph [ref=f14e211]: © 2026 YANC. All rights reserved.
+        - generic [ref=f14e212]:
+          - generic [ref=f14e213]: Hyderabad, India
+          - generic [ref=f14e215]: v2026.09.09

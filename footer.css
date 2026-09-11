@@ -1,0 +1,255 @@
+/* ── YANC CENTRALIZED FOOTER CSS ── */
+.yanc-footer {
+  background-color: #0E0E10 !important;
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 145, 76, 0.08), transparent 60%) !important;
+  color: #F8F5F0 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  display: block !important;
+  z-index: 10 !important;
+}
+
+.yanc-footer *,
+.yanc-footer *::before,
+.yanc-footer *::after {
+  box-sizing: border-box;
+}
+
+.yanc-footer-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 80px 40px 36px;
+}
+
+/* ── BRAND & SOCIAL ROW (TOP) ── */
+.yanc-footer-brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.yanc-footer-brand-col {
+  max-width: 480px;
+}
+
+.yanc-footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.yanc-footer-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.yanc-footer-mission {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #8E8D8A;
+  margin: 0;
+}
+
+.yanc-footer-social-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yanc-footer-social-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+}
+
+.yanc-footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.yanc-footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A09E9A;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.yanc-footer-social-btn:hover {
+  background: rgba(255, 145, 76, 0.2);
+  border-color: rgba(255, 145, 76, 0.45);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.yanc-footer-social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ── 6-COLUMN LINKS GRID ── */
+.yanc-footer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 32px 24px !important;
+  margin-bottom: 56px !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  position: static !important;
+  padding: 0 !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+.yanc-footer-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.yanc-footer-col-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+
+.yanc-footer-links-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 11px !important;
+}
+
+.yanc-footer-links-list li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.yanc-footer-link {
+  font-size: 13.5px;
+  color: #8E8D8A;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.yanc-footer-link:hover {
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+/* ── BOTTOM SUB-FOOTER BAR ── */
+.yanc-footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: #6C6B68;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.yanc-footer-copyright {
+  margin: 0;
+}
+
+.yanc-footer-bottom-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.yanc-footer-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11.5px;
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #8E8D8A;
+}
+
+.yanc-footer-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.yanc-footer-location-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+/* ── RESPONSIVE ADAPTATIONS ── */
+@media (max-width: 1200px) {
+  .yanc-footer-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 36px 28px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .yanc-footer-inner {
+    padding: 60px 24px 28px;
+  }
+  .yanc-footer-brand-row {
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+  }
+  .yanc-footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px 20px !important;
+    margin-bottom: 36px !important;
+  }
+  .yanc-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .yanc-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+}
