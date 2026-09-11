@@ -93,8 +93,8 @@ class SiteFooter extends HTMLElement {
               <h3 class="yanc-footer-col-title">Events</h3>
               <ul class="yanc-footer-links-list">
                 <li><a href="${eventsHref}" class="yanc-footer-link">Upcoming Events</a></li>
-                <li><a href="${momentsHref}" class="yanc-footer-link">Past Events</a></li>
-                <li><a href="${momentsHref}" class="yanc-footer-link">Event Gallery</a></li>
+                <li><a href="${eventsHref}#past-events" class="yanc-footer-link">Past Events</a></li>
+                <li><a href="${root}Sections/Events/event-gallery.html" class="yanc-footer-link">Event Gallery</a></li>
               </ul>
             </div>
 

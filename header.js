@@ -1,7 +1,202 @@
 /**
  * YANC Centralized Header Web Component (<site-header>)
- * Allows single-point editing of the navigation header across all pages.
+ * Injects unified styling matching index.html across all pages automatically.
  */
+
+(function () {
+  // Inject centralized header styling once
+  if (!document.getElementById('yanc-header-styles')) {
+    const style = document.createElement('style');
+    style.id = 'yanc-header-styles';
+    style.textContent = `
+      site-header {
+        display: block;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      site-header nav#main-nav {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr !important;
+        align-items: center !important;
+        padding: 16px 40px !important;
+        position: relative !important;
+        width: 100% !important;
+        background: rgba(248, 245, 240, 0.94) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-bottom: 1px solid transparent !important;
+        transition: border-color 0.3s ease, background-color 0.3s ease !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+      }
+
+      site-header nav#main-nav.scrolled {
+        border-bottom-color: #E8E4DD !important;
+      }
+
+      site-header .nav-logo {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      site-header .nav-logo img {
+        height: 28px !important;
+        width: auto !important;
+        display: block !important;
+        object-fit: contain !important;
+      }
+
+      site-header .nav-left-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-right: 28px !important;
+      }
+
+      site-header .nav-links-left {
+        display: flex !important;
+        gap: 22px !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      site-header .nav-right-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-left: 28px !important;
+      }
+
+      site-header .nav-links-right {
+        display: flex !important;
+        gap: 22px !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      site-header .nav-links a {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-size: 12px !important;
+        color: #5C5B58 !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+      }
+
+      site-header .nav-links a:hover,
+      site-header .nav-links a.active {
+        color: #111110 !important;
+      }
+
+      site-header .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 24px !important;
+      }
+
+      site-header .nav-login {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-size: 12px !important;
+        color: #5C5B58 !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+      }
+
+      site-header .nav-login:hover {
+        color: #111110 !important;
+      }
+
+      site-header .nav-apply-btn {
+        background: #111110 !important;
+        color: #F8F5F0 !important;
+        font-family: 'Instrument Serif', Georgia, serif !important;
+        font-style: italic !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        padding: 6px 20px !important;
+        border-radius: 100px !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        transition: background 0.2s ease, transform 0.15s ease !important;
+        white-space: nowrap !important;
+        line-height: 1.2 !important;
+      }
+
+      site-header .nav-apply-btn:hover {
+        background: #ff914c !important;
+        transform: translateY(-1px) !important;
+      }
+
+      @media (max-width: 1200px) {
+        site-header .nav-links-left,
+        site-header .nav-links-right {
+          gap: 16px !important;
+        }
+        site-header .nav-right-container {
+          margin-left: 20px !important;
+        }
+        site-header .nav-left-container {
+          margin-right: 20px !important;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        site-header .nav-links-left,
+        site-header .nav-links-right {
+          gap: 10px !important;
+        }
+        site-header .nav-links a {
+          font-size: 11px !important;
+        }
+        site-header .nav-login {
+          font-size: 11px !important;
+        }
+        site-header .nav-apply-btn {
+          font-size: 14px !important;
+          padding: 5px 16px !important;
+        }
+        site-header nav#main-nav {
+          padding: 16px 20px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        site-header nav#main-nav {
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+          padding: 16px 20px !important;
+        }
+
+        site-header .nav-links {
+          display: none !important;
+        }
+
+        site-header .nav-right-container {
+          margin-left: 0 !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+})();
+
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     let root = this.getAttribute('root') || './';
@@ -16,7 +211,7 @@ class SiteHeader extends HTMLElement {
     const homeHref = isRoot ? '#' : `${root}index.html`;
 
     this.innerHTML = `
-      <nav id="main-nav">
+      <nav id="main-nav" role="navigation" aria-label="Main Navigation">
         <!-- Left column: Member Login & Navigation Links -->
         <div class="nav-left-container">
           <div class="nav-actions">
@@ -31,7 +226,7 @@ class SiteHeader extends HTMLElement {
         </div>
 
         <!-- Center column: Logo -->
-        <a href="${homeHref}" class="nav-logo">
+        <a href="${homeHref}" class="nav-logo" aria-label="YANC Home">
           <img src="${root}YANC Logo.png" alt="YANC Logo">
         </a>
 
@@ -50,7 +245,7 @@ class SiteHeader extends HTMLElement {
       </nav>
     `;
 
-    // Handle sticky scroll class
+    // Handle sticky scroll border state
     const nav = this.querySelector('#main-nav');
     if (nav && !window.__yanc_nav_scroll_bound) {
       window.__yanc_nav_scroll_bound = true;

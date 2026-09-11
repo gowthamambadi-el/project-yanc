@@ -5,26 +5,34 @@
  */
 
 const YANC_DEFAULT_DRIFT_ITEMS = [
-  { image: 'YANC - photos/y2.jpg', title: 'YANC Community' },
-  { image: 'YANC - photos/workshop.JPG', title: 'Workshop & Mentorship' },
-  { image: 'YANC - photos/y3.jpg', title: 'Young Innovators' },
-  { image: 'YANC - photos/y4.jpg', title: 'Networking Meetup' },
-  { image: 'YANC - photos/y5.JPG', title: 'Hands-on Learning' },
-  { image: 'YANC - photos/y6.JPG', title: 'Masterclass Sessions' },
-  { image: 'YANC - photos/y7.JPG', title: 'Cohort Discussions' },
-  { image: 'YANC - photos/y12.jpg', title: 'Collaborative Projects' },
-  { image: 'YANC - photos/y22.jpg', title: 'Founder Circles' },
+  { image: 'YANC - photos/y2.jpg', title: 'Community Gathering' },
+  { image: 'YANC - photos/workshop.JPG', title: 'Interactive Workshop' },
+  { image: 'YANC - photos/y3.jpg', title: 'Discussion Circle' },
+  { image: 'YANC - photos/y4.jpg', title: 'Ideation Session' },
+  { image: 'YANC - photos/y5.JPG', title: 'Masterclass in Action' },
+  { image: 'YANC - photos/y6.JPG', title: 'Collaborative Strategy' },
+  { image: 'YANC - photos/y7.JPG', title: 'Team Mentorship' },
+  { image: 'YANC - photos/y12.jpg', title: 'Cohort Exchange' },
+  { image: 'YANC - photos/y22.jpg', title: 'Founder Circle' },
   { image: 'YANC - photos/y23.jpg', title: 'Creative Brainstorming' },
-  { image: 'YANC - photos/y24.jpg', title: 'Youth Leadership' },
-  { image: 'YANC - photos/workshop.JPG', title: 'Pitch Day' },
-  { image: 'YANC - photos/y26.jpg', title: 'Interactive Sessions' },
-  { image: 'YANC - photos/y27.jpg', title: 'Mentorship Exchange' },
-  { image: 'YANC - photos/y2.jpg', title: 'Collaborative Growth' },
-  { image: 'YANC - photos/y30.jpg', title: 'Community Bonding' },
-  { image: 'YANC - photos/y31.jpg', title: 'Skill Building' },
-  { image: 'YANC - photos/y33.jpg', title: 'Idea Exploration' },
-  { image: 'YANC - photos/y34.jpg', title: 'Future Leaders' },
-  { image: 'YANC - photos/workshop2.jpg', title: 'Team Collaboration' }
+  { image: 'YANC - photos/y24.jpg', title: 'Youth Innovators' },
+  { image: 'YANC - photos/y24(1).JPG', title: 'Leadership Forum' },
+  { image: 'YANC - photos/y26.jpg', title: 'Problem Solving Sprint' },
+  { image: 'YANC - photos/y27.jpg', title: 'Networking Experience' },
+  { image: 'YANC - photos/y27 (1).jpg', title: 'Peer Learning Cohort' },
+  { image: 'YANC - photos/y30.jpg', title: 'Community Milestone' },
+  { image: 'YANC - photos/y31.jpg', title: 'Startup Pitch Stage' },
+  { image: 'YANC - photos/y33.jpg', title: 'Fireside Dialogue' },
+  { image: 'YANC - photos/y34.jpg', title: 'Next-Gen Leaders' },
+  { image: 'YANC - photos/workshop2.jpg', title: 'Builder Sprint' },
+  { image: 'YANC - photos/WhatsApp Image 2026-06-13 at 6.58.16 PM.jpeg', title: 'YANC Celebrations' },
+  { image: 'Mentors/Sravanth.jpg', title: 'Startup Mentorship' },
+  { image: 'Mentors/Manoj.jpg', title: 'Tech Strategy' },
+  { image: 'Mentors/Hari.jpg', title: 'Innovation Insights' },
+  { image: 'Mentors/Praveen Dorna.jpg', title: 'Ecosystem Guidance' },
+  { image: 'Mentors/Shoban Babu.jpg', title: 'Leadership Talk' },
+  { image: 'Mentors/Dr. Lavanya NJP.jpg', title: 'Civic Leadership' },
+  { image: 'Mentors/Daisuke Tanji.jpg', title: 'Cross-Border Advisory' }
 ];
 
 // Instant Parallel Image Cache Warm-Up
@@ -45,28 +53,36 @@ class DriftWall {
     this.container = typeof container === 'string' ? document.querySelector(container) : container;
     if (!this.container) return;
 
+    const isHero = Boolean(this.container.closest('.hero-drift-wall-wrap')) || (window.innerWidth <= 1024 && Boolean(this.container.closest('.hero')));
+    const isMobile = window.innerWidth <= 768;
+
+    const defaultCols = isHero ? (isMobile ? 2 : 4) : (isMobile ? 3 : 5);
+    const defaultTileW = isHero ? (isMobile ? 160 : 195) : 240;
+    const defaultTileH = isHero ? (isMobile ? 115 : 142) : 160;
+    const defaultGap = isHero ? (isMobile ? 10 : 14) : 20;
+
     this.options = {
       items: options.items || YANC_DEFAULT_DRIFT_ITEMS,
-      columns: options.columns || (window.innerWidth <= 768 ? 3 : (window.innerWidth <= 1100 ? 4 : 5)),
-      tileWidth: options.tileWidth || 240,
-      tileHeight: options.tileHeight || 160,
-      gap: options.gap || 20,
-      radius: options.radius || 16,
-      tilt: options.tilt !== undefined ? options.tilt : 0,
-      turn: options.turn !== undefined ? options.turn : 0,
+      columns: options.columns || defaultCols,
+      tileWidth: options.tileWidth || defaultTileW,
+      tileHeight: options.tileHeight || defaultTileH,
+      gap: options.gap || defaultGap,
+      radius: options.radius || (isHero ? 14 : 16),
+      tilt: options.tilt !== undefined ? options.tilt : (isHero ? 2 : 0),
+      turn: options.turn !== undefined ? options.turn : (isHero ? -4 : 0),
       roll: options.roll || 0,
       perspective: options.perspective || 1200,
       depth: options.depth !== undefined ? options.depth : 0,
-      speed: options.speed || 18,
+      speed: options.speed || 15,
       direction: options.direction || 'up',
-      variance: options.variance !== undefined ? options.variance : 0.3,
+      variance: options.variance !== undefined ? options.variance : 0.35,
       parallax: options.parallax !== undefined ? options.parallax : 0,
       pauseOnHover: options.pauseOnHover || false,
-      lift: options.lift || 48,
-      fade: options.fade !== undefined ? options.fade : 0.2,
-      dim: options.dim !== undefined ? options.dim : 0.92,
+      lift: options.lift || (isHero ? 36 : 48),
+      fade: options.fade !== undefined ? options.fade : 0.15,
+      dim: options.dim !== undefined ? options.dim : 0.95,
       grayscale: options.grayscale || false,
-      overlayColor: options.overlayColor || 'rgba(0, 0, 0, 0.15)',
+      overlayColor: options.overlayColor || 'rgba(0, 0, 0, 0.08)',
       ...options
     };
 

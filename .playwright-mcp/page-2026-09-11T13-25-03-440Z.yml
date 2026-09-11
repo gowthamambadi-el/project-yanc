@@ -1,0 +1,499 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Member Login" [ref=e6] [cursor=pointer]:
+        - /url: https://web.yanc.in
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "About" [ref=e9] [cursor=pointer]:
+            - /url: ../../index.html#about
+        - listitem [ref=e10]:
+          - link "Programs" [ref=e11] [cursor=pointer]:
+            - /url: ../../Sections/Programs/value-proposition.html
+        - listitem [ref=e12]:
+          - link "Team" [ref=e13] [cursor=pointer]:
+            - /url: ../../Sections/Team/cohort-founders.html
+        - listitem [ref=e14]:
+          - link "Application" [ref=e15] [cursor=pointer]:
+            - /url: ../../Sections/application.html
+    - link [ref=e16] [cursor=pointer]:
+      - /url: ../../index.html
+      - img "YANC Logo" [ref=e17]
+    - generic [ref=e18]:
+      - list [ref=e19]:
+        - listitem [ref=e20]:
+          - link "Events" [ref=e21] [cursor=pointer]:
+            - /url: ../../Sections/events.html
+        - listitem [ref=e22]:
+          - link "Careers" [ref=e23] [cursor=pointer]:
+            - /url: https://web.yanc.in/careers
+        - listitem [ref=e24]:
+          - link "FAQs" [ref=e25] [cursor=pointer]:
+            - /url: ../../Sections/faq.html
+        - listitem [ref=e26]:
+          - link "Contact" [ref=e27] [cursor=pointer]:
+            - /url: https://web.yanc.in/contact-us
+      - link "Apply" [ref=e29] [cursor=pointer]:
+        - /url: https://web.yanc.in/membership-application
+  - banner [ref=e30]:
+    - heading [level=1] [ref=e31]:
+      - text: YANC
+      - emphasis [ref=e32]: Gallery
+  - main [ref=e33]:
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic:
+          - button "YANC Community Meetup" [ref=e39] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e41] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e43] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e45] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e47] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e49] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e51] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e53] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e55] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e57] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+          - button "Mentorship 1-on-1 Guidance" [ref=e59] [cursor=pointer]:
+            - img "Mentorship 1-on-1 Guidance"
+          - button "Young Builders at YANC Hub" [ref=e61] [cursor=pointer]:
+            - img "Young Builders at YANC Hub"
+          - button "YANC Founders Exchange" [ref=e63] [cursor=pointer]:
+            - img "YANC Founders Exchange"
+          - button "Speaker Session at YANC Summit" [ref=e65] [cursor=pointer]:
+            - img "Speaker Session at YANC Summit"
+          - button "Leadership Insights on Stage" [ref=e67] [cursor=pointer]:
+            - img "Leadership Insights on Stage"
+          - button "Group Picture of YANC Cohort" [ref=e69] [cursor=pointer]:
+            - img "Group Picture of YANC Cohort"
+          - button "Hands-on Building Sprint" [ref=e71] [cursor=pointer]:
+            - img "Hands-on Building Sprint"
+          - button "Innovation Demo Booth" [ref=e73] [cursor=pointer]:
+            - img "Innovation Demo Booth"
+          - button "YANC Community Gathering" [ref=e75] [cursor=pointer]:
+            - img "YANC Community Gathering"
+          - button "Product Design Masterclass" [ref=e77] [cursor=pointer]:
+            - img "Product Design Masterclass"
+          - button "YANC Fellowship Meet" [ref=e79] [cursor=pointer]:
+            - img "YANC Fellowship Meet"
+          - button "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana" [ref=e81] [cursor=pointer]:
+            - img "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana"
+          - button "Sravanth Gajula - Co-Founder & CEO, Adonmo" [ref=e83] [cursor=pointer]:
+            - img "Sravanth Gajula - Co-Founder & CEO, Adonmo"
+          - button "Manoj Surapaneni - Co-Founder & COO, Dhruva Space" [ref=e85] [cursor=pointer]:
+            - img "Manoj Surapaneni - Co-Founder & COO, Dhruva Space"
+          - button "Hari TN - Author, Angel Investor, Ex-BigBasket" [ref=e87] [cursor=pointer]:
+            - img "Hari TN - Author, Angel Investor, Ex-BigBasket"
+          - button "Praveen Dorna - Founder, SeedBuilders & Startup Byte" [ref=e89] [cursor=pointer]:
+            - img "Praveen Dorna - Founder, SeedBuilders & Startup Byte"
+          - button "Shoban Babu - Co-Founder, Quantela" [ref=e91] [cursor=pointer]:
+            - img "Shoban Babu - Co-Founder, Quantela"
+          - button "Dr. Lavanya NJP - Academician & Innovation Strategist" [ref=e93] [cursor=pointer]:
+            - img "Dr. Lavanya NJP - Academician & Innovation Strategist"
+          - button "Daisuke Tanji - Global Tech Investor & Advisor" [ref=e95] [cursor=pointer]:
+            - img "Daisuke Tanji - Global Tech Investor & Advisor"
+          - button "Srinivas Rao Mahankali - CEO, T-Hub" [ref=e97] [cursor=pointer]:
+            - img "Srinivas Rao Mahankali - CEO, T-Hub"
+          - button "Uma Sudhir - Executive Editor, NDTV" [ref=e99] [cursor=pointer]:
+            - img "Uma Sudhir - Executive Editor, NDTV"
+          - button "Vijaya Lakshmi - Senior Director & HR Leader" [ref=e101] [cursor=pointer]:
+            - img "Vijaya Lakshmi - Senior Director & HR Leader"
+          - button "Chaitanya Priyanka - Brand & Growth Strategist" [ref=e103] [cursor=pointer]:
+            - img "Chaitanya Priyanka - Brand & Growth Strategist"
+          - button "YANC Community Meetup" [ref=e105] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e107] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e109] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e111] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e113] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e115] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e117] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e119] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e121] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e123] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+          - button "Mentorship 1-on-1 Guidance" [ref=e125] [cursor=pointer]:
+            - img "Mentorship 1-on-1 Guidance"
+          - button "Young Builders at YANC Hub" [ref=e127] [cursor=pointer]:
+            - img "Young Builders at YANC Hub"
+          - button "YANC Founders Exchange" [ref=e129] [cursor=pointer]:
+            - img "YANC Founders Exchange"
+          - button "Speaker Session at YANC Summit" [ref=e131] [cursor=pointer]:
+            - img "Speaker Session at YANC Summit"
+          - button "Leadership Insights on Stage" [ref=e133] [cursor=pointer]:
+            - img "Leadership Insights on Stage"
+          - button "Group Picture of YANC Cohort" [ref=e135] [cursor=pointer]:
+            - img "Group Picture of YANC Cohort"
+          - button "Hands-on Building Sprint" [ref=e137] [cursor=pointer]:
+            - img "Hands-on Building Sprint"
+          - button "Innovation Demo Booth" [ref=e139] [cursor=pointer]:
+            - img "Innovation Demo Booth"
+          - button "YANC Community Gathering" [ref=e141] [cursor=pointer]:
+            - img "YANC Community Gathering"
+          - button "Product Design Masterclass" [ref=e143] [cursor=pointer]:
+            - img "Product Design Masterclass"
+          - button "YANC Fellowship Meet" [ref=e145] [cursor=pointer]:
+            - img "YANC Fellowship Meet"
+          - button "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana" [ref=e147] [cursor=pointer]:
+            - img "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana"
+          - button "Sravanth Gajula - Co-Founder & CEO, Adonmo" [ref=e149] [cursor=pointer]:
+            - img "Sravanth Gajula - Co-Founder & CEO, Adonmo"
+          - button "Manoj Surapaneni - Co-Founder & COO, Dhruva Space" [ref=e151] [cursor=pointer]:
+            - img "Manoj Surapaneni - Co-Founder & COO, Dhruva Space"
+          - button "Hari TN - Author, Angel Investor, Ex-BigBasket" [ref=e153] [cursor=pointer]:
+            - img "Hari TN - Author, Angel Investor, Ex-BigBasket"
+          - button "Praveen Dorna - Founder, SeedBuilders & Startup Byte" [ref=e155] [cursor=pointer]:
+            - img "Praveen Dorna - Founder, SeedBuilders & Startup Byte"
+          - button "Shoban Babu - Co-Founder, Quantela" [ref=e157] [cursor=pointer]:
+            - img "Shoban Babu - Co-Founder, Quantela"
+          - button "Dr. Lavanya NJP - Academician & Innovation Strategist" [ref=e159] [cursor=pointer]:
+            - img "Dr. Lavanya NJP - Academician & Innovation Strategist"
+          - button "Daisuke Tanji - Global Tech Investor & Advisor" [ref=e161] [cursor=pointer]:
+            - img "Daisuke Tanji - Global Tech Investor & Advisor"
+          - button "Srinivas Rao Mahankali - CEO, T-Hub" [ref=e163] [cursor=pointer]:
+            - img "Srinivas Rao Mahankali - CEO, T-Hub"
+          - button "Uma Sudhir - Executive Editor, NDTV" [ref=e165] [cursor=pointer]:
+            - img "Uma Sudhir - Executive Editor, NDTV"
+          - button "Vijaya Lakshmi - Senior Director & HR Leader" [ref=e167] [cursor=pointer]:
+            - img "Vijaya Lakshmi - Senior Director & HR Leader"
+          - button "Chaitanya Priyanka - Brand & Growth Strategist" [ref=e169] [cursor=pointer]:
+            - img "Chaitanya Priyanka - Brand & Growth Strategist"
+          - button "YANC Community Meetup" [ref=e171] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e173] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e175] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e177] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e179] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e181] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e183] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e185] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e187] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e189] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+          - button "Mentorship 1-on-1 Guidance" [ref=e191] [cursor=pointer]:
+            - img "Mentorship 1-on-1 Guidance"
+          - button "Young Builders at YANC Hub" [ref=e193] [cursor=pointer]:
+            - img "Young Builders at YANC Hub"
+          - button "YANC Founders Exchange" [ref=e195] [cursor=pointer]:
+            - img "YANC Founders Exchange"
+          - button "Speaker Session at YANC Summit" [ref=e197] [cursor=pointer]:
+            - img "Speaker Session at YANC Summit"
+          - button "Leadership Insights on Stage" [ref=e199] [cursor=pointer]:
+            - img "Leadership Insights on Stage"
+          - button "Group Picture of YANC Cohort" [ref=e201] [cursor=pointer]:
+            - img "Group Picture of YANC Cohort"
+          - button "Hands-on Building Sprint" [ref=e203] [cursor=pointer]:
+            - img "Hands-on Building Sprint"
+          - button "Innovation Demo Booth" [ref=e205] [cursor=pointer]:
+            - img "Innovation Demo Booth"
+          - button "YANC Community Gathering" [ref=e207] [cursor=pointer]:
+            - img "YANC Community Gathering"
+          - button "Product Design Masterclass" [ref=e209] [cursor=pointer]:
+            - img "Product Design Masterclass"
+          - button "YANC Fellowship Meet" [ref=e211] [cursor=pointer]:
+            - img "YANC Fellowship Meet"
+          - button "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana" [ref=e213] [cursor=pointer]:
+            - img "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana"
+          - button "Sravanth Gajula - Co-Founder & CEO, Adonmo" [ref=e215] [cursor=pointer]:
+            - img "Sravanth Gajula - Co-Founder & CEO, Adonmo"
+          - button "Manoj Surapaneni - Co-Founder & COO, Dhruva Space" [ref=e217] [cursor=pointer]:
+            - img "Manoj Surapaneni - Co-Founder & COO, Dhruva Space"
+          - button "Hari TN - Author, Angel Investor, Ex-BigBasket" [ref=e219] [cursor=pointer]:
+            - img "Hari TN - Author, Angel Investor, Ex-BigBasket"
+          - button "Praveen Dorna - Founder, SeedBuilders & Startup Byte" [ref=e221] [cursor=pointer]:
+            - img "Praveen Dorna - Founder, SeedBuilders & Startup Byte"
+          - button "Shoban Babu - Co-Founder, Quantela" [ref=e223] [cursor=pointer]:
+            - img "Shoban Babu - Co-Founder, Quantela"
+          - button "Dr. Lavanya NJP - Academician & Innovation Strategist" [ref=e225] [cursor=pointer]:
+            - img "Dr. Lavanya NJP - Academician & Innovation Strategist"
+          - button "Daisuke Tanji - Global Tech Investor & Advisor" [ref=e227] [cursor=pointer]:
+            - img "Daisuke Tanji - Global Tech Investor & Advisor"
+          - button "Srinivas Rao Mahankali - CEO, T-Hub" [ref=e229] [cursor=pointer]:
+            - img "Srinivas Rao Mahankali - CEO, T-Hub"
+          - button "Uma Sudhir - Executive Editor, NDTV" [ref=e231] [cursor=pointer]:
+            - img "Uma Sudhir - Executive Editor, NDTV"
+          - button "Vijaya Lakshmi - Senior Director & HR Leader" [ref=e233] [cursor=pointer]:
+            - img "Vijaya Lakshmi - Senior Director & HR Leader"
+          - button "Chaitanya Priyanka - Brand & Growth Strategist" [ref=e235] [cursor=pointer]:
+            - img "Chaitanya Priyanka - Brand & Growth Strategist"
+          - button "YANC Community Meetup" [ref=e237] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e239] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e241] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e243] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e245] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e247] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e249] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e251] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e253] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e255] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+          - button "Mentorship 1-on-1 Guidance" [ref=e257] [cursor=pointer]:
+            - img "Mentorship 1-on-1 Guidance"
+          - button "Young Builders at YANC Hub" [ref=e259] [cursor=pointer]:
+            - img "Young Builders at YANC Hub"
+          - button "YANC Founders Exchange" [ref=e261] [cursor=pointer]:
+            - img "YANC Founders Exchange"
+          - button "Speaker Session at YANC Summit" [ref=e263] [cursor=pointer]:
+            - img "Speaker Session at YANC Summit"
+          - button "Leadership Insights on Stage" [ref=e265] [cursor=pointer]:
+            - img "Leadership Insights on Stage"
+          - button "Group Picture of YANC Cohort" [ref=e267] [cursor=pointer]:
+            - img "Group Picture of YANC Cohort"
+          - button "Hands-on Building Sprint" [ref=e269] [cursor=pointer]:
+            - img "Hands-on Building Sprint"
+          - button "Innovation Demo Booth" [ref=e271] [cursor=pointer]:
+            - img "Innovation Demo Booth"
+          - button "YANC Community Gathering" [ref=e273] [cursor=pointer]:
+            - img "YANC Community Gathering"
+          - button "Product Design Masterclass" [ref=e275] [cursor=pointer]:
+            - img "Product Design Masterclass"
+          - button "YANC Fellowship Meet" [ref=e277] [cursor=pointer]:
+            - img "YANC Fellowship Meet"
+          - button "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana" [ref=e279] [cursor=pointer]:
+            - img "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana"
+          - button "Sravanth Gajula - Co-Founder & CEO, Adonmo" [ref=e281] [cursor=pointer]:
+            - img "Sravanth Gajula - Co-Founder & CEO, Adonmo"
+          - button "Manoj Surapaneni - Co-Founder & COO, Dhruva Space" [ref=e283] [cursor=pointer]:
+            - img "Manoj Surapaneni - Co-Founder & COO, Dhruva Space"
+          - button "Hari TN - Author, Angel Investor, Ex-BigBasket" [ref=e285] [cursor=pointer]:
+            - img "Hari TN - Author, Angel Investor, Ex-BigBasket"
+          - button "Praveen Dorna - Founder, SeedBuilders & Startup Byte" [ref=e287] [cursor=pointer]:
+            - img "Praveen Dorna - Founder, SeedBuilders & Startup Byte"
+          - button "Shoban Babu - Co-Founder, Quantela" [ref=e289] [cursor=pointer]:
+            - img "Shoban Babu - Co-Founder, Quantela"
+          - button "Dr. Lavanya NJP - Academician & Innovation Strategist" [ref=e291] [cursor=pointer]:
+            - img "Dr. Lavanya NJP - Academician & Innovation Strategist"
+          - button "Daisuke Tanji - Global Tech Investor & Advisor" [ref=e293] [cursor=pointer]:
+            - img "Daisuke Tanji - Global Tech Investor & Advisor"
+          - button "Srinivas Rao Mahankali - CEO, T-Hub" [ref=e295] [cursor=pointer]:
+            - img "Srinivas Rao Mahankali - CEO, T-Hub"
+          - button "Uma Sudhir - Executive Editor, NDTV" [ref=e297] [cursor=pointer]:
+            - img "Uma Sudhir - Executive Editor, NDTV"
+          - button "Vijaya Lakshmi - Senior Director & HR Leader" [ref=e299] [cursor=pointer]:
+            - img "Vijaya Lakshmi - Senior Director & HR Leader"
+          - button "Chaitanya Priyanka - Brand & Growth Strategist" [ref=e301] [cursor=pointer]:
+            - img "Chaitanya Priyanka - Brand & Growth Strategist"
+          - button "YANC Community Meetup" [ref=e303] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e305] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e307] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e309] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e311] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e313] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e315] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e317] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e319] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e321] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+          - button "Mentorship 1-on-1 Guidance" [ref=e323] [cursor=pointer]:
+            - img "Mentorship 1-on-1 Guidance"
+          - button "Young Builders at YANC Hub" [ref=e325] [cursor=pointer]:
+            - img "Young Builders at YANC Hub"
+          - button "YANC Founders Exchange" [ref=e327] [cursor=pointer]:
+            - img "YANC Founders Exchange"
+          - button "Speaker Session at YANC Summit" [ref=e329] [cursor=pointer]:
+            - img "Speaker Session at YANC Summit"
+          - button "Leadership Insights on Stage" [ref=e331] [cursor=pointer]:
+            - img "Leadership Insights on Stage"
+          - button "Group Picture of YANC Cohort" [ref=e333] [cursor=pointer]:
+            - img "Group Picture of YANC Cohort"
+          - button "Hands-on Building Sprint" [ref=e335] [cursor=pointer]:
+            - img "Hands-on Building Sprint"
+          - button "Innovation Demo Booth" [ref=e337] [cursor=pointer]:
+            - img "Innovation Demo Booth"
+          - button "YANC Community Gathering" [ref=e339] [cursor=pointer]:
+            - img "YANC Community Gathering"
+          - button "Product Design Masterclass" [ref=e341] [cursor=pointer]:
+            - img "Product Design Masterclass"
+          - button "YANC Fellowship Meet" [ref=e343] [cursor=pointer]:
+            - img "YANC Fellowship Meet"
+          - button "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana" [ref=e345] [cursor=pointer]:
+            - img "IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana"
+          - button "Sravanth Gajula - Co-Founder & CEO, Adonmo" [ref=e347] [cursor=pointer]:
+            - img "Sravanth Gajula - Co-Founder & CEO, Adonmo"
+          - button "Manoj Surapaneni - Co-Founder & COO, Dhruva Space" [ref=e349] [cursor=pointer]:
+            - img "Manoj Surapaneni - Co-Founder & COO, Dhruva Space"
+          - button "Hari TN - Author, Angel Investor, Ex-BigBasket" [ref=e351] [cursor=pointer]:
+            - img "Hari TN - Author, Angel Investor, Ex-BigBasket"
+          - button "Praveen Dorna - Founder, SeedBuilders & Startup Byte" [ref=e353] [cursor=pointer]:
+            - img "Praveen Dorna - Founder, SeedBuilders & Startup Byte"
+          - button "Shoban Babu - Co-Founder, Quantela" [ref=e355] [cursor=pointer]:
+            - img "Shoban Babu - Co-Founder, Quantela"
+          - button "Dr. Lavanya NJP - Academician & Innovation Strategist" [ref=e357] [cursor=pointer]:
+            - img "Dr. Lavanya NJP - Academician & Innovation Strategist"
+          - button "Daisuke Tanji - Global Tech Investor & Advisor" [ref=e359] [cursor=pointer]:
+            - img "Daisuke Tanji - Global Tech Investor & Advisor"
+          - button "Srinivas Rao Mahankali - CEO, T-Hub" [ref=e361] [cursor=pointer]:
+            - img "Srinivas Rao Mahankali - CEO, T-Hub"
+          - button "Uma Sudhir - Executive Editor, NDTV" [ref=e363] [cursor=pointer]:
+            - img "Uma Sudhir - Executive Editor, NDTV"
+          - button "Vijaya Lakshmi - Senior Director & HR Leader" [ref=e365] [cursor=pointer]:
+            - img "Vijaya Lakshmi - Senior Director & HR Leader"
+          - button "Chaitanya Priyanka - Brand & Growth Strategist" [ref=e367] [cursor=pointer]:
+            - img "Chaitanya Priyanka - Brand & Growth Strategist"
+          - button "YANC Community Meetup" [ref=e369] [cursor=pointer]:
+            - img "YANC Community Meetup"
+          - button "YANC Tech Workshop Session" [ref=e371] [cursor=pointer]:
+            - img "YANC Tech Workshop Session"
+          - button "Young Minds Mashup Pitching" [ref=e373] [cursor=pointer]:
+            - img "Young Minds Mashup Pitching"
+          - button "Team Brainstorming and Collaboration" [ref=e375] [cursor=pointer]:
+            - img "Team Brainstorming and Collaboration"
+          - button "Founders Keynote Presentation" [ref=e377] [cursor=pointer]:
+            - img "Founders Keynote Presentation"
+          - button "Cohort Discussion Circle" [ref=e379] [cursor=pointer]:
+            - img "Cohort Discussion Circle"
+          - button "Audience and Attendees at YANC Meet" [ref=e381] [cursor=pointer]:
+            - img "Audience and Attendees at YANC Meet"
+          - button "YANC Networking and Coffee Meet" [ref=e383] [cursor=pointer]:
+            - img "YANC Networking and Coffee Meet"
+          - button "Startup Demo Showcase" [ref=e385] [cursor=pointer]:
+            - img "Startup Demo Showcase"
+          - button "Interactive Panel Discussion" [ref=e387] [cursor=pointer]:
+            - img "Interactive Panel Discussion"
+  - contentinfo [ref=e389]:
+    - generic [ref=e390]:
+      - generic [ref=e391]:
+        - generic [ref=e392]:
+          - link "YANC Home" [ref=e393] [cursor=pointer]:
+            - /url: ../../index.html
+            - img "YANC Logo" [ref=e394]
+          - paragraph [ref=e395]: Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+        - generic [ref=e396]:
+          - generic [ref=e397]: Follow Us
+          - generic [ref=e398]:
+            - link "LinkedIn" [ref=e399] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/oneyanc
+            - link "Instagram" [ref=e402] [cursor=pointer]:
+              - /url: https://instagram.com/yancclub
+            - link "WhatsApp" [ref=e405] [cursor=pointer]:
+              - /url: https://api.whatsapp.com/send/?phone=%2B917671819335&text&type=phone_number&app_absent=0
+      - navigation "Footer Navigation" [ref=e408]:
+        - generic [ref=e409]:
+          - heading "Our Offerings" [level=3] [ref=e410]
+          - list [ref=e411]:
+            - listitem [ref=e412]:
+              - link "Value Propositions" [ref=e413] [cursor=pointer]:
+                - /url: ../../Sections/Programs/value-proposition.html
+            - listitem [ref=e414]:
+              - link "Why Us" [ref=e415] [cursor=pointer]:
+                - /url: ../../Sections/Programs/yanc-advantage.html
+            - listitem [ref=e416]:
+              - link "Who Can Join" [ref=e417] [cursor=pointer]:
+                - /url: ../../Sections/Programs/who-can-join.html
+            - listitem [ref=e418]:
+              - link "Young Minds Mashup" [ref=e419] [cursor=pointer]:
+                - /url: ../../Sections/Programs/young-minds-mashup.html
+        - generic [ref=e420]:
+          - heading "Careers" [level=3] [ref=e421]
+          - list [ref=e422]:
+            - listitem [ref=e423]:
+              - link "Job Openings" [ref=e424] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+            - listitem [ref=e425]:
+              - link "Internships" [ref=e426] [cursor=pointer]:
+                - /url: https://web.yanc.in/careers
+        - generic [ref=e427]:
+          - heading "Application" [level=3] [ref=e428]
+          - list [ref=e429]:
+            - listitem [ref=e430]:
+              - link "Applications" [ref=e431] [cursor=pointer]:
+                - /url: ../../Sections/application.html
+            - listitem [ref=e432]:
+              - link "YANC Membership" [ref=e433] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=e434]:
+              - link "Discover Meet Registration" [ref=e435] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=e436]:
+              - link "Mentor Registration" [ref=e437] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+            - listitem [ref=e438]:
+              - link "Startup Pitch" [ref=e439] [cursor=pointer]:
+                - /url: https://web.yanc.in/membership-application
+        - generic [ref=e440]:
+          - heading "Events" [level=3] [ref=e441]
+          - list [ref=e442]:
+            - listitem [ref=e443]:
+              - link "Upcoming Events" [ref=e444] [cursor=pointer]:
+                - /url: ../../Sections/events.html
+            - listitem [ref=e445]:
+              - link "Past Events" [ref=e446] [cursor=pointer]:
+                - /url: ../../Sections/events.html#past-events
+            - listitem [ref=e447]:
+              - link "Event Gallery" [ref=e448] [cursor=pointer]:
+                - /url: ../../Sections/Events/event-gallery.html
+        - generic [ref=e449]:
+          - heading "Legal" [level=3] [ref=e450]
+          - list [ref=e451]:
+            - listitem [ref=e452]:
+              - link "Terms & Conditions" [ref=e453] [cursor=pointer]:
+                - /url: ../../Sections/Legal/terms-and-conditions.html
+            - listitem [ref=e454]:
+              - link "Privacy Policy" [ref=e455] [cursor=pointer]:
+                - /url: ../../Sections/Legal/privacy-policy.html
+            - listitem [ref=e456]:
+              - link "Cookie Policy" [ref=e457] [cursor=pointer]:
+                - /url: ../../Sections/Legal/cookie-policy.html
+            - listitem [ref=e458]:
+              - link "Refund Policy" [ref=e459] [cursor=pointer]:
+                - /url: ../../Sections/Legal/refund-policy.html
+        - generic [ref=e460]:
+          - heading "Support" [level=3] [ref=e461]
+          - list [ref=e462]:
+            - listitem [ref=e463]:
+              - link "FAQ" [ref=e464] [cursor=pointer]:
+                - /url: ../../Sections/faq.html
+            - listitem [ref=e465]:
+              - link "Contact Us" [ref=e466] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+            - listitem [ref=e467]:
+              - link "Log Issues" [ref=e468] [cursor=pointer]:
+                - /url: https://web.yanc.in/contact-us
+      - generic [ref=e469]:
+        - paragraph [ref=e470]: © 2026 YANC. All rights reserved.
+        - generic [ref=e471]:
+          - generic [ref=e472]: Hyderabad, India
+          - generic [ref=e474]: v2026.09.09
