@@ -207,7 +207,7 @@ class SiteHeader extends HTMLElement {
 
     const isRoot = root === './' || root === '';
     const aboutHref = isRoot ? '#about' : `${root}index.html#about`;
-    const eventsHref = `${root}Sections/events.html`;
+    const eventsHref = `${root}Sections/Events/events.html`;
     const homeHref = isRoot ? '#' : `${root}index.html`;
 
     this.innerHTML = `

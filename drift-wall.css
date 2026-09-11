@@ -57,17 +57,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  contain: layout paint;
 }
 
-/* ── HERO INTEGRATED DRIFT WALL ── */
+/* ── HERO IMMERSIVE INTEGRATED DRIFT WALL ── */
 .hero-drift-wall-wrap {
   flex: 1.55;
   min-height: 640px;
-  max-width: 920px;
+  height: 640px;
+  max-width: 960px;
   width: 100%;
   position: relative;
-  height: 640px;
   background: transparent;
   overflow: visible;
   display: flex;
@@ -78,32 +77,25 @@
 .hero-drift-wall-wrap #drift-wall {
   width: 100%;
   height: 100%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%),
-                      linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  -webkit-mask-composite: destination-in;
-  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
 
 .drift-wall {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  contain: strict;
+  overflow: visible;
   perspective: var(--dw-perspective, 1200px);
   perspective-origin: 50% 50%;
-  --dw-tile-w: 195px;
-  --dw-tile-h: 142px;
-  --dw-gap: 14px;
-  --dw-radius: 16px;
+  --dw-tile-w: 200px;
+  --dw-tile-h: 146px;
+  --dw-gap: 16px;
+  --dw-radius: 18px;
   --dw-lift: 40px;
-  --dw-dim: 0.95;
+  --dw-dim: 0.96;
   --dw-gray: 0;
-  --dw-overlay: rgba(0, 0, 0, 0.08);
-  --dw-edge: 85%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  --dw-overlay: rgba(0, 0, 0, 0.05);
 }
 
 .drift-wall__plane {
@@ -126,8 +118,9 @@
   position: relative;
   height: 100%;
   width: calc(var(--dw-tile-w) + var(--dw-gap));
-  contain: layout style paint;
+  contain: layout style;
   transform-style: preserve-3d;
+  overflow: visible;
 }
 
 .drift-wall__track {
@@ -142,6 +135,7 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  overflow: visible;
 }
 
 .drift-wall__tile {
@@ -154,6 +148,12 @@
   transform-style: preserve-3d;
   text-decoration: none;
   cursor: pointer;
+  z-index: 1;
+}
+
+.drift-wall__tile.is-active,
+.drift-wall__tile:hover {
+  z-index: 100 !important;
 }
 
 .drift-wall__inner {
@@ -162,18 +162,19 @@
   display: block;
   border-radius: var(--dw-radius);
   overflow: hidden;
-  background: #E8E4DD;
+  background: var(--bg2, #FFFFFF);
   opacity: var(--dw-dim);
-  transform: translateZ(0);
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(17, 17, 16, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 16px rgba(17, 17, 16, 0.07), 0 0 0 1px rgba(232, 228, 221, 0.85);
   transition:
-    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drift-wall__tile img {
@@ -188,7 +189,7 @@
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   filter: grayscale(var(--dw-gray)) saturate(1.04) contrast(1.02);
-  transition: filter 0.42s cubic-bezier(0.22, 1, 0.36, 1), transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -196,34 +197,37 @@
 .drift-wall__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
-  opacity: 0.12;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.15) 100%);
+  opacity: 0.08;
   pointer-events: none;
-  transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drift-wall__tile.is-active .drift-wall__inner,
+.drift-wall__tile:hover .drift-wall__inner,
 .drift-wall__tile:focus-visible .drift-wall__inner {
   opacity: 1;
-  transform: translateZ(var(--dw-lift)) scale(1.06);
-  box-shadow: 0 24px 50px -10px rgba(17, 17, 16, 0.28), 0 0 0 2px var(--accent);
-  z-index: 50;
+  transform: translateZ(var(--dw-lift, 40px)) scale(1.06);
+  box-shadow: 0 16px 40px rgba(255, 145, 76, 0.22), 0 0 0 2px var(--accent);
+  z-index: 100;
 }
 
 .drift-wall__tile.is-active img,
+.drift-wall__tile:hover img,
 .drift-wall__tile:focus-visible img {
-  filter: grayscale(0) saturate(1.08) contrast(1.04);
+  filter: grayscale(0) saturate(1.06) contrast(1.03);
 }
 
 .drift-wall__tile.is-active .drift-wall__overlay,
+.drift-wall__tile:hover .drift-wall__overlay,
 .drift-wall__tile:focus-visible .drift-wall__overlay {
   opacity: 0;
 }
 
 .drift-wall__tile:focus-visible .drift-wall__inner {
   box-shadow:
-    0 28px 70px -15px rgba(0, 0, 0, 0.8),
-    0 0 0 2px rgba(255, 255, 255, 0.9);
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 2.5px var(--accent);
 }
 
 @media (prefers-reduced-motion: reduce) {

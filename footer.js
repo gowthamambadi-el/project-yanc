@@ -11,7 +11,7 @@ class SiteFooter extends HTMLElement {
 
     const isRoot = root === './' || root === '';
     const homeHref = isRoot ? '#' : `${root}index.html`;
-    const eventsHref = `${root}Sections/events.html`;
+    const eventsHref = `${root}Sections/Events/events.html`;
     const momentsHref = isRoot ? '#community-moments' : `${root}index.html#community-moments`;
 
     this.innerHTML = `
@@ -22,10 +22,10 @@ class SiteFooter extends HTMLElement {
           <div class="yanc-footer-brand-row">
             <div class="yanc-footer-brand-col">
               <a href="${homeHref}" class="yanc-footer-logo-link" aria-label="YANC Home">
-                <img src="${root}YANC Logo.png" alt="YANC Logo" class="yanc-footer-logo-img">
+                <img src="${root}YANC Logo 3.png" alt="YANC Logo" class="yanc-footer-logo-img">
               </a>
               <p class="yanc-footer-mission">
-                Yet Another Networking Club — empowering young minds through life skills. Exclusive. Experiential. In-person.
+                Yet Another Networking Club 
               </p>
             </div>
 

@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="../header.js"></script>
-  <link rel="stylesheet" href="../footer.css">
-  <script src="../footer.js" defer></script>
+  <script src="../../header.js"></script>
+  <link rel="stylesheet" href="../../footer.css">
+  <script src="../../footer.js" defer></script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -241,8 +241,8 @@
 
     /* ── INITIATIVES SECTION ── */
     .initiatives-container {
-      max-width: 1200px;
-      margin: 0 auto 90px;
+      max-width: 1280px;
+      margin: 0 auto 100px;
       padding: 0 40px;
     }
 
@@ -255,132 +255,111 @@
     .initiative-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 36px 30px;
+      border-radius: 20px;
+      padding: 36px 32px 32px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
-    }
-
-    .initiative-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
     .initiative-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 16px 44px rgba(255, 145, 76, 0.12);
       transform: translateY(-5px);
-    }
-
-    .initiative-card:hover::before {
-      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 16px 36px rgba(255, 145, 76, 0.12);
     }
 
     .card-top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 24px;
     }
 
     .icon-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
       background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
-      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+      transition: background 0.3s, color 0.3s;
     }
 
     .initiative-card:hover .icon-badge {
-      transform: scale(1.08) rotate(3deg);
       background: var(--accent);
-      color: #FFFFFF;
+      color: var(--bg2);
     }
 
     .icon-badge svg {
-      width: 26px;
-      height: 26px;
-      fill: none;
-      stroke: currentColor;
+      width: 22px;
+      height: 22px;
       stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
     .card-num {
       font-family: 'Instrument Serif', serif;
+      font-size: 32px;
       font-style: italic;
-      font-size: 28px;
-      color: var(--sand);
-      font-weight: 500;
+      color: var(--ink3);
+      line-height: 1;
     }
 
     .initiative-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--accent);
-      background: var(--accent-light);
-      padding: 5px 12px;
-      border-radius: 6px;
-      width: fit-content;
-      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+      display: block;
     }
 
     .initiative-title {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.4px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 26px;
+      font-weight: 400;
       color: var(--ink);
-      line-height: 1.25;
+      line-height: 1.2;
+      margin-bottom: 14px;
     }
 
     .initiative-desc {
       font-size: 14px;
       color: var(--ink2);
       line-height: 1.65;
+      margin-bottom: 32px;
       flex-grow: 1;
     }
 
     .btn-initiative {
-      margin-top: 14px;
-      width: 100%;
-      padding: 13px 22px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.2s ease;
       background: var(--ink);
-      color: #FFFFFF;
+      color: var(--bg);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      width: 100%;
     }
 
     .btn-initiative:hover {
       background: var(--accent);
+      color: var(--bg2);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 145, 76, 0.28);
+      box-shadow: 0 4px 14px rgba(255, 145, 76, 0.3);
     }
 
     /* ── WHAT TO EXPECT ── */
@@ -388,33 +367,30 @@
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 80px 40px;
-      margin-bottom: 80px;
+      padding: 90px 40px;
     }
 
     .features-inner {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
     }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 40px;
+      gap: 32px;
     }
 
     .feature-item {
       padding: 24px;
-      border-radius: 16px;
       background: var(--bg);
+      border-radius: 16px;
       border: 1px solid var(--border);
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.2s;
     }
 
     .feature-item:hover {
       transform: translateY(-3px);
-      border-color: var(--accent);
     }
 
     .feature-icon {
@@ -426,7 +402,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .feature-icon svg {
@@ -436,8 +412,9 @@
     }
 
     .feature-title {
-      font-size: 16px;
-      font-weight: 600;
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      font-weight: 400;
       color: var(--ink);
       margin-bottom: 8px;
     }
@@ -445,85 +422,81 @@
     .feature-desc {
       font-size: 13px;
       color: var(--ink2);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     /* ── ASSISTANCE BANNER ── */
     .help-banner-wrapper {
-      max-width: 1200px;
-      margin: 0 auto 90px;
+      max-width: 1280px;
+      margin: 90px auto 100px;
       padding: 0 40px;
     }
 
     .help-banner {
-      background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 100%);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 38px 44px;
+      background: var(--accent-light);
+      border: 1px solid rgba(255, 145, 76, 0.25);
+      border-radius: 24px;
+      padding: 44px 48px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 24px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      justify-content: space-between;
+      gap: 32px;
     }
 
     .help-text h3 {
       font-family: 'Instrument Serif', serif;
       font-size: 28px;
       font-weight: 400;
-      margin-bottom: 6px;
       color: var(--ink);
+      margin-bottom: 6px;
     }
 
     .help-text p {
       font-size: 14px;
       color: var(--ink2);
-      max-width: 560px;
+      max-width: 620px;
     }
 
     .help-actions {
       display: flex;
       gap: 14px;
-      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .help-btn {
-      padding: 11px 24px;
+      padding: 12px 22px;
       border-radius: 100px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
-      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: all 0.2s;
     }
 
     .help-btn-mail {
-      background: var(--accent-light);
-      color: var(--accent);
-      border: 1px solid rgba(255, 145, 76, 0.2);
+      background: var(--ink);
+      color: var(--bg);
     }
 
     .help-btn-mail:hover {
       background: var(--accent);
-      color: #FFFFFF;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
 
     .help-btn-faq {
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: var(--bg2);
       color: var(--ink);
+      border: 1px solid var(--border);
     }
 
     .help-btn-faq:hover {
       border-color: var(--ink);
-      transform: translateY(-2px);
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 992px) {
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
       .initiatives-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -579,7 +552,7 @@
 <body>
 
   <!-- NAVIGATION -->
-  <site-header root="../" active="events"></site-header>
+  <site-header root="../../" active="events"></site-header>
 
   <!-- PAGE HERO -->
   <header class="page-hero">
@@ -591,7 +564,7 @@
       Experience our curated experiential meetups, startup pitch stages, and exclusive founder advisory circles designed to accelerate high-potential young minds.
     </p>
     <div style="margin-top: 20px;">
-      <a href="Events/event-gallery.html" style="display: inline-flex; align-items: center; gap: 8px; background: #ff914c; color: #0b0910; font-weight: 600; font-size: 14px; padding: 10px 22px; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(255, 145, 76, 0.25);">
+      <a href="event-gallery.html" style="display: inline-flex; align-items: center; gap: 8px; background: #ff914c; color: #0b0910; font-weight: 600; font-size: 14px; padding: 10px 22px; border-radius: 100px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(255, 145, 76, 0.25);">
         <span>✨ Explore 3D Event Gallery</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
@@ -718,13 +691,13 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Contact Events Team
         </a>
-        <a href="faq.html" class="help-btn help-btn-faq">Browse FAQs</a>
+        <a href="../faq.html" class="help-btn help-btn-faq">Browse FAQs</a>
       </div>
     </section>
   </div>
 
   <!-- CENTRALIZED FOOTER -->
-  <site-footer root="../"></site-footer>
+  <site-footer root="../../"></site-footer>
 
   <!-- SCRIPT -->
   <script>
