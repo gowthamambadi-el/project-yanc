@@ -53,8 +53,8 @@
 
 .infinite-spiral__item.is-focused,
 .infinite-spiral__item:hover {
-  border-color: rgba(124, 58, 237, 0.45);
-  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.14), 0 3px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(255, 145, 76, 0.45);
+  box-shadow: 0 16px 36px rgba(255, 145, 76, 0.14), 0 3px 10px rgba(0, 0, 0, 0.04);
 }
 
 .spiral-card-title {
@@ -69,7 +69,7 @@
 
 .spiral-card-title em {
   font-style: italic;
-  color: var(--accent, #7C3AED);
+  color: var(--accent, #ff914c);
 }
 
 .spiral-card-desc {
