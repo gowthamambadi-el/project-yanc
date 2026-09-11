@@ -281,6 +281,7 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
       position: relative;
+      cursor: pointer;
     }
 
     .team-card:hover {
@@ -289,16 +290,64 @@
       transform: translateY(-3px);
     }
 
+    .card-click-hint {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 8px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink2);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .team-card:hover .card-click-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-click-hint svg {
+      width: 10px;
+      height: 10px;
+      fill: currentColor;
+    }
+
     .member-photo-wrap {
       width: 100%;
-      height: 200px;
-      border-radius: 10px;
+      aspect-ratio: 1 / 1.05;
+      height: auto;
+      min-height: 240px;
+      border-radius: 12px;
       background: linear-gradient(135deg, #FFF3EB 0%, #E8E0D0 100%);
       overflow: hidden;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .member-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .member-photo {
+      transform: scale(1.06);
     }
 
     .avatar-fallback {
@@ -366,6 +415,266 @@
       width: 14px;
       height: 14px;
       fill: currentColor;
+    }
+
+    /* ── PROFILE ZOOM MODAL ── */
+    .founder-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+
+    .founder-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .founder-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 16, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: opacity 0.28s ease;
+    }
+
+    .founder-modal-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 780px;
+      max-height: 90vh;
+      display: flex;
+    }
+
+    .founder-modal-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      width: 100%;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(232, 228, 221, 0.6);
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.92) translateY(14px);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .founder-modal.active .founder-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .founder-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink2);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .founder-modal-close:hover {
+      background: #111110;
+      color: #FFFFFF;
+      border-color: #111110;
+      transform: rotate(90deg) scale(1.05);
+    }
+
+    .founder-modal-body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 380px;
+      overflow-y: auto;
+      max-height: 85vh;
+    }
+
+    .founder-modal-sidebar {
+      background: #FAF8F5;
+      border-right: 1px solid var(--border);
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .founder-modal-avatar-wrap {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #FFF3EB 0%, #E8E0D0 100%);
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .founder-modal-avatar-fallback {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 54px;
+      color: var(--accent);
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .founder-modal-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .founder-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 145, 76, 0.25);
+    }
+
+    .founder-modal-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .founder-social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 9px 16px;
+      border-radius: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .founder-social-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .founder-social-btn:hover {
+      background: #111110;
+      color: #FFFFFF;
+      border-color: #111110;
+      transform: translateY(-1px);
+    }
+
+    .founder-modal-content {
+      padding: 40px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+    }
+
+    .founder-modal-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-right: 32px;
+    }
+
+    .founder-modal-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(28px, 3.2vw, 36px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .founder-modal-role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+
+    .founder-modal-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .founder-modal-writeup {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .founder-writeup-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+    .founder-modal-bio {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #3C3B37;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 700px) {
+      .founder-modal-body {
+        grid-template-columns: 1fr;
+      }
+      .founder-modal-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 30px 20px 24px;
+      }
+      .founder-modal-content {
+        padding: 24px 20px 30px;
+      }
+      .founder-modal-avatar-wrap {
+        width: 110px;
+        height: 110px;
+      }
+      .founder-modal-avatar-fallback {
+        font-size: 40px;
+      }
     }
 
     /* ── FOOTER ── */
@@ -542,7 +851,16 @@
     <div class="team-grid">
 
       <!-- Member 1 -->
-      <div class="team-card">
+      <div class="team-card" 
+           data-name="Mr. Lieven Cornelis" 
+           data-role="Psychologist & Human Capital Strategist" 
+           data-initials="LC" 
+           data-linkedin="https://linkedin.com" 
+           data-bio="Lieven Cornelis is a seasoned psychologist and human capital strategist specializing in leadership development and behavioral assessment. He is the creator of the Koan-PM platform, a sophisticated tool designed to analyze personality traits and provide actionable insights for personal and professional growth. With extensive experience in 360-degree feedback and psychological safety, Lieven empowers individuals and organizations to enhance performance through self-awareness and targeted development.">
+        <span class="card-click-hint">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          View Bio
+        </span>
         <div class="member-photo-wrap">
           <span class="avatar-fallback">LC</span>
         </div>
@@ -554,14 +872,20 @@
           <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
-          <a href="mailto:hello@yanc.in" class="social-btn" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- Member 2 -->
-      <div class="team-card">
+      <div class="team-card" 
+           data-name="Mr. Rakesh Naik" 
+           data-role="General Partner - SVP" 
+           data-initials="RN" 
+           data-linkedin="https://linkedin.com" 
+           data-bio="Rakesh Naik is a seasoned venture capitalist and startup ecosystem enabler with over 25 years of experience in entrepreneurship and investment. As a General Partner at Sri Venture Partners, he plays a pivotal role in identifying and nurturing high-potential startups. Rakesh is also the Founder & CEO of Raksan and serves as the Chief Investor at Moolya Global. His mentorship roles at initiatives like the Atal Innovation Mission underscore his dedication to guiding emerging entrepreneurs and shaping the future of venture capital in India.">
+        <span class="card-click-hint">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          View Bio
+        </span>
         <div class="member-photo-wrap">
           <span class="avatar-fallback">RN</span>
         </div>
@@ -573,14 +897,20 @@
           <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
-          <a href="mailto:hello@yanc.in" class="social-btn" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- Member 3 -->
-      <div class="team-card">
+      <div class="team-card" 
+           data-name="Mr. Mac Srinivasan" 
+           data-role="Global Growth Mentor & Certified Franchise Expert" 
+           data-initials="MS" 
+           data-linkedin="https://linkedin.com" 
+           data-bio="Mac Srinivasan is a Global Growth Mentor and the CEO of ‘The Abundant Group’ , with over 35+ years of business experience across 70+ countries. Mac is a Certified Franchise Executive (International Franchise Association, USA) and a highly sought-after keynote speaker who has inspired over 200,000 entrepreneurs in his journey.As the former Global Markets President of BNI, Mac led global expansion and delivered consistent year-over-year growth, even in challenging times of uncertainty. He now dedicates his time to helping entrepreneurs and global franchises scale exponentially, combining strategic insight with deep.Beyond business, Mac is passionate about education, supporting over 1,000s of underprivileged children.Adventurer at heart:a fire-walker, bungee jumper, skydiver …Mac’s passion and purpose fuels his endless energy to help you achieve exponential results.">
+        <span class="card-click-hint">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          View Bio
+        </span>
         <div class="member-photo-wrap">
           <span class="avatar-fallback">MS</span>
         </div>
@@ -592,14 +922,20 @@
           <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
-          <a href="mailto:hello@yanc.in" class="social-btn" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- Member 4 -->
-      <div class="team-card">
+      <div class="team-card" 
+           data-name="Mr. Neil Gogte" 
+           data-role="Chairman: KMIT Group of Colleges" 
+           data-initials="NG" 
+           data-linkedin="https://linkedin.com" 
+           data-bio="Neil Gogte is a visionary technologist, entrepreneur, and academic leader with over three decades of experience in IT and education. He is the founder and owner of multiple educational institutions, including engineering and junior colleges like Keshav Memorial and NGIT, shaping thousands of student careers. Neil is also the Founder of Genesis Solutions which trained 70K professionals since 1992. Neil’s leadership continues to impact thousands of young professionals and institutions across India.">
+        <span class="card-click-hint">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          View Bio
+        </span>
         <div class="member-photo-wrap">
           <span class="avatar-fallback">NG</span>
         </div>
@@ -611,14 +947,20 @@
           <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
-          <a href="mailto:hello@yanc.in" class="social-btn" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- Member 5 -->
-      <div class="team-card">
+      <div class="team-card" 
+           data-name="Ms. Sanjana Shah" 
+           data-role="Executive Director, BNI Hyderabad" 
+           data-initials="SS" 
+           data-linkedin="https://linkedin.com" 
+           data-bio="Sanjana Shah is a dynamic leader and serial entrepreneur based in Hyderabad, currently serving as the Executive Director of BNI Hyderabad. Sanjana leads BNI Hyderabad managing over 4000+ members across 50+ chapters demonstrating trailblazer strength and a powerful example of women’s leadership in entrepreneurship. With over a decade of business experience, she has successfully spearheaded multiple ventures. Her vibrant leadership has earned her prestigious recognition, including the 2023 “Founders Award”. Under her tenure, BNI Hyderabad witnessed remarkable achievements of multiple world records, such as adding 1,000 new members in a single day. She is also celebrated as an international speaker and recipient of the Telangana Stri-Murti Award in 2020. Known for her passion for lifelong learning, networking, and personal development, Sanjana is an adventurous spirit, a dedicated traveler.">
+        <span class="card-click-hint">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          View Bio
+        </span>
         <div class="member-photo-wrap">
           <span class="avatar-fallback">SS</span>
         </div>
@@ -630,14 +972,52 @@
           <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
-          <a href="mailto:hello@yanc.in" class="social-btn" aria-label="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
         </div>
       </div>
 
     </div>
   </main>
+
+  <!-- PROFILE ZOOM MODAL -->
+  <div class="founder-modal" id="founder-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="founder-modal-backdrop" id="founder-modal-backdrop"></div>
+    <div class="founder-modal-container">
+      <div class="founder-modal-card">
+        <button class="founder-modal-close" id="founder-modal-close" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="founder-modal-body">
+          <div class="founder-modal-sidebar">
+            <div class="founder-modal-avatar-wrap">
+              <span class="founder-modal-avatar-fallback" id="founder-modal-avatar-fallback"></span>
+              <img src="" alt="" class="founder-modal-avatar-img" id="founder-modal-avatar-img" style="display: none;">
+            </div>
+            <span class="founder-badge">Advisory Board</span>
+            <div class="founder-modal-socials">
+              <a href="#" target="_blank" class="founder-social-btn" id="founder-modal-linkedin">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+          <div class="founder-modal-content">
+            <div class="founder-modal-header">
+              <h2 class="founder-modal-name" id="founder-modal-name"></h2>
+              <p class="founder-modal-role" id="founder-modal-role"></p>
+            </div>
+            <div class="founder-modal-divider"></div>
+            <div class="founder-modal-writeup">
+              <span class="founder-writeup-title">Profile & Background</span>
+              <p class="founder-modal-bio" id="founder-modal-bio"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- CENTRALIZED FOOTER -->
   <site-footer root="../../"></site-footer>
@@ -647,6 +1027,71 @@
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ── MODAL PROFILE ZOOM HANDLER ──
+    const modal = document.getElementById('founder-modal');
+    const modalBackdrop = document.getElementById('founder-modal-backdrop');
+    const modalClose = document.getElementById('founder-modal-close');
+    const modalName = document.getElementById('founder-modal-name');
+    const modalRole = document.getElementById('founder-modal-role');
+    const modalBio = document.getElementById('founder-modal-bio');
+    const modalFallback = document.getElementById('founder-modal-avatar-fallback');
+    const modalImg = document.getElementById('founder-modal-avatar-img');
+    const modalLinkedIn = document.getElementById('founder-modal-linkedin');
+
+    function openFounderModal(card) {
+      if (!card) return;
+      const name = card.getAttribute('data-name') || card.querySelector('.member-name')?.textContent || '';
+      const role = card.getAttribute('data-role') || card.querySelector('.member-role')?.textContent || '';
+      const bio = card.getAttribute('data-bio') || 'Bio details coming soon.';
+      const initials = card.getAttribute('data-initials') || name.split(' ').map(n => n[0]).join('').slice(-2);
+      const photo = card.getAttribute('data-photo') || '';
+      const linkedin = card.getAttribute('data-linkedin') || 'https://linkedin.com';
+
+      modalName.textContent = name;
+      modalRole.textContent = role;
+      modalBio.textContent = bio;
+      modalFallback.textContent = initials;
+
+      if (photo) {
+        modalImg.src = photo;
+        modalImg.style.display = 'block';
+        modalFallback.style.display = 'none';
+      } else {
+        modalImg.style.display = 'none';
+        modalFallback.style.display = 'block';
+      }
+
+      modalLinkedIn.href = linkedin;
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFounderModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click listeners to team cards
+    document.querySelectorAll('.team-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Prevent opening modal if clicking directly on a social link button
+        if (e.target.closest('.social-btn')) return;
+        openFounderModal(card);
+      });
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeFounderModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeFounderModal);
+
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeFounderModal();
+      }
     });
 
     // ── ONLY OPEN WEB.YANC.IN DIRECTING LINKS IN NEW TAB ──
