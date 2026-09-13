@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YANC Gallery — Explore moments, workshops, summits, and community gatherings through our interactive 3D Dome Gallery.">
+  <title>YANC Gallery | YANC — Yet Another Networking Club</title>
+  <link rel="icon" type="image/x-icon" href="../../YANC Logo.png">
+
+  <!-- Google Fonts matching other pages -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core & Shared Styles -->
+  <link rel="stylesheet" href="../../footer.css">
+  <link rel="stylesheet" href="DomeGallery.css">
+  <script src="../../header.js"></script>
+  <script src="../../footer.js" defer></script>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #F8F5F0;
+      --bg2: #FFFFFF;
+      --ink: #111110;
+      --ink2: #5C5B58;
+      --ink3: #A09E9A;
+      --accent: #ff914c;
+      --accent-light: #FFF3EB;
+      --accent-hover: #e87a35;
+      --border: #E8E4DD;
+      --sand: #E8E0D0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 16px 40px;
+      background: rgba(248, 245, 240, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-left-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 28px;
+    }
+
+    .nav-links-left {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-right-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 28px;
+    }
+
+    .nav-links-right {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-login {
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-login:hover {
+      color: var(--ink);
+    }
+
+    .nav-apply-btn {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-right-container {
+        margin-left: 0;
+      }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 44px 20px 16px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .page-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .page-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── EXPANSIVE 3D DOME GALLERY ── */
+    .gallery-container {
+      position: relative;
+      width: 100vw;
+      height: 94vh;
+      min-height: 820px;
+      margin: 0 auto 100px;
+      overflow: hidden;
+    }
+
+    #dome-gallery-root {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    site-footer {
+      display: block;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <site-header root="../../" active="events"></site-header>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <h1 class="page-headline">
+      YANC <em>Gallery</em>
+    </h1>
+  </header>
+
+  <!-- 3D DOME GALLERY FULL SCREEN -->
+  <main class="gallery-container">
+    <div id="dome-gallery-root"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <site-footer root="../../"></site-footer>
+
+  <!-- DOME GALLERY LOGIC -->
+  <script src="DomeGallery.js"></script>
+  <script>
+    // All available photos from YANC project repository
+    const YANC_GALLERY_IMAGES = [
+      { src: '../../YANC - photos/y2.jpg', alt: 'YANC Community Meetup' },
+      { src: '../../YANC - photos/workshop.JPG', alt: 'YANC Tech Workshop Session' },
+      { src: '../../YANC - photos/y3.jpg', alt: 'Young Minds Mashup Pitching' },
+      { src: '../../YANC - photos/y4.jpg', alt: 'Team Brainstorming and Collaboration' },
+      { src: '../../YANC - photos/y5.JPG', alt: 'Founders Keynote Presentation' },
+      { src: '../../YANC - photos/y6.JPG', alt: 'Cohort Discussion Circle' },
+      { src: '../../YANC - photos/y7.JPG', alt: 'Audience and Attendees at YANC Meet' },
+      { src: '../../YANC - photos/y12.jpg', alt: 'YANC Networking and Coffee Meet' },
+      { src: '../../YANC - photos/y22.jpg', alt: 'Startup Demo Showcase' },
+      { src: '../../YANC - photos/y23.jpg', alt: 'Interactive Panel Discussion' },
+      { src: '../../YANC - photos/y24.jpg', alt: 'Mentorship 1-on-1 Guidance' },
+      { src: '../../YANC - photos/y24(1).JPG', alt: 'Young Builders at YANC Hub' },
+      { src: '../../YANC - photos/y26.jpg', alt: 'YANC Founders Exchange' },
+      { src: '../../YANC - photos/y27.jpg', alt: 'Speaker Session at YANC Summit' },
+      { src: '../../YANC - photos/y27 (1).jpg', alt: 'Leadership Insights on Stage' },
+      { src: '../../YANC - photos/y30.jpg', alt: 'Group Picture of YANC Cohort' },
+      { src: '../../YANC - photos/y31.jpg', alt: 'Hands-on Building Sprint' },
+      { src: '../../YANC - photos/y33.jpg', alt: 'Innovation Demo Booth' },
+      { src: '../../YANC - photos/y34.jpg', alt: 'YANC Community Gathering' },
+      { src: '../../YANC - photos/workshop2.jpg', alt: 'Product Design Masterclass' },
+      { src: '../../YANC - photos/WhatsApp Image 2026-06-13 at 6.58.16 PM.jpeg', alt: 'YANC Fellowship Meet' },
+      { src: '../../Mentors/Jayesh Ranjan.JPG', alt: 'IAS Jayesh Ranjan - Principal Secretary, IT & E&C, Govt of Telangana' },
+      { src: '../../Mentors/Sravanth.jpg', alt: 'Sravanth Gajula - Co-Founder & CEO, Adonmo' },
+      { src: '../../Mentors/Manoj.jpg', alt: 'Manoj Surapaneni - Co-Founder & COO, Dhruva Space' },
+      { src: '../../Mentors/Hari.jpg', alt: 'Hari TN - Author, Angel Investor, Ex-BigBasket' },
+      { src: '../../Mentors/Praveen Dorna.jpg', alt: 'Praveen Dorna - Founder, SeedBuilders & Startup Byte' },
+      { src: '../../Mentors/Shoban Babu.jpg', alt: 'Shoban Babu - Co-Founder, Quantela' },
+      { src: '../../Mentors/Dr. Lavanya NJP.jpg', alt: 'Dr. Lavanya NJP - Academician & Innovation Strategist' },
+      { src: '../../Mentors/Daisuke Tanji.jpg', alt: 'Daisuke Tanji - Global Tech Investor & Advisor' },
+      { src: '../../Mentors/Srnivas Rao Mahankali.jpg', alt: 'Srinivas Rao Mahankali - CEO, T-Hub' },
+      { src: '../../Mentors/Uma Sudhir .jpg', alt: 'Uma Sudhir - Executive Editor, NDTV' },
+      { src: '../../Mentors/Vijaya Lakshmi.jpg', alt: 'Vijaya Lakshmi - Senior Director & HR Leader' },
+      { src: '../../Mentors/Chaitanya Priyanka.jpg', alt: 'Chaitanya Priyanka - Brand & Growth Strategist' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new DomeGallery('#dome-gallery-root', {
+        images: YANC_GALLERY_IMAGES,
+        fit: 1.05,
+        minRadius: 880,
+        maxRadius: 3200,
+        padFactor: 0.12,
+        overlayBlurColor: '#F8F5F0',
+        dragSensitivity: 22,
+        dragDampening: 1,
+        maxVerticalRotationDeg: 14,
+        enlargeTransitionMs: 350,
+        segments: 48,
+        openedImageWidth: '460px',
+        openedImageHeight: '460px',
+        imageBorderRadius: '18px',
+        openedImageBorderRadius: '24px',
+        grayscale: false,
+        autoRotate: true,
+        autoRotateSpeed: 0.04
+      });
+    });
+  </script>
+</body>
+</html>

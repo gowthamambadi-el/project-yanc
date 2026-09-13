@@ -81,7 +81,7 @@
     }
 
     .nav-logo img {
-      height: 36px;
+      height: 28px;
       width: auto;
       display: block;
     }
@@ -227,8 +227,8 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 40px 40px 0;
-      min-height: calc(100vh - 90px);
+      padding: 24px 36px 0;
+      min-height: calc(100vh - 80px);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -242,30 +242,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 48px;
+      gap: 32px;
       width: 100%;
-      max-width: 1380px;
+      max-width: 1560px;
       margin: auto 0;
       flex: 1;
     }
 
     .hero-left {
-      flex: 1.05;
+      flex: 0.88;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 28px;
+      gap: 24px;
       padding-bottom: 0px;
+      z-index: 2;
     }
 
     .hero-headline {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(56px, 9vw, 96px);
+      font-size: clamp(56px, 8.5vw, 96px);
       font-weight: 400;
       line-height: 0.92;
       letter-spacing: -3px;
       color: var(--ink);
-      max-width: 560px;
+      max-width: 500px;
     }
 
     .hero-headline em {
@@ -273,176 +274,39 @@
       color: var(--accent);
     }
 
-    .hero-board {
-      flex: 1.15;
-      max-width: 660px;
+    .hero-drift-wall-wrap {
+      flex: 1.55;
+      min-height: 640px;
+      max-width: 920px;
       width: 100%;
       position: relative;
-      height: 540px;
-      background-color: #F4F0E8;
-      background-image: radial-gradient(rgba(17, 17, 16, 0.08) 1.5px, transparent 0);
-      background-size: 24px 24px;
-      border-radius: 20px;
-      border: 12px solid #C8BFAF;
-      box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.12), 0 12px 36px rgba(0, 0, 0, 0.06);
-    }
-
-    /* Photo board objects */
-    .board-photo {
-      position: absolute;
-      background: var(--bg2);
-      padding: 8px;
-      border-radius: 6px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      height: 640px;
+      background: transparent;
+      overflow: visible;
       display: flex;
-      will-change: transform, box-shadow;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-    }
-
-    .board-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 4px;
-      background: var(--border);
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-    }
-
-    .board-photo img.loaded {
-      opacity: 1;
-    }
-
-    .board-photo:hover {
-      transform: scale(1.06) rotate(0deg) !important;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-      z-index: 20;
-    }
-
-    /* Perfectly balanced collage positions */
-    .bp1 {
-      top: 5%;
-      left: 4%;
-      width: 29%;
-      height: 155px;
-      transform: rotate(-4deg);
-      z-index: 2;
-    }
-
-    .bp2 {
-      top: 4%;
-      left: 35%;
-      width: 30%;
-      height: 140px;
-      transform: rotate(3deg);
-      z-index: 3;
-    }
-
-    .bp3 {
-      top: 5%;
-      right: 4%;
-      width: 29%;
-      height: 150px;
-      transform: rotate(-3deg);
+      align-items: center;
+      justify-content: center;
       z-index: 1;
     }
 
-    .bp4 {
-      top: 36%;
-      left: 3%;
-      width: 29%;
-      height: 165px;
-      transform: rotate(4deg);
-      z-index: 4;
-    }
-
-    .bp5 {
-      top: 33%;
-      left: 33%;
-      width: 34%;
-      height: 170px;
-      transform: rotate(-2deg);
-      z-index: 6;
-    }
-
-    .bp6 {
-      top: 35%;
-      right: 3%;
-      width: 29%;
-      height: 165px;
-      transform: rotate(-3deg);
-      z-index: 5;
-    }
-
-    .bp7 {
-      bottom: 5%;
-      left: 9%;
-      width: 38%;
-      height: 145px;
-      transform: rotate(-2.5deg);
-      z-index: 7;
-    }
-
-    .bp8 {
-      bottom: 5%;
-      right: 9%;
-      width: 41%;
-      height: 145px;
-      transform: rotate(2.5deg);
-      z-index: 8;
+    .hero-drift-wall-wrap #drift-wall {
+      width: 100%;
+      height: 100%;
     }
 
     @media (max-width: 1024px) {
       .hero {
-        padding: 40px 24px 0;
+        padding: 32px 20px 0;
         min-height: auto;
       }
 
       .hero-top {
-        gap: 32px;
+        gap: 24px;
       }
 
-      .hero-board {
-        height: 440px;
-        border: 8px solid #C8BFAF;
-      }
-
-      .board-photo {
-        padding: 5px;
-      }
-
-      .bp1 {
-        height: 120px;
-      }
-
-      .bp2 {
-        height: 105px;
-      }
-
-      .bp3 {
-        height: 115px;
-      }
-
-      .bp4 {
-        height: 130px;
-      }
-
-      .bp5 {
-        height: 135px;
-      }
-
-      .bp6 {
-        height: 130px;
-      }
-
-      .bp7 {
-        height: 115px;
-      }
-
-      .bp8 {
-        height: 115px;
+      .hero-drift-wall-wrap {
+        height: 480px;
+        min-height: 480px;
       }
     }
 
@@ -513,6 +377,7 @@
       gap: 0;
       white-space: nowrap;
       animation: marquee 22s linear infinite;
+      will-change: transform;
     }
 
     .marquee-track:hover {
@@ -542,6 +407,11 @@
     /* ── SECTION SHARED ── */
     section {
       padding: 72px 40px;
+    }
+
+    .about, .what-we-offer, .how-it-works, .values-container, .faq-section {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 700px;
     }
 
     .eyebrow {
@@ -1597,7 +1467,9 @@
       }
 
       .hero {
-        padding: 40px 20px 0;
+        padding: 32px 20px 0;
+        min-height: auto;
+        overflow: visible;
       }
 
       .hero-top {
@@ -1660,8 +1532,13 @@
         padding: 24px 20px;
       }
 
-      .hero-board {
-        display: none;
+      .hero-drift-wall-wrap {
+        flex: none;
+        height: 380px;
+        min-height: 380px;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 24px;
       }
     }
 
@@ -1682,47 +1559,20 @@
           Empowering <em>young minds.</em>
         </h1>
         <p class="hero-sub">
-          Yet Another Networking Club — an <strong>exclusive experiential community</strong> for young minds. We get you
-          ready for life through mentoring, coaching, and peer-to-peer connections.
+          Yet Another Networking Club an <strong>exclusive experiential club</strong> for young minds. We get you
+          ready for life through mentoring, experiential learning, and peer-to-peer connections.
         </p>
         <div class="hero-pills">
-          <span class="pill">Life skills</span>
+          <span class="pill">Young Minds</span>
           <span class="pill">Networking</span>
-          <span class="pill">Mentoring</span>
-          <span class="pill">Leadership</span>
-          <span class="pill">Peer learning</span>
-          <span class="pill">Career readiness</span>
-          <span class="pill">Public speaking</span>
-          <span class="pill">Confidence</span>
+          <span class="pill">Life skills</span>
+  
         </div>
       </div>
 
-      <!-- Pinboard collage -->
-      <div class="hero-board">
-        <div class="board-photo bp1">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Real Connections">
-        </div>
-        <div class="board-photo bp2">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Life Skills">
-        </div>
-        <div class="board-photo bp3">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Mentorship">
-        </div>
-        <div class="board-photo bp4">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Peer Learning">
-        </div>
-        <div class="board-photo bp5">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Community Events">
-        </div>
-        <div class="board-photo bp6">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Workshops">
-        </div>
-        <div class="board-photo bp7">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Confidence Building">
-        </div>
-        <div class="board-photo bp8">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Leadership">
-        </div>
+      <!-- Dynamic Drift Wall Gallery -->
+      <div class="hero-drift-wall-wrap">
+        <div id="drift-wall"></div>
       </div>
     </div>
   </section>
@@ -1744,7 +1594,7 @@
       <span class="m-item">15–28 Years</span>
       <span class="m-item">Peer Learning</span>
       <span class="m-item accent">Exclusive Club</span>
-      <span class="m-item">Coaching</span>
+      <span class="m-item">Experience</span>
       <span class="m-item">Real Skills</span>
       <span class="m-item accent">Real People</span>
       <span class="m-item">YANC.IN</span>
@@ -1757,26 +1607,13 @@
       <span class="m-item">15–28 Years</span>
       <span class="m-item">Peer Learning</span>
       <span class="m-item accent">Exclusive Club</span>
-      <span class="m-item">Coaching</span>
+      <span class="m-item">Experience</span>
       <span class="m-item">Real Skills</span>
       <span class="m-item accent">Real People</span>
       <span class="m-item">YANC.IN</span>
     </div>
   </div>
 
-  <!-- DRIFT WALL SECTION -->
-  <section class="drift-wall-section" id="community-moments">
-    <div class="drift-wall-header">
-      <span class="eyebrow">Life at YANC</span>
-      <h2 class="drift-wall-title">Moments of <em>Innovation &amp; Connection</em></h2>
-      <p class="drift-wall-subtitle">
-        Explore the vibrant energy of our workshops, meetups, masterclasses, and collaborative milestones.
-      </p>
-    </div>
-    <div class="drift-wall-container">
-      <div id="drift-wall"></div>
-    </div>
-  </section>
 
   <!-- MENTOR TALKS MARQUEE SECTION -->
   <section class="mentor-talks-section" id="mentor-talks">
@@ -2054,13 +1891,13 @@
     <div class="values-container">
       <!-- Left Column: Content & Narrative -->
       <div class="values-left-col">
-        <div class="eyebrow">Our Principles</div>
+        <div class="eyebrow"></div>
         <h2 class="values-header-title">
           Core <em>Values</em>
         </h2>
         <div class="values-narrative-text">
           <p>
-            Our foundational principles guide everything we do and serve as the backbone of our mission and vision. These seven core values are more than just words—they represent the ideals that shape our community, influence our decisions, and inspire how we interact with one another and the world around us.
+            Our foundational principles guide everything we do and serve as the backbone of our mission and vision. These seven core values are more than just words they represent the ideals that shape our community, influence our decisions, and inspire how we interact with one another and the world around us.
           </p>
           <p>
             Together, these principles define our organization's character. They encourage <strong>integrity, collaboration, responsibility</strong>, and a commitment to growth and positive impact, empowering individuals to contribute, innovate, and support one another.
@@ -2089,10 +1926,10 @@
           
           <div class="about-paragraphs">
             <p>
-              <strong>Networking and life skills</strong> are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to <em>job opportunities, partnerships, and mentorships</em> while fostering knowledge sharing and professional growth.
+              <strong>Networking and life skills</strong> are crucial in today's fast-paced world. Networking helps you connect with diverse individuals, opening doors to <em>opportunities, partnerships, and mentorships</em> while fostering knowledge sharing and professional growth.
             </p>
             <p>
-              <strong>Life skills</strong>—such as <em>communication, problem-solving, and emotional intelligence</em>—are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
+              <strong>Life skills</strong> such as <em>communication, problem-solving, and emotional intelligence</em> are essential for navigating challenges and building meaningful relationships. Together, these skills ensure you adapt to changing environments, make informed decisions, stay resilient, and remain ready to seize new opportunities.
             </p>
           </div>
         </div>
@@ -2138,18 +1975,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="apply">
-    <div class="cta-eyebrow">Limited spots · Applications open</div>
-    <div class="cta-headline">Ready to join YANC?</div>
-    <div class="cta-sub">Ages 15–28. Hyderabad. Free to join. Every application reviewed personally.</div>
-    <div class="cta-form">
-      <input class="cta-input" type="email" placeholder="your@email.com" />
-      <button class="cta-submit">Apply now →</button>
-    </div>
-    <div class="cta-note">No spam. Just YANC. Parental consent required for under 18.</div>
-  </section>
-
   <!-- CENTRALIZED FOOTER -->
   <site-footer root="./"></site-footer>
 
@@ -2171,58 +1996,6 @@
   </div>
 
   <script>
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Randomize collage images on load
-    document.addEventListener('DOMContentLoaded', () => {
-      const images = [
-        'workshop.JPG',
-        'workshop2.jpg',
-        'y2.jpg',
-        'y3.jpg',
-        'y4.jpg',
-        'y5.JPG',
-        'y6.JPG',
-        'y7.JPG',
-        'y12.jpg',
-        'y22.jpg',
-        'y23.jpg',
-        'y24(1).JPG',
-        'y24.jpg',
-        'y26.jpg',
-        'y27 (1).jpg',
-        'y27.jpg',
-        'y30.jpg',
-        'y31.jpg',
-        'y33.jpg',
-        'y34.jpg',
-        'WhatsApp Image 2026-06-13 at 6.58.16 PM.jpeg'
-      ];
-
-      // Shuffle images array using Durstenfeld algorithm
-      for (let i = images.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [images[i], images[j]] = [images[j], images[i]];
-      }
-
-      // Assign the first 8 unique shuffled images to the collage frames with preloading
-      const imgElements = document.querySelectorAll('.hero-board .board-photo img');
-      imgElements.forEach((img, index) => {
-        if (images[index]) {
-          const imgUrl = `YANC - photos/${images[index]}`;
-          const tempImg = new Image();
-          tempImg.onload = () => {
-            img.src = imgUrl;
-            img.classList.add('loaded');
-          };
-          tempImg.src = imgUrl;
-        }
-      });
-    });
-
     // ── MENTOR MODAL LIGHTBOX ──
     const mentorModal = document.getElementById('mentor-modal');
     const mentorModalImg = document.getElementById('mentor-modal-img');
