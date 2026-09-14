@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YANC Team Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #F8F5F0;
+      --bg2: #FFFFFF;
+      --ink: #111110;
+      --ink2: #5C5B58;
+      --ink3: #A09E9A;
+      --accent: #ff914c;
+      --accent-light: #FFF3EB;
+      --accent-hover: #e87a35;
+      --border: #E8E4DD;
+      --sand: #E8E0D0;
+      --danger: #e53e3e;
+      --danger-light: #fff5f5;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── TOP HEADER ── */
+    header.admin-header {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 145, 76, 0.25);
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-email {
+      font-size: 12.5px;
+      color: var(--ink2);
+      font-weight: 500;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #eeeae3;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ── AUTH CONTAINER ── */
+    .auth-container {
+      max-width: 420px;
+      margin: 80px auto;
+      padding: 40px 32px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+
+    .auth-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .auth-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .auth-sub {
+      font-size: 13px;
+      color: var(--ink2);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 13.5px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #FFFFFF;
+    }
+
+    /* ── MAIN DASHBOARD ── */
+    .dashboard-wrap {
+      max-width: 1320px;
+      margin: 36px auto 80px;
+      padding: 0 32px;
+    }
+
+    .dash-hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .dash-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .dash-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .dash-sub {
+      color: var(--ink2);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--ink2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    .filter-pill {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ink2);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover {
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    .filter-pill.active {
+      background: var(--accent-light);
+      border-color: rgba(255, 145, 76, 0.3);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── MEMBERS TABLE / GRID ── */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .member-admin-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .member-admin-card:hover {
+      border-color: #d6cfc4;
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .avatar-preview {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 22px;
+      color: var(--accent);
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .avatar-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-meta {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .card-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-role {
+      font-size: 12px;
+      color: var(--ink2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-cat-badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink2);
+      margin-top: 4px;
+    }
+
+    .card-bio-snippet {
+      font-size: 12px;
+      color: var(--ink2);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-edit {
+      flex: 1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-edit:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-delete {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--danger-light);
+      border: 1px solid rgba(229, 62, 62, 0.2);
+      color: var(--danger);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-delete:hover {
+      background: var(--danger);
+      color: #FFFFFF;
+    }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 16, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg2);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .modal-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--ink2);
+    }
+
+    /* Photo Upload Area */
+    .photo-upload-box {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--bg);
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .photo-upload-box:hover, .photo-upload-box.dragover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .photo-preview-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .uploaded-img-preview {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 13px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="brand-group">
+      <img src="YANC Logo 2.png" alt="YANC Logo" class="brand-logo">
+      <span class="brand-badge">Team CMS</span>
+    </div>
+    <div class="header-user" id="header-user" style="display: none;">
+      <span class="user-email" id="user-email">admin@yanc.in</span>
+      <button class="btn-secondary" id="btn-logout">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- AUTH FORM -->
+  <div class="auth-container" id="auth-section">
+    <h1 class="auth-title">YANC <em>Admin Portal</em></h1>
+    <p class="auth-sub">Sign in with your admin credentials to manage team members.</p>
+    
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label" for="login-email">Email Address</label>
+        <input type="email" id="login-email" class="form-input" placeholder="admin@yanc.in" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="login-password">Password</label>
+        <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;" id="btn-login">
+        Sign In to Dashboard
+      </button>
+      <p id="auth-error" style="color: var(--danger); font-size: 12px; margin-top: 12px; display: none;"></p>
+    </form>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard-wrap" id="dashboard-section" style="display: none;">
+    <div class="dash-hero">
+      <div>
+        <h1 class="dash-title">Manage <em>Team Members</em></h1>
+        <p class="dash-sub">Add, edit, or reorder members across all 6 team categories.</p>
+      </div>
+      <button class="btn-primary" id="btn-add-member">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add New Member
+      </button>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-num" id="stat-total">54</span>
+        <span class="stat-label">Total Team Members</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" id="stat-photos">22</span>
+        <span class="stat-label">Photos Uploaded</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Team Categories</span>
+      </div>
+    </div>
+
+    <!-- CATEGORY FILTER TABS -->
+    <div class="filter-bar" id="category-filters">
+      <button class="filter-pill active" data-cat="all">All Members (54)</button>
+      <button class="filter-pill" data-cat="advisory-board">Advisory Board</button>
+      <button class="filter-pill" data-cat="executive-management">Executive Management</button>
+      <button class="filter-pill" data-cat="cohort-founders">Cohort Founders</button>
+      <button class="filter-pill" data-cat="cohort-ambassadors">Cohort Ambassadors</button>
+      <button class="filter-pill" data-cat="cohort-members">Cohort Members</button>
+      <button class="filter-pill" data-cat="cross-borders">Cross Borders</button>
+    </div>
+
+    <!-- MEMBERS GRID -->
+    <div class="members-grid" id="members-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- ADD / EDIT MODAL -->
+  <div class="modal-backdrop" id="member-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Add <em>Team Member</em></h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+
+      <form id="member-form">
+        <input type="hidden" id="member-id">
+        <input type="hidden" id="member-photo-url">
+
+        <!-- Photo Upload -->
+        <div class="form-group">
+          <label class="form-label">Profile Photo</label>
+          <div class="photo-upload-box" id="drop-zone">
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+            <div id="upload-placeholder">
+              <p style="font-weight: 500; color: var(--ink);">Drag & drop an image, or <span style="color: var(--accent); text-decoration: underline;">browse</span></p>
+              <p style="font-size: 11px; color: var(--ink2); margin-top: 4px;">PNG, JPG, or WEBP up to 5MB</p>
+            </div>
+            <div class="photo-preview-wrap" id="preview-wrap" style="display: none;">
+              <img src="" id="photo-preview" class="uploaded-img-preview" alt="Preview">
+              <div style="text-align: left;">
+                <p style="font-size: 12px; font-weight: 600; color: var(--ink);">Photo selected</p>
+                <button type="button" class="btn-secondary" style="padding: 3px 10px; font-size: 11px; margin-top: 4px;" id="btn-change-photo">Change</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-category">Category</label>
+          <select id="member-category" class="form-select" required>
+            <option value="advisory-board">Advisory Board</option>
+            <option value="executive-management">Executive Management</option>
+            <option value="cohort-founders">Cohort Founders</option>
+            <option value="cohort-ambassadors">Cohort Ambassadors</option>
+            <option value="cohort-members">Cohort Members</option>
+            <option value="cross-borders">Cross Borders</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-name">Full Name</label>
+          <input type="text" id="member-name" class="form-input" placeholder="e.g. Mr. Manoj Kumar" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-role">Designation / Role</label>
+          <input type="text" id="member-role" class="form-input" placeholder="e.g. Tech Strategist & Angel Investor" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-linkedin">LinkedIn Profile URL</label>
+          <input type="url" id="member-linkedin" class="form-input" placeholder="https://linkedin.com/in/username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-bio">Profile Bio / Background</label>
+          <textarea id="member-bio" class="form-textarea" rows="4" placeholder="Full biography, achievements, background..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="member-order">Sort Order (lower numbers appear first)</label>
+          <input type="number" id="member-order" class="form-input" value="10" min="1">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn-secondary" id="btn-modal-cancel">Cancel</button>
+          <button type="submit" class="btn-primary" id="btn-save-member">Publish Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Changes saved successfully!</div>
+
+  <script>
+    const SUPABASE_URL = 'https://jzcabyfyxsugzrxenybx.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6Y2FieWZ5eHN1Z3pyeGVueWJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0MDczMTQsImV4cCI6MjEwNDk4MzMxNH0.ZWZh8h9xamxFOtPxdkAWmd-AvIEXpVrmd95WaRuQ9Z4';
+
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let allMembers = [];
+    let currentCategory = 'all';
+    let currentUploadFile = null;
+
+    // ── INITIALIZE ──
+    async function init() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        showDashboard(session.user);
+      } else {
+        showLogin();
+      }
+    }
+
+    function showLogin() {
+      document.getElementById('auth-section').style.display = 'block';
+      document.getElementById('dashboard-section').style.display = 'none';
+      document.getElementById('header-user').style.display = 'none';
+    }
+
+    function showDashboard(user) {
+      document.getElementById('auth-section').style.display = 'none';
+      document.getElementById('dashboard-section').style.display = 'block';
+      document.getElementById('header-user').style.display = 'flex';
+      document.getElementById('user-email').textContent = user.email || 'Admin';
+      fetchMembers();
+    }
+
+    // ── LOGIN FORM ──
+    document.getElementById('login-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      const errEl = document.getElementById('auth-error');
+      errEl.style.display = 'none';
+
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) {
+        errEl.textContent = error.message;
+        errEl.style.display = 'block';
+      } else {
+        showDashboard(data.user);
+      }
+    });
+
+    // ── LOGOUT ──
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      await supabaseClient.auth.signOut();
+      showLogin();
+    });
+
+    // ── FETCH & RENDER MEMBERS ──
+    async function fetchMembers() {
+      const { data, error } = await supabaseClient
+        .from('team_members')
+        .select('*')
+        .order('sort_order', { ascending: true })
+        .order('created_at', { ascending: true });
+
+      if (!error && data) {
+        allMembers = data;
+        renderMembers();
+        updateStats();
+      }
+    }
+
+    function updateStats() {
+      document.getElementById('stat-total').textContent = allMembers.length;
+      const photos = allMembers.filter(m => Boolean(m.photo_url)).length;
+      document.getElementById('stat-photos').textContent = photos;
+    }
+
+    function renderMembers() {
+      const grid = document.getElementById('members-grid');
+      const filtered = currentCategory === 'all' 
+        ? allMembers 
+        : allMembers.filter(m => m.category === currentCategory);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--ink2); padding: 40px;">No members in this category.</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(m => {
+        const initials = m.initials || m.name.split(' ').map(w => w[0]).join('').slice(-2).toUpperCase();
+        return `
+          <div class="member-admin-card" data-id="${m.id}">
+            <div class="card-top">
+              <div class="avatar-preview">
+                ${m.photo_url ? `<img src="${m.photo_url}" alt="${m.name}">` : initials}
+              </div>
+              <div class="card-meta">
+                <h3 class="card-name" title="${m.name}">${m.name}</h3>
+                <p class="card-role" title="${m.role}">${m.role}</p>
+                <span class="card-cat-badge">${formatCategory(m.category)}</span>
+              </div>
+            </div>
+            <p class="card-bio-snippet">${m.bio || 'No bio provided.'}</p>
+            <div class="card-actions">
+              <button class="btn-edit" onclick="openEditModal('${m.id}')">Edit Profile</button>
+              <button class="btn-delete" onclick="deleteMember('${m.id}')">Delete</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function formatCategory(cat) {
+      return cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    // ── FILTER TABS ──
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-cat');
+        renderMembers();
+      });
+    });
+
+    // ── MODAL MANAGEMENT ──
+    const modal = document.getElementById('member-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const memberForm = document.getElementById('member-form');
+
+    document.getElementById('btn-add-member').addEventListener('click', () => {
+      modalTitle.innerHTML = 'Add <em>Team Member</em>';
+      memberForm.reset();
+      document.getElementById('member-id').value = '';
+      document.getElementById('member-photo-url').value = '';
+      resetPhotoUpload();
+      modal.classList.add('active');
+    });
+
+    document.getElementById('modal-close').addEventListener('click', () => modal.classList.remove('active'));
+    document.getElementById('btn-modal-cancel').addEventListener('click', () => modal.classList.remove('active'));
+
+    function resetPhotoUpload() {
+      currentUploadFile = null;
+      document.getElementById('upload-placeholder').style.display = 'block';
+      document.getElementById('preview-wrap').style.display = 'none';
+      document.getElementById('photo-preview').src = '';
+    }
+
+    // ── PHOTO UPLOAD HANDLING ──
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+      if (!files || !files.length) return;
+      const file = files[0];
+      if (!file.type.startsWith('image/')) {
+        alert('Please upload an image file (PNG, JPG, WEBP).');
+        return;
+      }
+      currentUploadFile = file;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        document.getElementById('photo-preview').src = ev.target.result;
+        document.getElementById('upload-placeholder').style.display = 'none';
+        document.getElementById('preview-wrap').style.display = 'flex';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    document.getElementById('btn-change-photo').addEventListener('click', e => {
+      e.stopPropagation();
+      fileInput.click();
+    });
+
+    // ── SAVE / UPDATE MEMBER ──
+    memberForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const saveBtn = document.getElementById('btn-save-member');
+      saveBtn.textContent = 'Saving...';
+      saveBtn.disabled = true;
+
+      const id = document.getElementById('member-id').value;
+      const name = document.getElementById('member-name').value;
+      const role = document.getElementById('member-role').value;
+      const category = document.getElementById('member-category').value;
+      const linkedin = document.getElementById('member-linkedin').value;
+      const bio = document.getElementById('member-bio').value;
+      const order = parseInt(document.getElementById('member-order').value, 10) || 10;
+      let photoUrl = document.getElementById('member-photo-url').value;
+
+      try {
+        // Upload photo to Supabase storage if newly chosen
+        if (currentUploadFile) {
+          const ext = currentUploadFile.name.split('.').pop();
+          const cleanFileName = `${Date.now()}_${name.replace(/[^a-zA-Z0-9]/g, '_')}.${ext}`;
+          
+          const { data: uploadData, error: uploadErr } = await supabaseClient
+            .storage
+            .from('team_photos')
+            .upload(cleanFileName, currentUploadFile, { upsert: true });
+
+          if (!uploadErr) {
+            const { data: { publicUrl } } = supabaseClient.storage.from('team_photos').getPublicUrl(cleanFileName);
+            photoUrl = publicUrl;
+          } else {
+            console.error('Photo upload error:', uploadErr);
+          }
+        }
+
+        const payload = {
+          name,
+          role,
+          category,
+          linkedin_url: linkedin,
+          bio,
+          photo_url: photoUrl,
+          sort_order: order,
+          initials: name.split(' ').map(w => w[0]).join('').slice(-2).toUpperCase()
+        };
+
+        if (id) {
+          // Update
+          await supabaseClient.from('team_members').update(payload).eq('id', id);
+          showToast('Member profile updated successfully!');
+        } else {
+          // Insert
+          await supabaseClient.from('team_members').insert([payload]);
+          showToast('New member published successfully!');
+        }
+
+        modal.classList.remove('active');
+        fetchMembers();
+
+      } catch (err) {
+        alert('Failed to save member: ' + err.message);
+      } finally {
+        saveBtn.textContent = 'Publish Member';
+        saveBtn.disabled = false;
+      }
+    });
+
+    // ── EDIT MEMBER ──
+    window.openEditModal = function(id) {
+      const m = allMembers.find(item => item.id === id);
+      if (!m) return;
+
+      modalTitle.innerHTML = 'Edit <em>Team Member</em>';
+      document.getElementById('member-id').value = m.id;
+      document.getElementById('member-name').value = m.name;
+      document.getElementById('member-role').value = m.role;
+      document.getElementById('member-category').value = m.category;
+      document.getElementById('member-linkedin').value = m.linkedin_url || '';
+      document.getElementById('member-bio').value = m.bio || '';
+      document.getElementById('member-order').value = m.sort_order || 1;
+      document.getElementById('member-photo-url').value = m.photo_url || '';
+
+      if (m.photo_url) {
+        document.getElementById('photo-preview').src = m.photo_url;
+        document.getElementById('upload-placeholder').style.display = 'none';
+        document.getElementById('preview-wrap').style.display = 'flex';
+      } else {
+        resetPhotoUpload();
+      }
+
+      modal.classList.add('active');
+    };
+
+    // ── DELETE MEMBER ──
+    window.deleteMember = async function(id) {
+      const m = allMembers.find(item => item.id === id);
+      if (!m) return;
+      if (!confirm(`Are you sure you want to delete ${m.name}?`)) return;
+
+      const { error } = await supabaseClient.from('team_members').delete().eq('id', id);
+      if (!error) {
+        showToast(`Deleted ${m.name}`);
+        fetchMembers();
+      } else {
+        alert('Delete failed: ' + error.message);
+      }
+    };
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    init();
+  </script>
+</body>
+</html>
